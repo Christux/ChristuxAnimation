@@ -1,0 +1,39 @@
+/*
+ * Copyright (c) 2017 Christophe Rubeck.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Lesser Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+*/
+
+#ifndef christuxanimation_h
+#define christuxanimation_h
+
+#include "LedStrip/NeoPixelAdapter.h"
+#include "Animator/Animator.h"
+
+#include "Animation/Static/Off.h"
+#include "Animation/Static/Flag.h"
+#include "Animation/Static/UniColor.h"
+
+#include "Animation/Patterned/Comet.h"
+#include "Animation/Patterned/Theater.h"
+
+#include "Animation/Temporized/Rainbow.h"
+#include "Animation/Temporized/RainbowLamp.h"
+#include "Animation/Temporized/KnightRider.h"
+#include "Animation/Temporized/Fire.h"
+#include "Animation/Temporized/Breathing.h"
+
+#include "Animation/Miscellaneous/RainbowLampRandom.h"
+#include "Animation/Miscellaneous/Sunrise.h"
+
+#endif
