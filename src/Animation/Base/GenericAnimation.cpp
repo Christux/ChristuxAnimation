@@ -40,6 +40,6 @@ RgbColor GenericAnimation::applyBrightness(RgbColor color) {
 void GenericAnimation::setColor(RgbColor color)
 {
   _color = color;
-  _brightness = color.CalculateBrightness();
+  _brightness = color.R > color.G ? (color.R > color.B ? color.R : color.B) : (color.G > color.B ? color.G : color.B);
   _areChanges = true;
 }
