@@ -17,12 +17,20 @@
 #include "Breathing.h"
 
 Breathing::Breathing(uint8_t nLeds, LedStrip* ledstrip):
-  TemporizedAnimation(nLeds, ledstrip, 40, 1)
+  TemporizedAnimation(nLeds, ledstrip, 40, 1),
+  _startTime(millis())
   {};
+
+// Override method
+void Breathing::reset()
+{
+  _startTime = millis();
+  TemporizedAnimation::reset();
+}
 
 void Breathing::run()
 {
-  float val = (exp(sin(millis() / 2000.0 * PI)) - 0.36787944) * 90 + 10;
+  float val = (exp(sin((millis()-_startTime+3000.0) / 2000.0 * PI)) - 0.36787944) * 90 + 10;
 
   _ledstrip->SetAllPixels(applyBrightness(_color, (uint8_t)val));
   _ledstrip->Show();

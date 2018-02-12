@@ -25,7 +25,9 @@ public:
   Breathing(uint8_t nLeds, LedStrip* ledstrip);
   ~Breathing() {};
 protected:
+  unsigned long _startTime;
   void run();
+  void reset();
 };
 
 #endif
