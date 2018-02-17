@@ -37,6 +37,7 @@ RainbowLamp lamp(PixelCount, &strip);
 RainbowLampRandom randlamp(PixelCount, &strip);
 Fire fire(PixelCount, &strip);
 Breathing breath(PixelCount, &strip);
+Blink blink(PixelCount, &strip, 1000);
 
 // For animation loop
 const char * labels[] = {"Rainbow","Sunrise","Unicolor","Flag","Comet","Theater","Knight Rider","Rainbow lamp","Random rainbow lamp","Fire","Breathing"};
@@ -62,6 +63,7 @@ void setup() {
   animator.add(&randlamp);
   animator.add(&fire);
   animator.add(&breath);
+  animator.add(&blink);
 
   // Do not forget to set a color !
   animator.setColor(Color::red);
