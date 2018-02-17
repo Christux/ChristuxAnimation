@@ -21,7 +21,7 @@ int PixelCount=5;
 int PixelPin=8;
 
 NeoPixelAdapter<NeoGrbFeature, Neo800KbpsMethod> strip(PixelCount, PixelPin);
-Sunrise sunrise(PixelCount, &strip, 30*60); // 30 minutes in seconds
+Sunrise sunrise(PixelCount, &strip, 30*60, 180); // 30 minutes in seconds, Imax=180/255
 
 void setup() {
 
