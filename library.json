@@ -1,0 +1,18 @@
+ {
+  "name": "Christux Animation",
+  "keywords": "NeoPixelBus, animation",
+  "description": "An animation library for NeoPixelBus. It provides some animation using NeoPixelBus library, including a rainbow lamp, a KnightRider effect, a sunrise simulator, and some more !",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Christux/ChristuxAnimation.git"
+  },
+  "version": "1.0.1",
+  "authors": {
+    "name": "Christophe Rubeck",
+    "url": "https://github.com/Christux"
+  },
+  "exclude": [],
+  "frameworks": "arduino",
+  "platforms": "*"
+}
+
