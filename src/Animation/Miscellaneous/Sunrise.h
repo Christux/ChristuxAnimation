@@ -25,7 +25,7 @@ class Sunrise : public GenericAnimation
     unsigned long _delay = 40;
     unsigned long _nextFlicker = 0;
 
-    const unsigned int _Imax = 255;
+    const unsigned int _Imax;
     const unsigned long _sunrise_during; // in seconds
     unsigned long _timestart = 0;
     unsigned long _timestop = 0;
@@ -33,7 +33,7 @@ class Sunrise : public GenericAnimation
     void run();
 
   public:
-    Sunrise(uint8_t nLeds, LedStrip* ledstrip, unsigned long duration);
+    Sunrise(uint8_t nLeds, LedStrip* ledstrip, unsigned long duration, uint8_t Imax = 255);
     ~Sunrise() {};
     void reset();
     void handle();

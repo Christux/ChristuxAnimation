@@ -16,10 +16,11 @@
 
 #include "Sunrise.h"
 
-Sunrise::Sunrise(uint8_t nLeds, LedStrip* ledstrip, unsigned long duration) :
+Sunrise::Sunrise(uint8_t nLeds, LedStrip* ledstrip, unsigned long duration, uint8_t Imax) :
   GenericAnimation(nLeds, ledstrip),
-  _sunrise_during(duration) {};
-
+  _sunrise_during(duration),
+  _Imax(Imax)
+ {};
 
 void Sunrise::reset()
 {
