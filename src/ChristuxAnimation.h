@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017 Christophe Rubeck.
+ * Copyright (c) 2018 Christophe Rubeck.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as
@@ -32,6 +32,7 @@
 #include "Animation/Temporized/KnightRider.h"
 #include "Animation/Temporized/Fire.h"
 #include "Animation/Temporized/Breathing.h"
+#include "Animation/Temporized/Blink.h"
 
 #include "Animation/Miscellaneous/RainbowLampRandom.h"
 #include "Animation/Miscellaneous/Sunrise.h"
