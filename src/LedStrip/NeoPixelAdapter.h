@@ -27,6 +27,7 @@ class NeoPixelAdapter : public LedStrip
 
   public:
     NeoPixelAdapter(int PixelCount, int PixelPin);
+    NeoPixelAdapter(int PixelCount, int ClockPin, int DataPin);
     NeoPixelAdapter(int PixelCount);
     ~NeoPixelAdapter() {};
     void Begin();
@@ -42,6 +43,11 @@ class NeoPixelAdapter : public LedStrip
 template <typename Feature,  typename Method>
 NeoPixelAdapter<Feature, Method>::NeoPixelAdapter(int PixelCount, int PixelPin):
   _strip(NeoPixelBus<Feature, Method>(PixelCount, PixelPin))
+{};
+
+template <typename Feature,  typename Method>
+NeoPixelAdapter<Feature, Method>::NeoPixelAdapter(int PixelCount, int ClockPin, int DataPin):
+  _strip(NeoPixelBus<Feature, Method>(PixelCount, ClockPin, DataPin))
 {};
 
 template <typename Feature,  typename Method>
