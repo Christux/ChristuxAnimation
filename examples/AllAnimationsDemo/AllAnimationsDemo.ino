@@ -32,7 +32,7 @@ Off off(PixelCount, &strip);
 Flag flag(PixelCount, &strip);
 Comet comet(PixelCount, &strip);
 Theater theater(PixelCount, &strip);
-KnightRider rider(PixelCount, &strip);
+KnightRider rider(PixelCount, &strip, 100);
 RainbowLamp lamp(PixelCount, &strip);
 RainbowLampRandom randlamp(PixelCount, &strip);
 Fire fire(PixelCount, &strip);

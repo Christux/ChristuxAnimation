@@ -16,19 +16,9 @@
 
 #include "KnightRider.h"
 
-#ifdef animationDemo
-
-KnightRider::KnightRider(uint8_t nLeds, LedStrip* ledstrip):
-  TemporizedAnimation(nLeds, ledstrip, 100, 4 * nLeds)
-  {};
-
-#else
-
 KnightRider::KnightRider(uint8_t nLeds, LedStrip* ledstrip):
   TemporizedAnimation(nLeds, ledstrip, 25, 4 * nLeds)
   {};
-
-#endif
 
 KnightRider::KnightRider(uint8_t nLeds, LedStrip* ledstrip, unsigned int timestep):
   TemporizedAnimation(nLeds, ledstrip, timestep, 4 * nLeds)
