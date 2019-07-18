@@ -40,7 +40,7 @@ Breathing breath(PixelCount, &strip);
 Blink blink(PixelCount, &strip, 1000);
 
 // For animation loop
-const char * labels[] = {"Rainbow","Sunrise","Unicolor","Flag","Comet","Theater","Knight Rider","Rainbow lamp","Random rainbow lamp","Fire","Breathing"};
+const char * labels[] = {"Rainbow","Sunrise","Unicolor","Flag","Comet","Theater","Knight Rider","Rainbow lamp","Random rainbow lamp","Fire","Breathing","Blink"};
 unsigned long nextFlicker = 0;
 unsigned long temp = 6000; // Animation duration
 int step = 0;
