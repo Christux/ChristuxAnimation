@@ -18,6 +18,7 @@
 #define knightrider_h
 
 #include "Base/TemporizedAnimation.h"
+#include "../../Color/Color.h"
 
 namespace ChristuxAnimation
 {

@@ -22,7 +22,7 @@ namespace ChristuxAnimation
   GenericAnimation::GenericAnimation(uint8_t nLeds, LedStrip* ledstrip):
   _pixels(nLeds),
   _ledstrip(ledstrip),
-  _color(Color::blank),
+  _color(RgbColor::blank),
   _brightness(0),
   _areChanges(true)
   {}

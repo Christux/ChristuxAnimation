@@ -17,7 +17,7 @@
 #ifndef Animator_hpp
 #define Animator_hpp
 
-#include <NeoPixelBus.h>
+#include <Arduino.h>
 #include "../Animation/Base/Animation.h"
 #include "../Color/Color.h"
 

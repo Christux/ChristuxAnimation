@@ -17,14 +17,14 @@
 #ifndef neopixeladapter_h
 #define neopixeladapter_h
 
+#include <NeoPixelBus.h>
 #include "Base/LedStrip.h"
 
-namespace ChristuxAnimation
-{
+namespace ChristuxAnimation {
 
-  template <typename Feature,  typename Method>
-  class NeoPixelAdapter : public LedStrip
-  {
+template <typename Feature,  typename Method>
+class NeoPixelAdapter : public LedStrip
+{
     protected:
       NeoPixelBus<Feature, Method> _strip;
 
@@ -65,13 +65,13 @@ namespace ChristuxAnimation
 
   template <typename Feature,  typename Method>
   void NeoPixelAdapter<Feature, Method>::SetPixelColor(int i, RgbColor color) {
-    _strip.SetPixelColor(i,color);
+    _strip.SetPixelColor(i, ::RgbColor(color.R,color.G,color.B));
   }
 
   template <typename Feature,  typename Method>
   void NeoPixelAdapter<Feature, Method>::SetAllPixels(RgbColor color) {
     for(int i=0, N=_strip.PixelCount(); i<N; i++) {
-      _strip.SetPixelColor(i,color);
+      _strip.SetPixelColor(i, ::RgbColor(color.R,color.G,color.B));
     }
   }
 

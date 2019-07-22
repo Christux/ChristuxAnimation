@@ -18,6 +18,7 @@
 #define temporizedanimation_hpp
 
 #include "../../Base/GenericAnimation.h"
+#include "../../../Color/Color.h"
 
 namespace ChristuxAnimation
 {

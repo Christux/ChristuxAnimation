@@ -18,6 +18,7 @@
 #define flag_h
 
 #include "Base/StaticAnimation.h"
+#include "../../Color/Color.h"
 
 namespace ChristuxAnimation
 {

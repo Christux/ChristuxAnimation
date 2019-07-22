@@ -35,9 +35,9 @@ namespace ChristuxAnimation
     N[2] = N[1] + L;
     N[3] = N[2] + ( (r > 1) ? L + 1 : L );
 
-    col[0] = applyBrightness(Color::blue);
-    col[1] = applyBrightness(Color::white);
-    col[2] = applyBrightness(Color::red);
+    col[0] = applyBrightness(RgbColor::blue);
+    col[1] = applyBrightness(RgbColor::white);
+    col[2] = applyBrightness(RgbColor::red);
 
     for (int i = 0; i < 3; i++) {
       for (int j = 0; j < (N[i + 1] - N[i]); j++) {

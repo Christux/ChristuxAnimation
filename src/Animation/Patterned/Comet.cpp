@@ -35,5 +35,5 @@ namespace ChristuxAnimation
     PatternedAnimation(nLeds, ledstrip, 100, cometPattern, 10)
     {};
 
+  #endif
 }
-#endif

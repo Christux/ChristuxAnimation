@@ -17,14 +17,32 @@
 #ifndef color_h
 #define color_h
 
-#include <NeoPixelBus.h>
+#include <Arduino.h>
 
 namespace ChristuxAnimation
 {
 
-  struct Color
+  struct RgbColor
   {
   public:
+    uint8_t R;
+    uint8_t G;
+    uint8_t B;
+    RgbColor(uint8_t r, uint8_t g, uint8_t b);
+    RgbColor();
+    ~RgbColor(){};
+    uint8_t CalculateBrightness() const;
+
+    bool operator==(const RgbColor& other) const
+    {
+        return (R == other.R && G == other.G && B == other.B);
+    }
+
+    bool operator!=(const RgbColor& other) const
+    {
+        return !(*this == other);
+    }
+
     /*
     * Define colors
     */

@@ -22,7 +22,7 @@ namespace ChristuxAnimation
   Animator::Animator():
     _nAnim(0),
     _currentAnim(0),
-    _currentColor(Color::blank)
+    _currentColor(RgbColor::blank)
   {}
 
   void Animator::add(Animation* animation)

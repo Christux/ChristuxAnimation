@@ -18,11 +18,10 @@
 #define Animations_h
 
 #include <Arduino.h>
-#include <NeoPixelBus.h>
+#include "../../Color/Color.h"
 
 namespace ChristuxAnimation
 {
-
   /*
   * Interface for animation classes
   */

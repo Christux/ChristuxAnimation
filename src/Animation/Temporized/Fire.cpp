@@ -34,7 +34,6 @@ namespace ChristuxAnimation
         int delta = random(40, 100);
         RgbColor col = applyBrightness(RgbColor((r * delta) / 100, (g * delta) / 100, b));
         _ledstrip->SetPixelColor(i, col);
-        //strip.SetPixelColor(i,RgbColor((r*delta)/100,(g*delta)/100,b));
       }
       _ledstrip->Show();
 

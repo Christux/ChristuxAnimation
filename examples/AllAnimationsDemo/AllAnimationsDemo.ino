@@ -15,7 +15,6 @@
 */
 
 #define animationDemo
-#include <NeoPixelBus.h>
 #include <ChristuxAnimation.h>
 
 using namespace ChristuxAnimation;
@@ -68,7 +67,7 @@ void setup() {
   animator.add(&blink);
 
   // Do not forget to set a color !
-  animator.setColor(Color::red);
+  animator.setColor(ChristuxAnimation::RgbColor::red);
 
   numStep = animator.animCount();
 }

@@ -18,11 +18,25 @@
 
 namespace ChristuxAnimation
 {
-    const RgbColor Color::red = RgbColor(255, 0, 0);
-    const RgbColor Color::green = RgbColor(0, 255, 0);
-    const RgbColor Color::blue = RgbColor(0, 0, 255);
-    const RgbColor Color::purple = RgbColor(146, 0, 255);
-    const RgbColor Color::orange = RgbColor(255, 128, 0);
-    const RgbColor Color::blank = RgbColor(0, 0, 0);
-    const RgbColor Color::white = RgbColor(255, 255, 255);
+
+    RgbColor::RgbColor() :
+    R(0),G(0),B(0)
+    {}
+
+    RgbColor::RgbColor(uint8_t r, uint8_t g, uint8_t b) :
+        R(r),G(g),B(b)
+        {}
+
+    uint8_t RgbColor::CalculateBrightness() const
+    {
+        return R > G ? (R > B ? R : B) : (G > B ? G : B);
+    }
+
+    const RgbColor RgbColor::red = RgbColor(255, 0, 0);
+    const RgbColor RgbColor::green = RgbColor(0, 255, 0);
+    const RgbColor RgbColor::blue = RgbColor(0, 0, 255);
+    const RgbColor RgbColor::purple = RgbColor(146, 0, 255);
+    const RgbColor RgbColor::orange = RgbColor(255, 128, 0);
+    const RgbColor RgbColor::blank = RgbColor(0, 0, 0);
+    const RgbColor RgbColor::white = RgbColor(255, 255, 255);
 }

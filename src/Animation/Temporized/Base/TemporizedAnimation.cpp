@@ -30,7 +30,7 @@ namespace ChristuxAnimation
   void TemporizedAnimation::reset()
   {
     _step = 0;
-    _ledstrip->SetAllPixels(Color::blank);
+    _ledstrip->SetAllPixels(RgbColor::blank);
   }
 
   void TemporizedAnimation::handle() {

@@ -29,7 +29,7 @@ void setup() {
 
 	strip.Begin();
 	rider.reset();
-	rider.setColor(Color::red);
+	rider.setColor(ChristuxAnimation::RgbColor::red);
 }
 
 void loop() {

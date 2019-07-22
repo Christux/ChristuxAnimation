@@ -28,7 +28,7 @@ namespace ChristuxAnimation
 
   void RainbowLampRandom::reset()
   {
-    _ledstrip->SetAllPixels(Color::blank);
+    _ledstrip->SetAllPixels(RgbColor::blank);
   }
 
   void RainbowLampRandom::handle()
