@@ -19,20 +19,23 @@
 
 #include "../../Base/GenericAnimation.h"
 
-class TemporizedAnimation : public GenericAnimation
+namespace ChristuxAnimation
 {
-  protected:
-    unsigned int _delay;
-    unsigned long _nextFlicker;
-    unsigned int _step;
-    const unsigned int _numStep;
-    virtual void run() = 0;
 
-  public:
-    TemporizedAnimation(uint8_t nLeds, LedStrip* ledstrip, unsigned int delay, unsigned int numStep);
-    virtual ~TemporizedAnimation() {};
-    void handle();
-    void reset();
-};
+  class TemporizedAnimation : public GenericAnimation
+  {
+    protected:
+      unsigned int _delay;
+      unsigned long _nextFlicker;
+      unsigned int _step;
+      const unsigned int _numStep;
+      virtual void run() = 0;
 
+    public:
+      TemporizedAnimation(uint8_t nLeds, LedStrip* ledstrip, unsigned int delay, unsigned int numStep);
+      virtual ~TemporizedAnimation() {};
+      void handle();
+      void reset();
+  };
+}
 #endif

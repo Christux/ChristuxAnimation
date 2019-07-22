@@ -16,11 +16,15 @@
 
 #include "Off.h"
 
-Off::Off(uint8_t nLeds, LedStrip* ledstrip):
-  StaticAnimation(nLeds, ledstrip)
-  {};
-
-void Off::run()
+namespace ChristuxAnimation
 {
-  _ledstrip->Show();
+
+  Off::Off(uint8_t nLeds, LedStrip* ledstrip):
+    StaticAnimation(nLeds, ledstrip)
+    {};
+
+  void Off::run()
+  {
+    _ledstrip->Show();
+  }
 }

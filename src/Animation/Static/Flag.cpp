@@ -16,30 +16,34 @@
 
 #include "Flag.h"
 
-Flag::Flag(uint8_t nLeds, LedStrip* ledstrip):
- StaticAnimation(nLeds, ledstrip)
- {};
-
-void Flag::run()
+namespace ChristuxAnimation
 {
-  RgbColor col[3];
-  const int L = _pixels / 3;
-  const int r = _pixels % 3;
 
-  int N[4];
-  N[0] = 0;
-  N[1] = (r > 0) ? L + 1 : L;
-  N[2] = N[1] + L;
-  N[3] = N[2] + ( (r > 1) ? L + 1 : L );
+  Flag::Flag(uint8_t nLeds, LedStrip* ledstrip):
+  StaticAnimation(nLeds, ledstrip)
+  {};
 
-  col[0] = applyBrightness(Color::blue);
-  col[1] = applyBrightness(Color::white);
-  col[2] = applyBrightness(Color::red);
+  void Flag::run()
+  {
+    RgbColor col[3];
+    const int L = _pixels / 3;
+    const int r = _pixels % 3;
 
-  for (int i = 0; i < 3; i++) {
-    for (int j = 0; j < (N[i + 1] - N[i]); j++) {
-      _ledstrip->SetPixelColor( N[i] + j, col[i]);
+    int N[4];
+    N[0] = 0;
+    N[1] = (r > 0) ? L + 1 : L;
+    N[2] = N[1] + L;
+    N[3] = N[2] + ( (r > 1) ? L + 1 : L );
+
+    col[0] = applyBrightness(Color::blue);
+    col[1] = applyBrightness(Color::white);
+    col[2] = applyBrightness(Color::red);
+
+    for (int i = 0; i < 3; i++) {
+      for (int j = 0; j < (N[i + 1] - N[i]); j++) {
+        _ledstrip->SetPixelColor( N[i] + j, col[i]);
+      }
     }
+    _ledstrip->Show();
   }
-  _ledstrip->Show();
 }

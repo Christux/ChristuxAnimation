@@ -20,14 +20,17 @@
 #include <Arduino.h>
 #include <NeoPixelBus.h>
 
-class LedStrip
+namespace ChristuxAnimation
 {
-  public:
-    virtual ~LedStrip() {};
-    virtual void Begin() = 0;
-    virtual void SetPixelColor(int, RgbColor) = 0;
-    virtual void SetAllPixels(RgbColor) = 0;
-    virtual void Show() = 0;
-};
 
+  class LedStrip
+  {
+    public:
+      virtual ~LedStrip() {};
+      virtual void Begin() = 0;
+      virtual void SetPixelColor(int, RgbColor) = 0;
+      virtual void SetAllPixels(RgbColor) = 0;
+      virtual void Show() = 0;
+  };
+}
 #endif

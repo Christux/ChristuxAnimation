@@ -16,25 +16,29 @@
 
 #include "TemporizedAnimation.h"
 
-TemporizedAnimation::TemporizedAnimation(uint8_t nLeds, LedStrip* ledstrip, unsigned int delay, unsigned int numStep) :
-  GenericAnimation(nLeds, ledstrip),
-  _delay(delay),
-  _nextFlicker(0),
-  _step(0),
-  _numStep(numStep)
-{}
-
-void TemporizedAnimation::reset()
+namespace ChristuxAnimation
 {
-  _step = 0;
-  _ledstrip->SetAllPixels(Color::blank);
-}
 
-void TemporizedAnimation::handle() {
-  unsigned long currTime = millis();
-  if (currTime >= _nextFlicker) {
-    run();
-    _step = _step < _numStep - 1 ? _step + 1 : 0;
-    _nextFlicker = currTime + _delay;
+  TemporizedAnimation::TemporizedAnimation(uint8_t nLeds, LedStrip* ledstrip, unsigned int delay, unsigned int numStep) :
+    GenericAnimation(nLeds, ledstrip),
+    _delay(delay),
+    _nextFlicker(0),
+    _step(0),
+    _numStep(numStep)
+  {}
+
+  void TemporizedAnimation::reset()
+  {
+    _step = 0;
+    _ledstrip->SetAllPixels(Color::blank);
+  }
+
+  void TemporizedAnimation::handle() {
+    unsigned long currTime = millis();
+    if (currTime >= _nextFlicker) {
+      run();
+      _step = _step < _numStep - 1 ? _step + 1 : 0;
+      _nextFlicker = currTime + _delay;
+    }
   }
 }

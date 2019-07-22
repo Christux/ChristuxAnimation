@@ -16,10 +16,13 @@
 
 #include "Color.h"
 
-const RgbColor Color::red = RgbColor(255, 0, 0);
-const RgbColor Color::green = RgbColor(0, 255, 0);
-const RgbColor Color::blue = RgbColor(0, 0, 255);
-const RgbColor Color::purple = RgbColor(146, 0, 255);
-const RgbColor Color::orange = RgbColor(255, 128, 0);
-const RgbColor Color::blank = RgbColor(0, 0, 0);
-const RgbColor Color::white = RgbColor(255, 255, 255);
+namespace ChristuxAnimation
+{
+    const RgbColor Color::red = RgbColor(255, 0, 0);
+    const RgbColor Color::green = RgbColor(0, 255, 0);
+    const RgbColor Color::blue = RgbColor(0, 0, 255);
+    const RgbColor Color::purple = RgbColor(146, 0, 255);
+    const RgbColor Color::orange = RgbColor(255, 128, 0);
+    const RgbColor Color::blank = RgbColor(0, 0, 0);
+    const RgbColor Color::white = RgbColor(255, 255, 255);
+}

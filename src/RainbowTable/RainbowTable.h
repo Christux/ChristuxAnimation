@@ -20,13 +20,16 @@
 #include <Arduino.h>
 #include <NeoPixelBus.h>
 
-class RainbowTable
+namespace ChristuxAnimation
 {
-protected:
-  static const uint8_t rainbowTable[];
 
-public:
-  static RgbColor getRainbowColor(uint16_t phase);
-};
+  class RainbowTable
+  {
+  protected:
+    static const uint8_t rainbowTable[];
 
+  public:
+    static RgbColor getRainbowColor(uint16_t phase);
+  };
+}
 #endif

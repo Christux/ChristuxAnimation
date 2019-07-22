@@ -19,16 +19,19 @@
 
 #include "../../Base/GenericAnimation.h"
 
-class StaticAnimation : public GenericAnimation
+namespace ChristuxAnimation
 {
-protected:
-  virtual void run() = 0;
 
-public:
-  StaticAnimation(uint8_t nLeds, LedStrip* ledstrip);
-  virtual ~StaticAnimation() {};
-  void handle();
-  void reset();
-};
+  class StaticAnimation : public GenericAnimation
+  {
+  protected:
+    virtual void run() = 0;
 
+  public:
+    StaticAnimation(uint8_t nLeds, LedStrip* ledstrip);
+    virtual ~StaticAnimation() {};
+    void handle();
+    void reset();
+  };
+}
 #endif

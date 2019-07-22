@@ -16,22 +16,26 @@
 
 #include "Blink.h"
 
-Blink::Blink(uint8_t nLeds, LedStrip* ledstrip, unsigned int duration):
-  TemporizedAnimation(nLeds, ledstrip, duration, 2)
-  {};
-
-void Blink::run()
+namespace ChristuxAnimation
 {
-  if (_step == 0)
+
+  Blink::Blink(uint8_t nLeds, LedStrip* ledstrip, unsigned int duration):
+    TemporizedAnimation(nLeds, ledstrip, duration, 2)
+    {};
+
+  void Blink::run()
   {
-    for(int j=0; j<=_pixels; j++)
-      _ledstrip->SetPixelColor(j, _color);
-    _ledstrip->Show();
-  }
-  else
-  {
-    for(int j=0; j<=_pixels; j++)
-      _ledstrip->SetPixelColor(j, Color::blank);
-    _ledstrip->Show();
+    if (_step == 0)
+    {
+      for(int j=0; j<=_pixels; j++)
+        _ledstrip->SetPixelColor(j, _color);
+      _ledstrip->Show();
+    }
+    else
+    {
+      for(int j=0; j<=_pixels; j++)
+        _ledstrip->SetPixelColor(j, Color::blank);
+      _ledstrip->Show();
+    }
   }
 }

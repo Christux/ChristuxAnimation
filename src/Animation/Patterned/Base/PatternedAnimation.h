@@ -19,16 +19,19 @@
 
 #include "../../Temporized/Base/TemporizedAnimation.h"
 
-class PatternedAnimation : public TemporizedAnimation
+namespace ChristuxAnimation
 {
-  protected:
-    const uint8_t* _pattern;
-    const uint8_t _patternSize;
-    void run();
 
-  public:
-    PatternedAnimation(uint8_t nLeds, LedStrip* ledstrip, unsigned int delay, const uint8_t pattern[], const int patternSize);
-    virtual ~PatternedAnimation() {};
-};
+  class PatternedAnimation : public TemporizedAnimation
+  {
+    protected:
+      const uint8_t* _pattern;
+      const uint8_t _patternSize;
+      void run();
 
+    public:
+      PatternedAnimation(uint8_t nLeds, LedStrip* ledstrip, unsigned int delay, const uint8_t pattern[], const int patternSize);
+      virtual ~PatternedAnimation() {};
+  };
+}
 #endif

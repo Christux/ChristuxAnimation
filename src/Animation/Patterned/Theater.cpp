@@ -16,8 +16,12 @@
 
 #include "Theater.h"
 
-const uint8_t Theater::theaterPattern[10] = {255, 64, 0, 0, 64, 255, 64, 0, 0, 64};
+namespace ChristuxAnimation
+{
 
-Theater::Theater(uint8_t nLeds, LedStrip* ledstrip):
-  PatternedAnimation(nLeds, ledstrip, 100, theaterPattern, 5)
-  {};
+  const uint8_t Theater::theaterPattern[10] = {255, 64, 0, 0, 64, 255, 64, 0, 0, 64};
+
+  Theater::Theater(uint8_t nLeds, LedStrip* ledstrip):
+    PatternedAnimation(nLeds, ledstrip, 100, theaterPattern, 5)
+    {};
+}

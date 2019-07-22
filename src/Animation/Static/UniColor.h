@@ -19,13 +19,17 @@
 
 #include "Base/StaticAnimation.h"
 
-class UniColor : public StaticAnimation
+namespace ChristuxAnimation
 {
-  public:
-    UniColor(uint8_t nLeds, LedStrip* ledstrip);
-    ~UniColor() {};
-  protected:
-    void run();
-};
+
+  class UniColor : public StaticAnimation
+  {
+    public:
+      UniColor(uint8_t nLeds, LedStrip* ledstrip);
+      ~UniColor() {};
+    protected:
+      void run();
+  };
+}
 
 #endif

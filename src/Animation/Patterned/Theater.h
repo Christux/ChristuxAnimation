@@ -19,13 +19,16 @@
 
 #include "Base/PatternedAnimation.h"
 
-class Theater : public PatternedAnimation
+namespace ChristuxAnimation
 {
-  protected:
-      static const uint8_t theaterPattern[];
-  public:
-    Theater(uint8_t nLeds, LedStrip* ledstrip);
-    ~Theater() {};
-};
 
+  class Theater : public PatternedAnimation
+  {
+    protected:
+        static const uint8_t theaterPattern[];
+    public:
+      Theater(uint8_t nLeds, LedStrip* ledstrip);
+      ~Theater() {};
+  };
+}
 #endif

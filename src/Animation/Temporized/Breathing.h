@@ -19,15 +19,18 @@
 
 #include "Base/TemporizedAnimation.h"
 
-class Breathing : public TemporizedAnimation
+namespace ChristuxAnimation
 {
-public:
-  Breathing(uint8_t nLeds, LedStrip* ledstrip);
-  ~Breathing() {};
-protected:
-  unsigned long _startTime;
-  void run();
-  void reset();
-};
 
+  class Breathing : public TemporizedAnimation
+  {
+  public:
+    Breathing(uint8_t nLeds, LedStrip* ledstrip);
+    ~Breathing() {};
+  protected:
+    unsigned long _startTime;
+    void run();
+    void reset();
+  };
+}
 #endif

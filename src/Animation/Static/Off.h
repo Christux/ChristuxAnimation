@@ -19,14 +19,17 @@
 
 #include "Base/StaticAnimation.h"
 
-class Off : public StaticAnimation
+namespace ChristuxAnimation
 {
-  public:
-    Off(uint8_t nLeds, LedStrip* ledstrip);
-    ~Off() {};
-  protected:
-    void run();
-};
 
+  class Off : public StaticAnimation
+  {
+    public:
+      Off(uint8_t nLeds, LedStrip* ledstrip);
+      ~Off() {};
+    protected:
+      void run();
+  };
+}
 
 #endif

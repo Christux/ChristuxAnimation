@@ -21,23 +21,26 @@
 #include "../../LedStrip/Base/LedStrip.h"
 #include "../../Color/Color.h"
 
-class GenericAnimation : public Animation
+namespace ChristuxAnimation
 {
-  protected:
-    const uint8_t _pixels;
-    LedStrip* _ledstrip;
-    RgbColor _color;
-    uint8_t _brightness;
-    bool _areChanges;
-    RgbColor applyBrightness(RgbColor);
-    RgbColor applyBrightness(RgbColor color, uint8_t bright);
 
-  public:
-    GenericAnimation(uint8_t nLeds, LedStrip* ledstrip);
-    ~GenericAnimation() {};
-    virtual void reset() = 0;
-    virtual void handle() = 0;
-    void setColor(RgbColor);
-};
+  class GenericAnimation : public Animation
+  {
+    protected:
+      const uint8_t _pixels;
+      LedStrip* _ledstrip;
+      RgbColor _color;
+      uint8_t _brightness;
+      bool _areChanges;
+      RgbColor applyBrightness(RgbColor);
+      RgbColor applyBrightness(RgbColor color, uint8_t bright);
 
+    public:
+      GenericAnimation(uint8_t nLeds, LedStrip* ledstrip);
+      ~GenericAnimation() {};
+      virtual void reset() = 0;
+      virtual void handle() = 0;
+      void setColor(RgbColor);
+  };
+}
 #endif

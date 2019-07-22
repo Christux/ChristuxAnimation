@@ -19,13 +19,16 @@
 
 #include "Base/PatternedAnimation.h"
 
-class Comet : public PatternedAnimation
+namespace ChristuxAnimation
 {
-  protected:
-    static const uint8_t cometPattern[];
-  public:
-    Comet(uint8_t nLeds, LedStrip* ledstrip);
-    ~Comet() {};
-};
 
+  class Comet : public PatternedAnimation
+  {
+    protected:
+      static const uint8_t cometPattern[];
+    public:
+      Comet(uint8_t nLeds, LedStrip* ledstrip);
+      ~Comet() {};
+  };
+}
 #endif

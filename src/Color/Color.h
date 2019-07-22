@@ -19,20 +19,23 @@
 
 #include <NeoPixelBus.h>
 
-struct Color
+namespace ChristuxAnimation
 {
-public:
-  /*
-   * Define colors
-   */
-  static const RgbColor red;
-  static const RgbColor green;
-  static const RgbColor blue;
-  static const RgbColor purple;
-  static const RgbColor orange;
-  static const RgbColor blank;
-  static const RgbColor white;
-};
 
+  struct Color
+  {
+  public:
+    /*
+    * Define colors
+    */
+    static const RgbColor red;
+    static const RgbColor green;
+    static const RgbColor blue;
+    static const RgbColor purple;
+    static const RgbColor orange;
+    static const RgbColor blank;
+    static const RgbColor white;
+  };
+}
 
 #endif

@@ -19,13 +19,16 @@
 
 #include "Base/TemporizedAnimation.h"
 
-class Blink : public TemporizedAnimation
+namespace ChristuxAnimation
 {
-public:
-  Blink(uint8_t nLeds, LedStrip* ledstrip, unsigned int duration);
-  ~Blink() {};
-protected:
-  void run();
-};
 
+  class Blink : public TemporizedAnimation
+  {
+  public:
+    Blink(uint8_t nLeds, LedStrip* ledstrip, unsigned int duration);
+    ~Blink() {};
+  protected:
+    void run();
+  };
+}
 #endif

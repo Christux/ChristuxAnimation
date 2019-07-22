@@ -16,20 +16,24 @@
 
 #include "Comet.h"
 
-#ifdef animationDemo // 5 pixels leds
+namespace ChristuxAnimation
+{
 
-const uint8_t Comet::cometPattern[5] = {255, 192, 60, 0, 0};
+  #ifdef animationDemo // 5 pixels leds
 
-Comet::Comet(uint8_t nLeds, LedStrip* ledstrip):
-  PatternedAnimation(nLeds, ledstrip, 100, cometPattern, 5)
-  {};
+  const uint8_t Comet::cometPattern[5] = {255, 192, 60, 0, 0};
 
-#else
+  Comet::Comet(uint8_t nLeds, LedStrip* ledstrip):
+    PatternedAnimation(nLeds, ledstrip, 100, cometPattern, 5)
+    {};
 
-const uint8_t Comet::cometPattern[10] = {255, 238, 192, 128, 64, 18, 1, 0, 0, 0};
+  #else
 
-Comet::Comet(uint8_t nLeds, LedStrip* ledstrip):
-  PatternedAnimation(nLeds, ledstrip, 100, cometPattern, 10)
-  {};
+  const uint8_t Comet::cometPattern[10] = {255, 238, 192, 128, 64, 18, 1, 0, 0, 0};
 
+  Comet::Comet(uint8_t nLeds, LedStrip* ledstrip):
+    PatternedAnimation(nLeds, ledstrip, 100, cometPattern, 10)
+    {};
+
+}
 #endif

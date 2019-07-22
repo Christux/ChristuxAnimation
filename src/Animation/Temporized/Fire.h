@@ -19,13 +19,16 @@
 
 #include "Base/TemporizedAnimation.h"
 
-class Fire : public TemporizedAnimation
+namespace ChristuxAnimation
 {
-public:
-  Fire(uint8_t nLeds, LedStrip* ledstrip);
-  ~Fire() {};
-protected:
-  void run();
-};
 
+  class Fire : public TemporizedAnimation
+  {
+  public:
+    Fire(uint8_t nLeds, LedStrip* ledstrip);
+    ~Fire() {};
+  protected:
+    void run();
+  };
+}
 #endif

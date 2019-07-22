@@ -20,18 +20,21 @@
 #include "../Base/GenericAnimation.h"
 #include "../../RainbowTable/RainbowTable.h"
 
-class RainbowLampRandom : public GenericAnimation
+namespace ChristuxAnimation
 {
-public:
-  RainbowLampRandom(uint8_t nLeds, LedStrip* ledstrip);
-  ~RainbowLampRandom() {};
-  void reset();
-  void handle();
 
-protected:
-  unsigned int _delay;
-  unsigned long _nextFlicker;
-  unsigned int _phase;
-};
+  class RainbowLampRandom : public GenericAnimation
+  {
+  public:
+    RainbowLampRandom(uint8_t nLeds, LedStrip* ledstrip);
+    ~RainbowLampRandom() {};
+    void reset();
+    void handle();
 
+  protected:
+    unsigned int _delay;
+    unsigned long _nextFlicker;
+    unsigned int _phase;
+  };
+}
 #endif

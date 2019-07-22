@@ -16,12 +16,16 @@
 
 #include "UniColor.h"
 
-UniColor::UniColor(uint8_t nLeds, LedStrip* ledstrip):
-  StaticAnimation(nLeds, ledstrip)
-  {};
-
-void UniColor::run()
+namespace ChristuxAnimation
 {
-  _ledstrip->SetAllPixels(_color);
-  _ledstrip->Show();
+
+  UniColor::UniColor(uint8_t nLeds, LedStrip* ledstrip):
+    StaticAnimation(nLeds, ledstrip)
+    {};
+
+  void UniColor::run()
+  {
+    _ledstrip->SetAllPixels(_color);
+    _ledstrip->Show();
+  }
 }

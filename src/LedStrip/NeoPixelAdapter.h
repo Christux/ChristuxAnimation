@@ -19,62 +19,65 @@
 
 #include "Base/LedStrip.h"
 
-template <typename Feature,  typename Method>
-class NeoPixelAdapter : public LedStrip
+namespace ChristuxAnimation
 {
-  protected:
-    NeoPixelBus<Feature, Method> _strip;
 
-  public:
-    NeoPixelAdapter(int PixelCount, int PixelPin);
-    NeoPixelAdapter(int PixelCount, int ClockPin, int DataPin);
-    NeoPixelAdapter(int PixelCount);
-    ~NeoPixelAdapter() {};
-    void Begin();
-    void SetPixelColor(int i, RgbColor color);
-    void SetAllPixels(RgbColor color);
-    void Show();
-};
+  template <typename Feature,  typename Method>
+  class NeoPixelAdapter : public LedStrip
+  {
+    protected:
+      NeoPixelBus<Feature, Method> _strip;
 
-/*
- * Implementation in same file because the templating (link edition does not work otherwise)
- */
+    public:
+      NeoPixelAdapter(int PixelCount, int PixelPin);
+      NeoPixelAdapter(int PixelCount, int ClockPin, int DataPin);
+      NeoPixelAdapter(int PixelCount);
+      ~NeoPixelAdapter() {};
+      void Begin();
+      void SetPixelColor(int i, RgbColor color);
+      void SetAllPixels(RgbColor color);
+      void Show();
+  };
 
-template <typename Feature,  typename Method>
-NeoPixelAdapter<Feature, Method>::NeoPixelAdapter(int PixelCount, int PixelPin):
-  _strip(NeoPixelBus<Feature, Method>(PixelCount, PixelPin))
-{};
+  /*
+  * Implementation in same file because the templating (link edition does not work otherwise)
+  */
 
-template <typename Feature,  typename Method>
-NeoPixelAdapter<Feature, Method>::NeoPixelAdapter(int PixelCount, int ClockPin, int DataPin):
-  _strip(NeoPixelBus<Feature, Method>(PixelCount, ClockPin, DataPin))
-{};
+  template <typename Feature,  typename Method>
+  NeoPixelAdapter<Feature, Method>::NeoPixelAdapter(int PixelCount, int PixelPin):
+    _strip(NeoPixelBus<Feature, Method>(PixelCount, PixelPin))
+  {};
 
-template <typename Feature,  typename Method>
-NeoPixelAdapter<Feature, Method>::NeoPixelAdapter(int PixelCount):
-  _strip(NeoPixelBus<Feature, Method>(PixelCount))
-{};
+  template <typename Feature,  typename Method>
+  NeoPixelAdapter<Feature, Method>::NeoPixelAdapter(int PixelCount, int ClockPin, int DataPin):
+    _strip(NeoPixelBus<Feature, Method>(PixelCount, ClockPin, DataPin))
+  {};
 
-template <typename Feature,  typename Method>
-void NeoPixelAdapter<Feature, Method>::Begin() {
-  _strip.Begin();
-}
+  template <typename Feature,  typename Method>
+  NeoPixelAdapter<Feature, Method>::NeoPixelAdapter(int PixelCount):
+    _strip(NeoPixelBus<Feature, Method>(PixelCount))
+  {};
 
-template <typename Feature,  typename Method>
-void NeoPixelAdapter<Feature, Method>::SetPixelColor(int i, RgbColor color) {
-  _strip.SetPixelColor(i,color);
-}
+  template <typename Feature,  typename Method>
+  void NeoPixelAdapter<Feature, Method>::Begin() {
+    _strip.Begin();
+  }
 
-template <typename Feature,  typename Method>
-void NeoPixelAdapter<Feature, Method>::SetAllPixels(RgbColor color) {
-  for(int i=0, N=_strip.PixelCount(); i<N; i++) {
+  template <typename Feature,  typename Method>
+  void NeoPixelAdapter<Feature, Method>::SetPixelColor(int i, RgbColor color) {
     _strip.SetPixelColor(i,color);
   }
-}
 
-template <typename Feature,  typename Method>
-void NeoPixelAdapter<Feature, Method>::Show() {
-  _strip.Show();
-}
+  template <typename Feature,  typename Method>
+  void NeoPixelAdapter<Feature, Method>::SetAllPixels(RgbColor color) {
+    for(int i=0, N=_strip.PixelCount(); i<N; i++) {
+      _strip.SetPixelColor(i,color);
+    }
+  }
 
+  template <typename Feature,  typename Method>
+  void NeoPixelAdapter<Feature, Method>::Show() {
+    _strip.Show();
+  }
+}
 #endif

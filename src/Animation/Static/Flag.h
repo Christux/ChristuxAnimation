@@ -19,14 +19,17 @@
 
 #include "Base/StaticAnimation.h"
 
-class Flag: public StaticAnimation
+namespace ChristuxAnimation
 {
-public:
-  Flag(uint8_t nLeds, LedStrip* ledstrip);
-  ~Flag() {};
-protected:
-  void run();
-};
 
+  class Flag: public StaticAnimation
+  {
+  public:
+    Flag(uint8_t nLeds, LedStrip* ledstrip);
+    ~Flag() {};
+  protected:
+    void run();
+  };
+}
 
 #endif

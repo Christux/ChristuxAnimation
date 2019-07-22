@@ -21,28 +21,31 @@
 #include "../Animation/Base/Animation.h"
 #include "../Color/Color.h"
 
-/*
- * Interface for animation classes
- */
-class Animator
+namespace ChristuxAnimation
 {
-  protected:
-    uint8_t _nAnim;
-    uint8_t _currentAnim;
-    Animation * _animations[20];
-    RgbColor _currentColor;
-    uint8_t brightness;
 
-  public:
-    Animator();
-    void add(Animation*);
-    uint8_t animCount() const;
-    void handle() const;
-    void nextAnimation();
-    void setAnimation(uint8_t);
-    uint8_t getAnimation();
-    void setColor(RgbColor);
-    RgbColor getColor();
-};
+  /*
+  * Interface for animation classes
+  */
+  class Animator
+  {
+    protected:
+      uint8_t _nAnim;
+      uint8_t _currentAnim;
+      Animation * _animations[20];
+      RgbColor _currentColor;
+      uint8_t brightness;
 
+    public:
+      Animator();
+      void add(Animation*);
+      uint8_t animCount() const;
+      void handle() const;
+      void nextAnimation();
+      void setAnimation(uint8_t);
+      uint8_t getAnimation();
+      void setColor(RgbColor);
+      RgbColor getColor();
+  };
+}
 #endif

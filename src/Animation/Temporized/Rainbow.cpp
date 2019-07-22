@@ -16,19 +16,23 @@
 
 #include "Rainbow.h"
 
-Rainbow::Rainbow(uint8_t nLeds, LedStrip* ledstrip):
-  TemporizedAnimation(nLeds, ledstrip, 100, nLeds)
-  {};
-
-void Rainbow::run()
+namespace ChristuxAnimation
 {
-  int i = _step;
-  unsigned int delta = 360/_pixels;
 
-  for( int k=0; k<_pixels; k++ ) {
-    RgbColor color = applyBrightness(RainbowTable::getRainbowColor(delta*(i+k)));
-    _ledstrip->SetPixelColor(k, color);
+  Rainbow::Rainbow(uint8_t nLeds, LedStrip* ledstrip):
+    TemporizedAnimation(nLeds, ledstrip, 100, nLeds)
+    {};
+
+  void Rainbow::run()
+  {
+    int i = _step;
+    unsigned int delta = 360/_pixels;
+
+    for( int k=0; k<_pixels; k++ ) {
+      RgbColor color = applyBrightness(RainbowTable::getRainbowColor(delta*(i+k)));
+      _ledstrip->SetPixelColor(k, color);
+    }
+
+    _ledstrip->Show();
   }
-
-  _ledstrip->Show();
 }

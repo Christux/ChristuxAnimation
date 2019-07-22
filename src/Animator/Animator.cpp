@@ -16,58 +16,62 @@
 
 #include "Animator.h"
 
-Animator::Animator():
-  _nAnim(0),
-  _currentAnim(0),
-  _currentColor(Color::blank)
-{}
-
-void Animator::add(Animation* animation)
+namespace ChristuxAnimation
 {
-  _animations[_nAnim++]=animation;
-}
 
-uint8_t Animator::animCount() const
-{
-  return _nAnim;
-}
+  Animator::Animator():
+    _nAnim(0),
+    _currentAnim(0),
+    _currentColor(Color::blank)
+  {}
 
-void Animator::setColor(RgbColor color)
-{
-  if(color != _currentColor)
+  void Animator::add(Animation* animation)
   {
-    _currentColor = color;
-    _animations[_currentAnim]->setColor(_currentColor);
+    _animations[_nAnim++]=animation;
   }
-}
 
-RgbColor Animator::getColor()
-{
-  return _currentColor;
-}
-
-void Animator::nextAnimation()
-{
-  _currentAnim = _currentAnim < _nAnim - 1 ? _currentAnim + 1 : 0;
-  setAnimation(_currentAnim);
-}
-
-void Animator::handle() const
-{
-  _animations[_currentAnim]->handle();
-}
-
-void Animator::setAnimation(uint8_t animId)
-{
-  if(animId != _currentAnim)
+  uint8_t Animator::animCount() const
   {
-    _currentAnim = animId;
-    _animations[_currentAnim]->setColor(_currentColor);
-    _animations[_currentAnim]->reset();
+    return _nAnim;
   }
-}
 
-uint8_t Animator::getAnimation()
-{
-  return _currentAnim;
+  void Animator::setColor(RgbColor color)
+  {
+    if(color != _currentColor)
+    {
+      _currentColor = color;
+      _animations[_currentAnim]->setColor(_currentColor);
+    }
+  }
+
+  RgbColor Animator::getColor()
+  {
+    return _currentColor;
+  }
+
+  void Animator::nextAnimation()
+  {
+    _currentAnim = _currentAnim < _nAnim - 1 ? _currentAnim + 1 : 0;
+    setAnimation(_currentAnim);
+  }
+
+  void Animator::handle() const
+  {
+    _animations[_currentAnim]->handle();
+  }
+
+  void Animator::setAnimation(uint8_t animId)
+  {
+    if(animId != _currentAnim)
+    {
+      _currentAnim = animId;
+      _animations[_currentAnim]->setColor(_currentColor);
+      _animations[_currentAnim]->reset();
+    }
+  }
+
+  uint8_t Animator::getAnimation()
+  {
+    return _currentAnim;
+  }
 }

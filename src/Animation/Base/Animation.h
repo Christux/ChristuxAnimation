@@ -20,16 +20,20 @@
 #include <Arduino.h>
 #include <NeoPixelBus.h>
 
-/*
- * Interface for animation classes
- */
-class Animation
+namespace ChristuxAnimation
 {
+
+  /*
+  * Interface for animation classes
+  */
+  class Animation
+  {
   public:
-    virtual ~Animation() {};
+    virtual ~Animation(){};
     virtual void reset() = 0;
     virtual void handle() = 0;
-    virtual void setColor(RgbColor)=0;
-};
+    virtual void setColor(RgbColor) = 0;
+  };
+}
 
 #endif

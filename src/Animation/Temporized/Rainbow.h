@@ -20,13 +20,16 @@
 #include "Base/TemporizedAnimation.h"
 #include "../../RainbowTable/RainbowTable.h"
 
-class Rainbow : public TemporizedAnimation
+namespace ChristuxAnimation
 {
-  public:
-    Rainbow(uint8_t nLeds, LedStrip* ledstrip);
-    ~Rainbow() {};
-  protected:
-    void run();
-};
 
+  class Rainbow : public TemporizedAnimation
+  {
+    public:
+      Rainbow(uint8_t nLeds, LedStrip* ledstrip);
+      ~Rainbow() {};
+    protected:
+      void run();
+  };
+}
 #endif

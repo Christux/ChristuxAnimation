@@ -19,14 +19,17 @@
 
 #include "Base/TemporizedAnimation.h"
 
-class KnightRider : public TemporizedAnimation
+namespace ChristuxAnimation
 {
-public:
-  KnightRider(uint8_t nLeds, LedStrip* ledstrip);
-  KnightRider(uint8_t nLeds, LedStrip* ledstrip, unsigned int timestep);
-  ~KnightRider() {};
-protected:
-  void run();
-};
 
+  class KnightRider : public TemporizedAnimation
+  {
+  public:
+    KnightRider(uint8_t nLeds, LedStrip* ledstrip);
+    KnightRider(uint8_t nLeds, LedStrip* ledstrip, unsigned int timestep);
+    ~KnightRider() {};
+  protected:
+    void run();
+  };
+}
 #endif

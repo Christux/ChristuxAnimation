@@ -18,6 +18,8 @@
 #include <NeoPixelBus.h>
 #include <ChristuxAnimation.h>
 
+using namespace ChristuxAnimation;
+
 int PixelCount = 5;
 int PixelPin = 8;
 
