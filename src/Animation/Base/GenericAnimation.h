@@ -18,7 +18,7 @@
 #define genericanimation_h
 
 #include "Animation.h"
-#include "../../LedStrip/Base/LedStrip.h"
+#include "../../LedStrip/LedStrip.h"
 #include "../../Color/Color.h"
 
 namespace ChristuxAnimation

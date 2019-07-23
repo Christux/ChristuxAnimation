@@ -28,8 +28,8 @@ namespace ChristuxAnimation
       unsigned long _delay = 40;
       unsigned long _nextFlicker = 0;
 
-      const unsigned int _Imax;
       const unsigned long _sunrise_during; // in seconds
+      const unsigned int _Imax;
       unsigned long _timestart = 0;
       unsigned long _timestop = 0;
 

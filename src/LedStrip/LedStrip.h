@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019 Christophe Rubeck.
+ * Copyright (c) 2017 Christophe Rubeck.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as
@@ -14,29 +14,23 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+#ifndef ledstrip_h
+#define ledstrip_h
+
 #include <Arduino.h>
-#include "LedStrip.h"
+#include "../Color/Color.h"
 
 namespace ChristuxAnimation
 {
-    typedef void (*TBegin)(void);
-    typedef void (*TShow)(void);
-    typedef void (*TSetPixelColor)(int, RgbColor);
 
-    class UniversalLedStripAdapter : public LedStrip
-    {
-    protected:
-        int _pixelCount;
-        TBegin _begin;
-        TShow _show;
-        TSetPixelColor _setPixelColor;
-        
+  class LedStrip
+  {
     public:
-        UniversalLedStripAdapter(int PixelCount, TBegin Begin, TShow Show, TSetPixelColor SetPixelColor);
-        ~UniversalLedStripAdapter() {};
-        void Begin();
-        void SetPixelColor(int i, RgbColor color);
-        void SetAllPixels(RgbColor color);
-        void Show();
-    };
+      virtual ~LedStrip() {};
+      virtual void Begin() = 0;
+      virtual void SetPixelColor(int, RgbColor) = 0;
+      virtual void SetAllPixels(RgbColor) = 0;
+      virtual void Show() = 0;
+  };
 }
+#endif

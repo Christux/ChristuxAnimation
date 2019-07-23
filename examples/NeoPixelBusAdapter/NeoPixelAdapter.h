@@ -18,7 +18,7 @@
 #define neopixeladapter_h
 
 #include <NeoPixelBus.h>
-#include "Base/LedStrip.h"
+#include <ChristuxAnimation.h>
 
 namespace ChristuxAnimation {
 
