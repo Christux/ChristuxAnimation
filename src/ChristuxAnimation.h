@@ -17,7 +17,8 @@
 #ifndef christuxanimation_h
 #define christuxanimation_h
 
-#include "LedStrip/NeoPixelAdapter.h"
+//#include "LedStrip/NeoPixelAdapter.h"
+#include "LedStrip/UniversalLedStripAdapter.h"
 #include "Animator/Animator.h"
 
 #include "Animation/Static/Off.h"

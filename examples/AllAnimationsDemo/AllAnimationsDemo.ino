@@ -16,13 +16,44 @@
 
 #define animationDemo
 #include <ChristuxAnimation.h>
+#include <NeoPixelBus.h>
+
 
 using namespace ChristuxAnimation;
 
 int PixelCount = 5;
 int PixelPin = 8;
 
-NeoPixelAdapter<NeoGrbFeature, Neo800KbpsMethod> strip(PixelCount, PixelPin);
+NeoPixelBus<NeoGrbFeature, Neo800KbpsMethod> neoPixelBus(PixelCount, PixelPin);
+//NeoPixelAdapter<NeoGrbFeature, Neo800KbpsMethod> strip(PixelCount, PixelPin);
+
+// void begin()
+// {
+//   neoPixelBus.Begin();
+// }
+
+// void show()
+// {
+//   neoPixelBus.Show();
+// }
+
+// void setPixelColor(int i, ChristuxAnimation::RgbColor color)
+// {
+//   neoPixelBus.SetPixelColor(i, ::RgbColor(color.R,color.G,color.B));
+// }
+
+UniversalLedStripAdapter strip(
+  PixelCount,
+  []() {
+    neoPixelBus.Begin();
+  },
+  [](){
+    neoPixelBus.Show();
+  },
+  [](int i, ChristuxAnimation::RgbColor color) {
+    neoPixelBus.SetPixelColor(i, ::RgbColor(color.R,color.G,color.B));
+  }
+);
 
 Animator animator;
 
