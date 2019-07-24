@@ -9,7 +9,7 @@ It provides a rainbow lamp, a KnightRider effect, a sunrise simulator, and some 
 
 An full example project is available here : <a href="https://github.com/Christux/Arduino/tree/master/NodeMCU_NeoPixel_Lamp">https://github.com/Christux/Arduino/tree/master/NodeMCU_NeoPixel_Lamp</a>
 
-## Ledstrip libraries support
+## Ledstrip libraries support :
 
 In order to use this library, you must either write a ledstrip adapter by derivating of LedStrip class or use the provided UniversalLedStripAdapter (see examples).
 
