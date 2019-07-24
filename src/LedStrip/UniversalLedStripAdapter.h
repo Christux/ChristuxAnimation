@@ -14,6 +14,9 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+#ifndef ChristuxAnimation_UnisersalLedStripAdapter_h
+#define ChristuxAnimation_UnisersalLedStripAdapter_h
+
 #include <Arduino.h>
 #include "LedStrip.h"
 
@@ -40,3 +43,5 @@ namespace ChristuxAnimation
         void Show();
     };
 }
+
+#endif

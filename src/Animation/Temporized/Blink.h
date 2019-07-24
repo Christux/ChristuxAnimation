@@ -14,8 +14,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef blink_h
-#define blink_h
+#ifndef ChristuxAnimation_blink_h
+#define ChristuxAnimation_blink_h
 
 #include "Base/TemporizedAnimation.h"
 

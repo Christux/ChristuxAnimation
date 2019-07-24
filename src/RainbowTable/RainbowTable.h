@@ -14,8 +14,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef rainbowTable_h
-#define rainbowTable_h
+#ifndef ChristuxAnimation_rainbowTable_h
+#define ChristuxAnimation_rainbowTable_h
 
 #include <Arduino.h>
 #include "../Color/Color.h"

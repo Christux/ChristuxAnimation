@@ -14,8 +14,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef Animator_hpp
-#define Animator_hpp
+#ifndef ChristuxAnimation_Animator_hpp
+#define ChristuxAnimation_Animator_hpp
 
 #include <Arduino.h>
 #include "../Animation/Base/Animation.h"

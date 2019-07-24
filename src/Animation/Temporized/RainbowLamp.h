@@ -14,8 +14,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef rainbowlamp_h
-#define rainbowlamp_h
+#ifndef ChristuxAnimation_rainbowlamp_h
+#define ChristuxAnimation_rainbowlamp_h
 
 #include "Base/TemporizedAnimation.h"
 #include "../../RainbowTable/RainbowTable.h"

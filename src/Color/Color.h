@@ -14,8 +14,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef color_h
-#define color_h
+#ifndef ChristuxAnimation_color_h
+#define ChristuxAnimation_color_h
 
 #include <Arduino.h>
 

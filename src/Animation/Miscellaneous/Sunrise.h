@@ -14,8 +14,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef sunrise_h
-#define sunrise_h
+#ifndef ChristuxAnimation_sunrise_h
+#define ChristuxAnimation_sunrise_h
 
 #include "../Base/GenericAnimation.h"
 

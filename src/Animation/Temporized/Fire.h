@@ -14,8 +14,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef fire_h
-#define fire_h
+#ifndef ChristuxAnimation_fire_h
+#define ChristuxAnimation_fire_h
 
 #include "Base/TemporizedAnimation.h"
 

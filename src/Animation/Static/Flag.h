@@ -14,8 +14,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef flag_h
-#define flag_h
+#ifndef ChristuxAnimation_flag_h
+#define ChristuxAnimation_flag_h
 
 #include "Base/StaticAnimation.h"
 #include "../../Color/Color.h"

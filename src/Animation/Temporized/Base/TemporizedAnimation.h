@@ -14,8 +14,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef temporizedanimation_hpp
-#define temporizedanimation_hpp
+#ifndef ChristuxAnimation_temporizedanimation_hpp
+#define ChristuxAnimation_temporizedanimation_hpp
 
 #include "../../Base/GenericAnimation.h"
 #include "../../../Color/Color.h"

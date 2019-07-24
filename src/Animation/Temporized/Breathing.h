@@ -14,8 +14,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef breathing_h
-#define breathing_h
+#ifndef ChristuxAnimation_breathing_h
+#define ChristuxAnimation_breathing_h
 
 #include "Base/TemporizedAnimation.h"
 

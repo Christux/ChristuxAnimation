@@ -14,8 +14,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef genericanimation_h
-#define genericanimation_h
+#ifndef ChristuxAnimation_genericanimation_h
+#define ChristuxAnimation_genericanimation_h
 
 #include "Animation.h"
 #include "../../LedStrip/LedStrip.h"

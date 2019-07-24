@@ -14,8 +14,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef staticanimation_hpp
-#define staticanimation_hpp
+#ifndef ChristuxAnimation_staticanimation_hpp
+#define ChristuxAnimation_staticanimation_hpp
 
 #include "../../Base/GenericAnimation.h"
 

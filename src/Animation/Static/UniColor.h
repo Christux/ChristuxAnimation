@@ -14,8 +14,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef unicolor_h
-#define unicolor_h
+#ifndef ChristuxAnimation_unicolor_h
+#define ChristuxAnimation_unicolor_h
 
 #include "Base/StaticAnimation.h"
 

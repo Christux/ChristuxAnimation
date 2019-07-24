@@ -14,8 +14,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef rainbowlamprandom_h
-#define rainbowlamprandom_h
+#ifndef ChristuxAnimation_rainbowlamprandom_h
+#define ChristuxAnimation_rainbowlamprandom_h
 
 #include "../Base/GenericAnimation.h"
 #include "../../RainbowTable/RainbowTable.h"

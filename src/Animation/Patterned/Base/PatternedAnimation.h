@@ -14,8 +14,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef patternedanimation_h
-#define patternedanimation_h
+#ifndef ChristuxAnimation_patternedanimation_h
+#define ChristuxAnimation_patternedanimation_h
 
 #include "../../Temporized/Base/TemporizedAnimation.h"
 

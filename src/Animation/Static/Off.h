@@ -14,8 +14,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef off_h
-#define off_h
+#ifndef ChristuxAnimation_off_h
+#define ChristuxAnimation_off_h
 
 #include "Base/StaticAnimation.h"
 

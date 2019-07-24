@@ -14,8 +14,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef theater_h
-#define theater_h
+#ifndef ChristuxAnimation_theater_h
+#define ChristuxAnimation_theater_h
 
 #include "Base/PatternedAnimation.h"
 

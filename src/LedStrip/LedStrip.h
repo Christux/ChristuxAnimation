@@ -14,8 +14,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef ledstrip_h
-#define ledstrip_h
+#ifndef ChristuxAnimation_ledstrip_h
+#define ChristuxAnimation_ledstrip_h
 
 #include <Arduino.h>
 #include "../Color/Color.h"

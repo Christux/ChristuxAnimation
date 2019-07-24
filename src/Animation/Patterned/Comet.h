@@ -14,8 +14,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef comet_h
-#define comet_h
+#ifndef ChristuxAnimation_comet_h
+#define ChristuxAnimation_comet_h
 
 #include "Base/PatternedAnimation.h"
 

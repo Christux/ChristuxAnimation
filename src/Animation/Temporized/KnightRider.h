@@ -14,8 +14,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef knightrider_h
-#define knightrider_h
+#ifndef ChristuxAnimation_knightrider_h
+#define ChristuxAnimation_knightrider_h
 
 #include "Base/TemporizedAnimation.h"
 #include "../../Color/Color.h"
