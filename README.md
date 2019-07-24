@@ -15,4 +15,4 @@ In order to use this library, you must either write a ledstrip adapter by deriva
 
 ## License :
 
-This projected is licensed under the terms of the LGPL
+This projected is licensed under the terms of the LGPL.
