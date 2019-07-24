@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017 Christophe Rubeck.
+ * Copyright (c) 2019 Christophe Rubeck.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as
@@ -14,18 +14,22 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef unicolor_h
-#define unicolor_h
+#ifndef ChristuxAnimation_unicolor_h
+#define ChristuxAnimation_unicolor_h
 
 #include "Base/StaticAnimation.h"
 
-class UniColor : public StaticAnimation
+namespace ChristuxAnimation
 {
-  public:
-    UniColor(uint8_t nLeds, LedStrip* ledstrip);
-    ~UniColor() {};
-  protected:
-    void run();
-};
+
+  class UniColor : public StaticAnimation
+  {
+    public:
+      UniColor(uint8_t nLeds, LedStrip* ledstrip);
+      ~UniColor() {};
+    protected:
+      void run();
+  };
+}
 
 #endif

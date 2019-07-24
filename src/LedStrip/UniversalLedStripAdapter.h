@@ -14,38 +14,34 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef ChristuxAnimation_Animator_hpp
-#define ChristuxAnimation_Animator_hpp
+#ifndef ChristuxAnimation_UnisersalLedStripAdapter_h
+#define ChristuxAnimation_UnisersalLedStripAdapter_h
 
 #include <Arduino.h>
-#include "../Animation/Base/Animation.h"
-#include "../Color/Color.h"
+#include "LedStrip.h"
 
 namespace ChristuxAnimation
 {
+    typedef void (*TBegin)(void);
+    typedef void (*TShow)(void);
+    typedef void (*TSetPixelColor)(int, RgbColor);
 
-  /*
-  * Interface for animation classes
-  */
-  class Animator
-  {
+    class UniversalLedStripAdapter : public LedStrip
+    {
     protected:
-      uint8_t _nAnim;
-      uint8_t _currentAnim;
-      Animation * _animations[20];
-      RgbColor _currentColor;
-      uint8_t brightness;
-
+        int _pixelCount;
+        TBegin _begin;
+        TShow _show;
+        TSetPixelColor _setPixelColor;
+        
     public:
-      Animator();
-      void add(Animation*);
-      uint8_t animCount() const;
-      void handle() const;
-      void nextAnimation();
-      void setAnimation(uint8_t);
-      uint8_t getAnimation();
-      void setColor(RgbColor);
-      RgbColor getColor();
-  };
+        UniversalLedStripAdapter(int PixelCount, TBegin Begin, TShow Show, TSetPixelColor SetPixelColor);
+        ~UniversalLedStripAdapter() {};
+        void Begin();
+        void SetPixelColor(int i, RgbColor color);
+        void SetAllPixels(RgbColor color);
+        void Show();
+    };
 }
+
 #endif

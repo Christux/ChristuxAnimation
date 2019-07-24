@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017 Christophe Rubeck.
+ * Copyright (c) 2019 Christophe Rubeck.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as
@@ -17,10 +17,26 @@
 #include <NeoPixelBus.h>
 #include <ChristuxAnimation.h>
 
+using namespace ChristuxAnimation;
+
 int PixelCount=5;
 int PixelPin=8;
 
-NeoPixelAdapter<NeoGrbFeature, Neo800KbpsMethod> strip(PixelCount, PixelPin);
+NeoPixelBus<NeoGrbFeature, Neo800KbpsMethod> neoPixelBus(PixelCount, PixelPin);
+
+UniversalLedStripAdapter strip(
+  PixelCount,
+  [&]() {
+    neoPixelBus.Begin();
+  },
+  [&](){
+    neoPixelBus.Show();
+  },
+  [&](int i, ChristuxAnimation::RgbColor color) {
+    neoPixelBus.SetPixelColor(i, ::RgbColor(color.R,color.G,color.B));
+  }
+);
+
 Sunrise sunrise(PixelCount, &strip, 30*60, 180); // 30 minutes in seconds, Imax=180/255
 
 void setup() {

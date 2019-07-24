@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017 Christophe Rubeck.
+ * Copyright (c) 2019 Christophe Rubeck.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as
@@ -16,11 +16,15 @@
 
 #include "Off.h"
 
-Off::Off(uint8_t nLeds, LedStrip* ledstrip):
-  StaticAnimation(nLeds, ledstrip)
-  {};
-
-void Off::run()
+namespace ChristuxAnimation
 {
-  _ledstrip->Show();
+
+  Off::Off(uint8_t nLeds, LedStrip* ledstrip):
+    StaticAnimation(nLeds, ledstrip)
+    {};
+
+  void Off::run()
+  {
+    _ledstrip->Show();
+  }
 }

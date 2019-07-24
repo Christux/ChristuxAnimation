@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017 Christophe Rubeck.
+ * Copyright (c) 2019 Christophe Rubeck.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as
@@ -14,18 +14,21 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef fire_h
-#define fire_h
+#ifndef ChristuxAnimation_fire_h
+#define ChristuxAnimation_fire_h
 
 #include "Base/TemporizedAnimation.h"
 
-class Fire : public TemporizedAnimation
+namespace ChristuxAnimation
 {
-public:
-  Fire(uint8_t nLeds, LedStrip* ledstrip);
-  ~Fire() {};
-protected:
-  void run();
-};
 
+  class Fire : public TemporizedAnimation
+  {
+  public:
+    Fire(uint8_t nLeds, LedStrip* ledstrip);
+    ~Fire() {};
+  protected:
+    void run();
+  };
+}
 #endif

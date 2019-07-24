@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017 Christophe Rubeck.
+ * Copyright (c) 2019 Christophe Rubeck.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as
@@ -16,24 +16,27 @@
 
 #include "Fire.h"
 
-Fire::Fire(uint8_t nLeds, LedStrip* ledstrip):
-  TemporizedAnimation(nLeds, ledstrip, 100, 1)
-  {};
-
-void Fire::run()
+namespace ChristuxAnimation
 {
-  uint8_t r = 255;
-  uint8_t g = 100;
-  uint8_t b = 0;
 
-  for (int i = 0; i < _pixels; i++) {
+  Fire::Fire(uint8_t nLeds, LedStrip* ledstrip):
+    TemporizedAnimation(nLeds, ledstrip, 100, 1)
+    {};
 
-      int delta = random(40, 100);
-      RgbColor col = applyBrightness(RgbColor((r * delta) / 100, (g * delta) / 100, b));
-      _ledstrip->SetPixelColor(i, col);
-      //strip.SetPixelColor(i,RgbColor((r*delta)/100,(g*delta)/100,b));
-    }
-    _ledstrip->Show();
+  void Fire::run()
+  {
+    uint8_t r = 255;
+    uint8_t g = 100;
+    uint8_t b = 0;
 
-    _delay = random(50, 150);
+    for (int i = 0; i < _pixels; i++) {
+
+        int delta = random(40, 100);
+        RgbColor col = applyBrightness(RgbColor((r * delta) / 100, (g * delta) / 100, b));
+        _ledstrip->SetPixelColor(i, col);
+      }
+      _ledstrip->Show();
+
+      _delay = random(50, 150);
+  }
 }

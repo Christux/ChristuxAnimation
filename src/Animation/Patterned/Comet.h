@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017 Christophe Rubeck.
+ * Copyright (c) 2019 Christophe Rubeck.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as
@@ -14,18 +14,21 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef comet_h
-#define comet_h
+#ifndef ChristuxAnimation_comet_h
+#define ChristuxAnimation_comet_h
 
 #include "Base/PatternedAnimation.h"
 
-class Comet : public PatternedAnimation
+namespace ChristuxAnimation
 {
-  protected:
-    static const uint8_t cometPattern[];
-  public:
-    Comet(uint8_t nLeds, LedStrip* ledstrip);
-    ~Comet() {};
-};
 
+  class Comet : public PatternedAnimation
+  {
+    protected:
+      static const uint8_t cometPattern[];
+    public:
+      Comet(uint8_t nLeds, LedStrip* ledstrip);
+      ~Comet() {};
+  };
+}
 #endif

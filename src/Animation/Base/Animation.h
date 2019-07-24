@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017 Christophe Rubeck.
+ * Copyright (c) 2019 Christophe Rubeck.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as
@@ -14,22 +14,25 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef Animations_h
-#define Animations_h
+#ifndef ChristuxAnimation_Animations_h
+#define ChristuxAnimation_Animations_h
 
 #include <Arduino.h>
-#include <NeoPixelBus.h>
+#include "../../Color/Color.h"
 
-/*
- * Interface for animation classes
- */
-class Animation
+namespace ChristuxAnimation
 {
+  /*
+  * Interface for animation classes
+  */
+  class Animation
+  {
   public:
-    virtual ~Animation() {};
+    virtual ~Animation(){};
     virtual void reset() = 0;
     virtual void handle() = 0;
-    virtual void setColor(RgbColor)=0;
-};
+    virtual void setColor(RgbColor) = 0;
+  };
+}
 
 #endif

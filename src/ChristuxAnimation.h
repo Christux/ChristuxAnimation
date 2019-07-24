@@ -14,11 +14,19 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef christuxanimation_h
-#define christuxanimation_h
+#ifndef ChristuxAnimation_h
+#define ChristuxAnimation_h
 
-#include "LedStrip/NeoPixelAdapter.h"
+#include "LedStrip/LedStrip.h"
+#include "LedStrip/UniversalLedStripAdapter.h"
+
 #include "Animator/Animator.h"
+
+#include "Animation/Base/Animation.h"
+#include "Animation/Base/GenericAnimation.h"
+#include "Animation/Patterned/Base/PatternedAnimation.h"
+#include "Animation/Static/Base/StaticAnimation.h"
+#include "Animation/Temporized/Base/TemporizedAnimation.h"
 
 #include "Animation/Static/Off.h"
 #include "Animation/Static/Flag.h"

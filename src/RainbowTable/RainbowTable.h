@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017 Christophe Rubeck.
+ * Copyright (c) 2019 Christophe Rubeck.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as
@@ -14,19 +14,22 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef rainbowTable_h
-#define rainbowTable_h
+#ifndef ChristuxAnimation_rainbowTable_h
+#define ChristuxAnimation_rainbowTable_h
 
 #include <Arduino.h>
-#include <NeoPixelBus.h>
+#include "../Color/Color.h"
 
-class RainbowTable
+namespace ChristuxAnimation
 {
-protected:
-  static const uint8_t rainbowTable[];
 
-public:
-  static RgbColor getRainbowColor(uint16_t phase);
-};
+  class RainbowTable
+  {
+  protected:
+    static const uint8_t rainbowTable[];
 
+  public:
+    static RgbColor getRainbowColor(uint16_t phase);
+  };
+}
 #endif

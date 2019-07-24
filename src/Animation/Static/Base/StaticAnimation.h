@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017 Christophe Rubeck.
+ * Copyright (c) 2019 Christophe Rubeck.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as
@@ -14,21 +14,24 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef staticanimation_hpp
-#define staticanimation_hpp
+#ifndef ChristuxAnimation_staticanimation_hpp
+#define ChristuxAnimation_staticanimation_hpp
 
 #include "../../Base/GenericAnimation.h"
 
-class StaticAnimation : public GenericAnimation
+namespace ChristuxAnimation
 {
-protected:
-  virtual void run() = 0;
 
-public:
-  StaticAnimation(uint8_t nLeds, LedStrip* ledstrip);
-  virtual ~StaticAnimation() {};
-  void handle();
-  void reset();
-};
+  class StaticAnimation : public GenericAnimation
+  {
+  protected:
+    virtual void run() = 0;
 
+  public:
+    StaticAnimation(uint8_t nLeds, LedStrip* ledstrip);
+    virtual ~StaticAnimation() {};
+    void handle();
+    void reset();
+  };
+}
 #endif

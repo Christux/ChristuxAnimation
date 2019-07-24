@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017 Christophe Rubeck.
+ * Copyright (c) 2019 Christophe Rubeck.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as
@@ -14,20 +14,23 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef rainbowlamp_h
-#define rainbowlamp_h
+#ifndef ChristuxAnimation_rainbowlamp_h
+#define ChristuxAnimation_rainbowlamp_h
 
 #include "Base/TemporizedAnimation.h"
 #include "../../RainbowTable/RainbowTable.h"
 
-class RainbowLamp : public TemporizedAnimation
+namespace ChristuxAnimation
 {
-  public:
-    RainbowLamp(uint8_t nLeds, LedStrip* ledstrip);
-    ~RainbowLamp() {};
 
-  protected:
-   void run();
-};
+  class RainbowLamp : public TemporizedAnimation
+  {
+    public:
+      RainbowLamp(uint8_t nLeds, LedStrip* ledstrip);
+      ~RainbowLamp() {};
 
+    protected:
+    void run();
+  };
+}
 #endif

@@ -16,46 +16,23 @@
 
 #define animationDemo
 #include <ChristuxAnimation.h>
-#include <NeoPixelBus.h>
+#include "ShiftRegisterLedStrip.h"
+
+#define LATCH_PIN 9
+#define CLOCK_PIN 8
+#define DATA_PIN 10
 
 using namespace ChristuxAnimation;
 
-int PixelCount = 5;
-int PixelPin = 8;
+uint8_t PixelCount = 8;
 
-NeoPixelBus<NeoGrbFeature, Neo800KbpsMethod> neoPixelBus(PixelCount, PixelPin);
-
-UniversalLedStripAdapter strip(
-  // Set here the number of leds
-  PixelCount,
-  // Set here the setup function from the ledstrip driver
-  [&]() {
-    neoPixelBus.Begin();
-  },
-  // Set here the commit function from the ledstrip driver
-  [&](){
-    neoPixelBus.Show();
-  },
-  // Set here the led color setup function from the ledstrip driver
-  [&](int i, ChristuxAnimation::RgbColor color) {
-    neoPixelBus.SetPixelColor(i, ::RgbColor(color.R,color.G,color.B));
-  }
-);
+ShiftRegisterLedStrip strip = ShiftRegisterLedStrip(PixelCount, CLOCK_PIN, LATCH_PIN, DATA_PIN);
 
 Animator animator;
 
-Rainbow rainbow(PixelCount, &strip);
-Sunrise sunrise(PixelCount, &strip, 5);
-UniColor unicolor(PixelCount, &strip);
-Off off(PixelCount, &strip);
-Flag flag(PixelCount, &strip);
 Comet comet(PixelCount, &strip);
 Theater theater(PixelCount, &strip);
 KnightRider rider(PixelCount, &strip, 100);
-RainbowLamp lamp(PixelCount, &strip);
-RainbowLampRandom randlamp(PixelCount, &strip);
-Fire fire(PixelCount, &strip);
-Breathing breath(PixelCount, &strip);
 Blink blink(PixelCount, &strip, 1000);
 
 // For animation loop
@@ -71,17 +48,9 @@ void setup() {
 
   strip.Begin();
 
-  animator.add(&rainbow);
-  animator.add(&sunrise);
-  animator.add(&unicolor);
-  animator.add(&flag);
   animator.add(&comet);
   animator.add(&theater);
   animator.add(&rider);
-  animator.add(&lamp);
-  animator.add(&randlamp);
-  animator.add(&fire);
-  animator.add(&breath);
   animator.add(&blink);
 
   // Do not forget to set a color !

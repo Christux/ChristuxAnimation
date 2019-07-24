@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017 Christophe Rubeck.
+ * Copyright (c) 2019 Christophe Rubeck.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as
@@ -16,27 +16,31 @@
 
 #include "PatternedAnimation.h"
 
-PatternedAnimation::PatternedAnimation(uint8_t nLeds, LedStrip* ledstrip, unsigned int delay, const uint8_t pattern[], const int patternSize) :
-  TemporizedAnimation(nLeds, ledstrip, delay, patternSize),
-  _pattern(pattern),
-  _patternSize(patternSize)
-   {};
-
-void PatternedAnimation::run()
+namespace ChristuxAnimation
 {
-  RgbColor col[2 * _patternSize];
-  int j = _step;
 
-  for (int n = 0; n < _patternSize; n++) {
-    col[n] = applyBrightness(_color, _pattern[n]);
-    col[n + _patternSize] = col[n];
+  PatternedAnimation::PatternedAnimation(uint8_t nLeds, LedStrip* ledstrip, unsigned int delay, const uint8_t pattern[], const int patternSize) :
+    TemporizedAnimation(nLeds, ledstrip, delay, patternSize),
+    _pattern(pattern),
+    _patternSize(patternSize)
+    {};
+
+  void PatternedAnimation::run()
+  {
+    RgbColor col[2 * _patternSize];
+    int j = _step;
+
+    for (int n = 0; n < _patternSize; n++) {
+      col[n] = applyBrightness(_color, _pattern[n]);
+      col[n + _patternSize] = col[n];
+    }
+
+    for (int k = 0, l=_pixels / _patternSize; k < l; k++) {
+        for (int i = 0; i < _patternSize; i++) {
+          _ledstrip->SetPixelColor(k * _patternSize + i, col[i + j]);
+        }
+    }
+
+    _ledstrip->Show();
   }
-
-  for (int k = 0, l=_pixels / _patternSize; k < l; k++) {
-      for (int i = 0; i < _patternSize; i++) {
-        _ledstrip->SetPixelColor(k * _patternSize + i, col[i + j]);
-      }
-  }
-
-  _ledstrip->Show();
 }

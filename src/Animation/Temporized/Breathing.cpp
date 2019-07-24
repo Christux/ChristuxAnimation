@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017 Christophe Rubeck.
+ * Copyright (c) 2019 Christophe Rubeck.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as
@@ -16,22 +16,26 @@
 
 #include "Breathing.h"
 
-Breathing::Breathing(uint8_t nLeds, LedStrip* ledstrip):
-  TemporizedAnimation(nLeds, ledstrip, 40, 1),
-  _startTime(millis())
-  {};
-
-// Override method
-void Breathing::reset()
+namespace ChristuxAnimation
 {
-  _startTime = millis();
-  TemporizedAnimation::reset();
-}
 
-void Breathing::run()
-{
-  float val = (exp(sin((millis()-_startTime+3000.0) / 2000.0 * PI)) - 0.36787944) * 90 + 10;
+  Breathing::Breathing(uint8_t nLeds, LedStrip* ledstrip):
+    TemporizedAnimation(nLeds, ledstrip, 40, 1),
+    _startTime(millis())
+    {};
 
-  _ledstrip->SetAllPixels(applyBrightness(_color, (uint8_t)val));
-  _ledstrip->Show();
+  // Override method
+  void Breathing::reset()
+  {
+    _startTime = millis();
+    TemporizedAnimation::reset();
+  }
+
+  void Breathing::run()
+  {
+    float val = (exp(sin((millis()-_startTime+3000.0) / 2000.0 * PI)) - 0.36787944) * 90 + 10;
+
+    _ledstrip->SetAllPixels(applyBrightness(_color, (uint8_t)val));
+    _ledstrip->Show();
+  }
 }

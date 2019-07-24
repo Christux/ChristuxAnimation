@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017 Christophe Rubeck.
+ * Copyright (c) 2019 Christophe Rubeck.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as
@@ -14,25 +14,46 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef color_h
-#define color_h
+#ifndef ChristuxAnimation_color_h
+#define ChristuxAnimation_color_h
 
-#include <NeoPixelBus.h>
+#include <Arduino.h>
 
-struct Color
+namespace ChristuxAnimation
 {
-public:
-  /*
-   * Define colors
-   */
-  static const RgbColor red;
-  static const RgbColor green;
-  static const RgbColor blue;
-  static const RgbColor purple;
-  static const RgbColor orange;
-  static const RgbColor blank;
-  static const RgbColor white;
-};
 
+  struct RgbColor
+  {
+  public:
+    uint8_t R;
+    uint8_t G;
+    uint8_t B;
+    RgbColor(uint8_t r, uint8_t g, uint8_t b);
+    RgbColor();
+    ~RgbColor(){};
+    uint8_t CalculateBrightness() const;
+
+    bool operator==(const RgbColor& other) const
+    {
+        return (R == other.R && G == other.G && B == other.B);
+    }
+
+    bool operator!=(const RgbColor& other) const
+    {
+        return !(*this == other);
+    }
+
+    /*
+    * Define colors
+    */
+    static const RgbColor red;
+    static const RgbColor green;
+    static const RgbColor blue;
+    static const RgbColor purple;
+    static const RgbColor orange;
+    static const RgbColor blank;
+    static const RgbColor white;
+  };
+}
 
 #endif

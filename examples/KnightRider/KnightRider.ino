@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017 Christophe Rubeck.
+ * Copyright (c) 2019 Christophe Rubeck.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as
@@ -17,17 +17,33 @@
 #include <NeoPixelBus.h>
 #include <ChristuxAnimation.h>
 
+using namespace ChristuxAnimation;
+
 int PixelCount=5;
 int PixelPin=8;
 
-NeoPixelAdapter<NeoGrbFeature, Neo800KbpsMethod> strip(PixelCount, PixelPin);
+NeoPixelBus<NeoGrbFeature, Neo800KbpsMethod> neoPixelBus(PixelCount, PixelPin);
+
+UniversalLedStripAdapter strip(
+  PixelCount,
+  [&]() {
+    neoPixelBus.Begin();
+  },
+  [&](){
+    neoPixelBus.Show();
+  },
+  [&](int i, ChristuxAnimation::RgbColor color) {
+    neoPixelBus.SetPixelColor(i, ::RgbColor(color.R,color.G,color.B));
+  }
+);
+
 KnightRider rider(PixelCount, &strip, 100); // Delay in _useconds (default is 25)
 
 void setup() {
 
 	strip.Begin();
 	rider.reset();
-	rider.setColor(Color::red);
+	rider.setColor(ChristuxAnimation::RgbColor::red);
 }
 
 void loop() {

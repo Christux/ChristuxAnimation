@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017 Christophe Rubeck.
+ * Copyright (c) 2019 Christophe Rubeck.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as
@@ -14,20 +14,25 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef ledstrip_h
-#define ledstrip_h
+#include <ChristuxAnimation.h>
+#include "NeoPixelAdapter.h"
 
-#include <Arduino.h>
-#include <NeoPixelBus.h>
+using namespace ChristuxAnimation;
 
-class LedStrip
-{
-  public:
-    virtual ~LedStrip() {};
-    virtual void Begin() = 0;
-    virtual void SetPixelColor(int, RgbColor) = 0;
-    virtual void SetAllPixels(RgbColor) = 0;
-    virtual void Show() = 0;
-};
+int PixelCount=5;
+int PixelPin=8;
 
-#endif
+NeoPixelAdapter<NeoGrbFeature, Neo800KbpsMethod> strip(PixelCount, PixelPin);
+
+Rainbow rainbow(PixelCount, &strip);
+
+void setup() {
+
+	strip.Begin();
+	rainbow.reset();
+	rainbow.setColor(ChristuxAnimation::RgbColor(16,0,0));
+}
+
+void loop() {
+	rainbow.handle();
+}

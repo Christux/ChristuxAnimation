@@ -1,5 +1,5 @@
 ChristuxAnimation	KEYWORD1
-NeoPixelAdapter	KEYWORD1
+UniversalLedStripAdapter	KEYWORD1
 Animator	KEYWORD1
 Rainbow	KEYWORD1
 Sunrise	KEYWORD1

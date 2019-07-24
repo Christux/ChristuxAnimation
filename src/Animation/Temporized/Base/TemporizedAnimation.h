@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017 Christophe Rubeck.
+ * Copyright (c) 2019 Christophe Rubeck.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as
@@ -14,25 +14,29 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef temporizedanimation_hpp
-#define temporizedanimation_hpp
+#ifndef ChristuxAnimation_temporizedanimation_hpp
+#define ChristuxAnimation_temporizedanimation_hpp
 
 #include "../../Base/GenericAnimation.h"
+#include "../../../Color/Color.h"
 
-class TemporizedAnimation : public GenericAnimation
+namespace ChristuxAnimation
 {
-  protected:
-    unsigned int _delay;
-    unsigned long _nextFlicker;
-    unsigned int _step;
-    const unsigned int _numStep;
-    virtual void run() = 0;
 
-  public:
-    TemporizedAnimation(uint8_t nLeds, LedStrip* ledstrip, unsigned int delay, unsigned int numStep);
-    virtual ~TemporizedAnimation() {};
-    void handle();
-    void reset();
-};
+  class TemporizedAnimation : public GenericAnimation
+  {
+    protected:
+      unsigned int _delay;
+      unsigned long _nextFlicker;
+      unsigned int _step;
+      const unsigned int _numStep;
+      virtual void run() = 0;
 
+    public:
+      TemporizedAnimation(uint8_t nLeds, LedStrip* ledstrip, unsigned int delay, unsigned int numStep);
+      virtual ~TemporizedAnimation() {};
+      void handle();
+      void reset();
+  };
+}
 #endif

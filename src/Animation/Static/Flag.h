@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017 Christophe Rubeck.
+ * Copyright (c) 2019 Christophe Rubeck.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as
@@ -14,19 +14,23 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef flag_h
-#define flag_h
+#ifndef ChristuxAnimation_flag_h
+#define ChristuxAnimation_flag_h
 
 #include "Base/StaticAnimation.h"
+#include "../../Color/Color.h"
 
-class Flag: public StaticAnimation
+namespace ChristuxAnimation
 {
-public:
-  Flag(uint8_t nLeds, LedStrip* ledstrip);
-  ~Flag() {};
-protected:
-  void run();
-};
 
+  class Flag: public StaticAnimation
+  {
+  public:
+    Flag(uint8_t nLeds, LedStrip* ledstrip);
+    ~Flag() {};
+  protected:
+    void run();
+  };
+}
 
 #endif

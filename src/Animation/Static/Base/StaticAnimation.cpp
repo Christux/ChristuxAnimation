@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017 Christophe Rubeck.
+ * Copyright (c) 2019 Christophe Rubeck.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as
@@ -16,19 +16,23 @@
 
 #include "StaticAnimation.h"
 
-StaticAnimation::StaticAnimation(uint8_t nLeds, LedStrip* ledstrip) :
-  GenericAnimation(nLeds, ledstrip)
-{}
-
-void StaticAnimation::reset()
+namespace ChristuxAnimation
 {
-  _ledstrip->SetAllPixels(Color::blank);
-}
 
-void StaticAnimation::handle() {
-  if(_areChanges)
+  StaticAnimation::StaticAnimation(uint8_t nLeds, LedStrip* ledstrip) :
+    GenericAnimation(nLeds, ledstrip)
+  {}
+
+  void StaticAnimation::reset()
   {
-    run();
-    _areChanges = false;
+    _ledstrip->SetAllPixels(RgbColor::blank);
+  }
+
+  void StaticAnimation::handle() {
+    if(_areChanges)
+    {
+      run();
+      _areChanges = false;
+    }
   }
 }

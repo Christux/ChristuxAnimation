@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017 Christophe Rubeck.
+ * Copyright (c) 2019 Christophe Rubeck.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as
@@ -14,20 +14,23 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef breathing_h
-#define breathing_h
+#ifndef ChristuxAnimation_breathing_h
+#define ChristuxAnimation_breathing_h
 
 #include "Base/TemporizedAnimation.h"
 
-class Breathing : public TemporizedAnimation
+namespace ChristuxAnimation
 {
-public:
-  Breathing(uint8_t nLeds, LedStrip* ledstrip);
-  ~Breathing() {};
-protected:
-  unsigned long _startTime;
-  void run();
-  void reset();
-};
 
+  class Breathing : public TemporizedAnimation
+  {
+  public:
+    Breathing(uint8_t nLeds, LedStrip* ledstrip);
+    ~Breathing() {};
+  protected:
+    unsigned long _startTime;
+    void run();
+    void reset();
+  };
+}
 #endif

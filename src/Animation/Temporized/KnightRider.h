@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017 Christophe Rubeck.
+ * Copyright (c) 2019 Christophe Rubeck.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as
@@ -14,19 +14,23 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef knightrider_h
-#define knightrider_h
+#ifndef ChristuxAnimation_knightrider_h
+#define ChristuxAnimation_knightrider_h
 
 #include "Base/TemporizedAnimation.h"
+#include "../../Color/Color.h"
 
-class KnightRider : public TemporizedAnimation
+namespace ChristuxAnimation
 {
-public:
-  KnightRider(uint8_t nLeds, LedStrip* ledstrip);
-  KnightRider(uint8_t nLeds, LedStrip* ledstrip, unsigned int timestep);
-  ~KnightRider() {};
-protected:
-  void run();
-};
 
+  class KnightRider : public TemporizedAnimation
+  {
+  public:
+    KnightRider(uint8_t nLeds, LedStrip* ledstrip);
+    KnightRider(uint8_t nLeds, LedStrip* ledstrip, unsigned int timestep);
+    ~KnightRider() {};
+  protected:
+    void run();
+  };
+}
 #endif

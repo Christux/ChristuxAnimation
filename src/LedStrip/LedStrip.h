@@ -14,21 +14,23 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef ChristuxAnimation_theater_h
-#define ChristuxAnimation_theater_h
+#ifndef ChristuxAnimation_ledstrip_h
+#define ChristuxAnimation_ledstrip_h
 
-#include "Base/PatternedAnimation.h"
+#include <Arduino.h>
+#include "../Color/Color.h"
 
 namespace ChristuxAnimation
 {
 
-  class Theater : public PatternedAnimation
+  class LedStrip
   {
-    protected:
-        static const uint8_t theaterPattern[];
     public:
-      Theater(uint8_t nLeds, LedStrip* ledstrip);
-      ~Theater() {};
+      virtual ~LedStrip() {};
+      virtual void Begin() = 0;
+      virtual void SetPixelColor(int, RgbColor) = 0;
+      virtual void SetAllPixels(RgbColor) = 0;
+      virtual void Show() = 0;
   };
 }
 #endif

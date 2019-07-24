@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017 Christophe Rubeck.
+ * Copyright (c) 2019 Christophe Rubeck.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as
@@ -16,30 +16,34 @@
 
 #include "GenericAnimation.h"
 
-GenericAnimation::GenericAnimation(uint8_t nLeds, LedStrip* ledstrip):
- _pixels(nLeds),
- _ledstrip(ledstrip),
- _color(Color::blank),
- _brightness(0),
- _areChanges(true)
- {}
-
-RgbColor GenericAnimation::applyBrightness(RgbColor color, uint8_t bright) {
-
- uint8_t newR = int( (float)color.R * ((float)bright / 255.0) );
- uint8_t newG = int( (float)color.G * ((float)bright / 255.0) );
- uint8_t newB = int( (float)color.B * ((float)bright / 255.0) );
-
- return RgbColor(newR, newG, newB);
-}
-
-RgbColor GenericAnimation::applyBrightness(RgbColor color) {
-  return applyBrightness(color, _brightness);
-}
-
-void GenericAnimation::setColor(RgbColor color)
+namespace ChristuxAnimation
 {
-  _color = color;
-  _brightness = color.R > color.G ? (color.R > color.B ? color.R : color.B) : (color.G > color.B ? color.G : color.B);
-  _areChanges = true;
+
+  GenericAnimation::GenericAnimation(uint8_t nLeds, LedStrip* ledstrip):
+  _pixels(nLeds),
+  _ledstrip(ledstrip),
+  _color(RgbColor::blank),
+  _brightness(0),
+  _areChanges(true)
+  {}
+
+  RgbColor GenericAnimation::applyBrightness(RgbColor color, uint8_t bright) {
+
+  uint8_t newR = int( (float)color.R * ((float)bright / 255.0) );
+  uint8_t newG = int( (float)color.G * ((float)bright / 255.0) );
+  uint8_t newB = int( (float)color.B * ((float)bright / 255.0) );
+
+  return RgbColor(newR, newG, newB);
+  }
+
+  RgbColor GenericAnimation::applyBrightness(RgbColor color) {
+    return applyBrightness(color, _brightness);
+  }
+
+  void GenericAnimation::setColor(RgbColor color)
+  {
+    _color = color;
+    _brightness = color.R > color.G ? (color.R > color.B ? color.R : color.B) : (color.G > color.B ? color.G : color.B);
+    _areChanges = true;
+  }
 }

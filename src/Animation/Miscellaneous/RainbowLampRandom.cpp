@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017 Christophe Rubeck.
+ * Copyright (c) 2019 Christophe Rubeck.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as
@@ -16,35 +16,39 @@
 
 #include "RainbowLampRandom.h"
 
-RainbowLampRandom::RainbowLampRandom(uint8_t nLeds, LedStrip* ledstrip) :
-  GenericAnimation(nLeds, ledstrip),
-  _delay(0),
-  _nextFlicker(0),
-  _phase(0)
-  {};
-
-void RainbowLampRandom::reset()
+namespace ChristuxAnimation
 {
-  _ledstrip->SetAllPixels(Color::blank);
-}
 
-void RainbowLampRandom::handle()
-{
-  unsigned long currTime = millis();
+  RainbowLampRandom::RainbowLampRandom(uint8_t nLeds, LedStrip* ledstrip) :
+    GenericAnimation(nLeds, ledstrip),
+    _delay(0),
+    _nextFlicker(0),
+    _phase(0)
+    {};
 
-  if (currTime >= _nextFlicker) {
+  void RainbowLampRandom::reset()
+  {
+    _ledstrip->SetAllPixels(RgbColor::blank);
+  }
 
-    // New phase
-    _phase = _phase + random(180);
-    _phase = _phase < 360 ? _phase : _phase - 360;
+  void RainbowLampRandom::handle()
+  {
+    unsigned long currTime = millis();
 
-    RgbColor color = applyBrightness(RainbowTable::getRainbowColor(_phase));
+    if (currTime >= _nextFlicker) {
 
-    // Set all leds
-    _ledstrip->SetAllPixels(color);
-    _ledstrip->Show();
+      // New phase
+      _phase = _phase + random(180);
+      _phase = _phase < 360 ? _phase : _phase - 360;
 
-    _delay = (20 + random(40)) * 100;
-    _nextFlicker = currTime + _delay;
+      RgbColor color = applyBrightness(RainbowTable::getRainbowColor(_phase));
+
+      // Set all leds
+      _ledstrip->SetAllPixels(color);
+      _ledstrip->Show();
+
+      _delay = (20 + random(40)) * 100;
+      _nextFlicker = currTime + _delay;
+    }
   }
 }
