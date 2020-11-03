@@ -18,7 +18,6 @@
 
 namespace ChristuxAnimation
 {
-
   GenericAnimation::GenericAnimation(uint8_t nLeds, LedStrip* ledstrip):
   _pixels(nLeds),
   _ledstrip(ledstrip),

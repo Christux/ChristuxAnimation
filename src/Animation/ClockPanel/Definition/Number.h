@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019 Christophe Rubeck.
+ * Copyright (c) 2020 Christophe Rubeck.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as
@@ -14,26 +14,26 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef ChristuxAnimation_rainbowlamprandom_h
-#define ChristuxAnimation_rainbowlamprandom_h
+#ifndef ChristuxAnimation_number_h
+#define ChristuxAnimation_number_h
 
-#include "../Base/GenericAnimation.h"
-#include "../../RainbowTable/RainbowTable.h"
+#include <Arduino.h>
 
 namespace ChristuxAnimation
 {
-  class RainbowLampRandom : public GenericAnimation
-  {
-  public:
-    RainbowLampRandom(uint8_t nLeds, LedStrip* ledstrip);
-    ~RainbowLampRandom() {};
-    void reset();
-    void handle();
-
-  protected:
-    unsigned int _delay;
-    unsigned long _nextFlicker;
-    unsigned int _phase;
-  };
-}
+	struct Number
+	{
+	public:
+		static const bool Zero[12];
+		static const bool One[12];
+		static const bool Two[12];
+		static const bool Three[12];
+		static const bool Four[12];
+		static const bool Five[12];
+		static const bool Six[12];
+		static const bool Seven[12];
+		static const bool Height[12];
+		static const bool Nine[12];
+	};
+} // namespace ChristuxAnimation
 #endif

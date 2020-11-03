@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019 Christophe Rubeck.
+ * Copyright (c) 2020 Christophe Rubeck.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as
@@ -14,26 +14,11 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef ChristuxAnimation_rainbowlamprandom_h
-#define ChristuxAnimation_rainbowlamprandom_h
-
-#include "../Base/GenericAnimation.h"
-#include "../../RainbowTable/RainbowTable.h"
+#include "ClockSeparator.h"
 
 namespace ChristuxAnimation
 {
-  class RainbowLampRandom : public GenericAnimation
-  {
-  public:
-    RainbowLampRandom(uint8_t nLeds, LedStrip* ledstrip);
-    ~RainbowLampRandom() {};
-    void reset();
-    void handle();
-
-  protected:
-    unsigned int _delay;
-    unsigned long _nextFlicker;
-    unsigned int _phase;
-  };
+	ClockSeparator::ClockSeparator(const int indexes[2], LedStrip* ledstrip):
+	SubLedStrip(2, indexes, ledstrip)
+	{}
 }
-#endif

@@ -1,5 +1,6 @@
 ChristuxAnimation	KEYWORD1
 UniversalLedStripAdapter	KEYWORD1
+ClockPanel	KEYWORD1
 Animator	KEYWORD1
 Rainbow	KEYWORD1
 Sunrise	KEYWORD1
@@ -14,6 +15,7 @@ RainbowLamp	KEYWORD1
 RainbowLampRandom	KEYWORD1
 Fire	KEYWORD1
 Breathing	KEYWORD1
+ClockPanelDisplay	KEYWORD1
 add	KEYWORD2
 nextAnimation	KEYWORD2
 setAnimation	KEYWORD2

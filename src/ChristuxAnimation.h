@@ -19,6 +19,7 @@
 
 #include "LedStrip/LedStrip.h"
 #include "LedStrip/UniversalLedStripAdapter.h"
+#include "ClockPanel/ClockPanel.h"
 
 #include "Animator/Animator.h"
 
@@ -44,5 +45,7 @@
 
 #include "Animation/Miscellaneous/RainbowLampRandom.h"
 #include "Animation/Miscellaneous/Sunrise.h"
+
+#include "Animation/ClockPanel/ClockPanelDisplay.h"
 
 #endif
