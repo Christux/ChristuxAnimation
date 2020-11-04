@@ -47,5 +47,6 @@
 #include "Animation/Miscellaneous/Sunrise.h"
 
 #include "Animation/ClockPanel/ClockPanelDisplay.h"
+#include "Animation/ClockPanel/ClockTime/ClockTime.h"
 
 #endif

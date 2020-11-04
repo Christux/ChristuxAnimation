@@ -14,13 +14,23 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
+#include <TimeLib.h>
 #include <NeoPixelBus.h>
 #include <ChristuxAnimation.h>
+#include <ThreeWire.h>  
+#include <RtcDS1302.h>
 
 using namespace ChristuxAnimation;
 
-int PixelPin = 8;
-int PixelCount = 50;
+const int PixelPin = 8;
+const int PixelCount = 50;
+
+const int kCePin   = 10;  // Chip Enable
+const int kIoPin   = 11;  // Input/Output
+const int kSclkPin = 12;  // Serial Clock
+
+ThreeWire myWire(kIoPin, kSclkPin, kCePin); // IO, SCLK, CE
+RtcDS1302<ThreeWire> Rtc(myWire);
 
 NeoPixelBus<NeoGrbFeature, Neo800KbpsMethod> neoPixelBus(PixelCount, PixelPin);
 
@@ -68,24 +78,25 @@ ClockPanel clockPanel(
 	}
 );
 
-ClockPanelDisplay clockPanelDisplay(&clockPanel);
-
-int i = 0;
+ClockPanelDisplay clockPanelDisplay(
+	&clockPanel, 
+	[&](){
+		return ClockTime(hour(), minute(), second());
+	});
 
 void setup()
 {
-	clockPanel.Begin();
+	Rtc.Begin();
 
-	clockPanelDisplay.reset();
-	clockPanelDisplay.setColor(ChristuxAnimation::RgbColor(64,0,0));
+	setSyncProvider([&](){
+		return Rtc.GetDateTime().TotalSeconds() + SECS_YR_2000;
+	});
+
+	clockPanel.Begin();
+	clockPanelDisplay.setColor(ChristuxAnimation::RgbColor::purple.ChangeBrightness(128));
 }
 
 void loop()
 {
 	clockPanelDisplay.handle();
-
-	clockPanelDisplay.setTime(i/100, (i%100), 0);
-
-	i++;
-	delay(500);
 }

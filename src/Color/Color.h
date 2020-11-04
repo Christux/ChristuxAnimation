@@ -32,6 +32,7 @@ namespace ChristuxAnimation
     RgbColor();
     ~RgbColor(){};
     uint8_t CalculateBrightness() const;
+    RgbColor ChangeBrightness(uint8_t bright) const;
 
     bool operator==(const RgbColor& other) const
     {

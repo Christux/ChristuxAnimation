@@ -32,6 +32,17 @@ namespace ChristuxAnimation
         return R > G ? (R > B ? R : B) : (G > B ? G : B);
     }
 
+    RgbColor RgbColor::ChangeBrightness(uint8_t bright) const {
+
+        float alpha = (float)bright / (float)CalculateBrightness();
+
+        uint8_t newR = int( (float)R * alpha );
+        uint8_t newG = int( (float)G * alpha );
+        uint8_t newB = int( (float)B * alpha );
+
+        return RgbColor(newR, newG, newB);
+    }
+
     const RgbColor RgbColor::red = RgbColor(255, 0, 0);
     const RgbColor RgbColor::green = RgbColor(0, 255, 0);
     const RgbColor RgbColor::blue = RgbColor(0, 0, 255);

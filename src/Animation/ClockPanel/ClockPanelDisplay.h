@@ -19,19 +19,20 @@
 
 #include "../Base/GenericAnimation.h"
 #include "../../ClockPanel/ClockPanel.h"
+#include "ClockTime/ClockTime.h"
 #include "Definition/Number.h"
 
 namespace ChristuxAnimation
 {
+	typedef ClockTime (*TSetTime)(void);
+
 	class ClockPanelDisplay : public GenericAnimation
 	{
 	protected:
 		ClockPanel *_clockPanel;
+		TSetTime _setTime;
 		unsigned const long _delay;
 		unsigned long _nextFlicker;
-		uint8_t _hours;
-		uint8_t _minutes;
-		uint8_t _seconds;
 		bool _separatorState;
 		const bool* _numbers[10] = {
 			Number::Zero,
@@ -49,11 +50,10 @@ namespace ChristuxAnimation
 		void displayDigit(uint8_t, uint8_t);
 
 	public:
-		ClockPanelDisplay(ClockPanel *);
+		ClockPanelDisplay(ClockPanel *, TSetTime);
 		~ClockPanelDisplay(){};
 		void reset();
 		void handle();
-		void setTime(uint8_t, uint8_t, uint8_t);
 	};
 } // namespace ChristuxAnimation
 #endif

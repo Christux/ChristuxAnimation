@@ -18,13 +18,11 @@
 
 namespace ChristuxAnimation
 {
-	ClockPanelDisplay::ClockPanelDisplay(ClockPanel *clockPanel) : GenericAnimation(50, clockPanel),
+	ClockPanelDisplay::ClockPanelDisplay(ClockPanel *clockPanel, TSetTime setTime) : GenericAnimation(50, clockPanel),
 																   _clockPanel(clockPanel),
+																   _setTime(setTime),
 																   _delay(500),
 																   _nextFlicker(0),
-																   _hours(0),
-																   _minutes(0),
-																   _seconds(0),
 																   _separatorState(true)
 	{
 	}
@@ -32,13 +30,6 @@ namespace ChristuxAnimation
 	void ClockPanelDisplay::reset()
 	{
 		_clockPanel->SetAllPixels(RgbColor::blank);
-	}
-
-	void ClockPanelDisplay::setTime(uint8_t hours, uint8_t minutes, uint8_t seconds)
-	{
-		_hours = hours;
-		_minutes = minutes;
-		_seconds = seconds;
 	}
 
 	void ClockPanelDisplay::handle()
@@ -54,7 +45,9 @@ namespace ChristuxAnimation
 
 	void ClockPanelDisplay::run()
 	{
-		uint8_t hourDecade = _hours / 10;
+		ClockTime time = _setTime();
+
+		uint8_t hourDecade = time.Hour / 10;
 
 		if(hourDecade == 0)
 		{
@@ -65,20 +58,9 @@ namespace ChristuxAnimation
 			displayDigit(0, hourDecade);
 		}		
 		
-		displayDigit(1, _hours % 10);
-		
-		uint8_t minuteDecade = _minutes / 10;
-
-		if(minuteDecade == 0)
-		{
-			_clockPanel->GetDigit(2)->SetAllPixels(RgbColor::blank);
-		}
-		else
-		{
-			displayDigit(2, minuteDecade);
-		}
-		
-		displayDigit(3, _minutes % 10);
+		displayDigit(1, time.Hour % 10);
+		displayDigit(2, time.Minute / 10);
+		displayDigit(3, time.Minute % 10);
 
 		if(_separatorState)
 		{
@@ -86,7 +68,9 @@ namespace ChristuxAnimation
 		}
 		else
 		{
-			_clockPanel->GetSeparator()->SetAllPixels(RgbColor::blank);
+			_clockPanel->GetSeparator()->SetAllPixels(
+				_color.ChangeBrightness(_color.CalculateBrightness() / 2)
+			);
 		}
 		
 		_separatorState = !_separatorState;
