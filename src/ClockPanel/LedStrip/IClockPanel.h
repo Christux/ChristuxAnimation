@@ -26,48 +26,22 @@
  * Digit# :   1       2           3       4
  */
 
-#ifndef ChristuxAnimation_clockpanel_h
-#define ChristuxAnimation_clockpanel_h
+#ifndef ChristuxAnimation_iclockpanel_h
+#define ChristuxAnimation_iclockpanel_h
 
 #include <Arduino.h>
-#include "../LedStrip/LedStrip.h"
-#include "../Color/Color.h"
-#include "ClockDigit/ClockDigit.h"
-#include "ClockSeparator/ClockSeparator.h"
+#include "../../LedStrip/LedStrip.h"
+#include "../../Color/Color.h"
 
 namespace ChristuxAnimation
 {
-	typedef void (*TBegin)(void);
-	typedef void (*TShow)(void);
-	typedef void (*TSetPixelColor)(int, RgbColor);
-
-	class ClockPanel : public LedStrip
+	class IClockPanel : public LedStrip
 	{
-		protected:
-			TBegin _begin;
-			TShow _show;
-			TSetPixelColor _setPixelColor;
-			ClockDigit _digits[4];
-			ClockSeparator _separator;
-
 		public:
-			static const int pixelCount = 50;
-			ClockPanel(
-				TBegin,
-				TShow,
-				TSetPixelColor,
-				const int[],
-				const int[],
-				const int[],
-				const int[],
-				const int[]);
-			~ClockPanel() {};
-			void Begin();
-			void SetPixelColor(int i, RgbColor color);
-			void SetAllPixels(RgbColor color);
-			void Show();
-			ClockDigit* GetDigit(int i);
-			ClockSeparator* GetSeparator();
+			virtual ~IClockPanel() {};
+			virtual void SetSeparatorPixelColor(int i, RgbColor color) = 0;
+			virtual void ShowWithMask() = 0;
+			virtual void ShowWithoutMask() = 0;
 	};
 }
 #endif

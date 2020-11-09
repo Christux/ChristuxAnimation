@@ -14,22 +14,18 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef ChristuxAnimation_clockseparator_h
-#define ChristuxAnimation_clockseparator_h
+#ifndef ChristuxAnimation_image_h
+#define ChristuxAnimation_image_h
 
 #include <Arduino.h>
-#include "../../LedStrip/SubLedStrip.h"
-#include "../../LedStrip/LedStrip.h"
+#include "../../Color/Color.h"
 
 namespace ChristuxAnimation
 {
-	class ClockSeparator: public SubLedStrip
+	struct Image
 	{
-		protected:
-
-		public:
-			ClockSeparator(const int[], LedStrip*);
-			~ClockSeparator() {};
+	public:
+		static const RgbColor flower[12];
 	};
-}
+} // namespace ChristuxAnimation
 #endif

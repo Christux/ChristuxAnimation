@@ -18,8 +18,8 @@
 #define ChristuxAnimation_clockdigit_h
 
 #include <Arduino.h>
-#include "../../LedStrip/SubLedStrip.h"
-#include "../../LedStrip/LedStrip.h"
+#include "../../../LedStrip/SubLedStrip.h"
+#include "../../../LedStrip/LedStrip.h"
 
 namespace ChristuxAnimation
 {

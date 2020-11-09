@@ -24,6 +24,16 @@ namespace ChristuxAnimation
 	_ledstrip(ledstrip)
 	{}
 
+	void SubLedStrip::Begin()
+	{
+		// Only master ledstrip can begin in setup
+	}
+
+	void SubLedStrip::Show()
+	{
+		_ledstrip->Show();
+	}
+
 	void SubLedStrip::SetPixelColor(int i, RgbColor color)
 	{
 		_ledstrip->SetPixelColor(_indexes[i], color);
@@ -33,7 +43,7 @@ namespace ChristuxAnimation
 	{
 		for(int i = 0; i < _pixels; i++)
 		{
-			_ledstrip->SetPixelColor(_indexes[i], color);
+			SetPixelColor(i, color);
 		}
 	}
 
@@ -48,15 +58,34 @@ namespace ChristuxAnimation
 		{
 			if(pattern[i])
 			{
-				_ledstrip->SetPixelColor(_indexes[i], color);
+				SetPixelColor(i, color);
 			}
 			else
 			{
 				if(erasePixel)
 				{
-					_ledstrip->SetPixelColor(_indexes[i], RgbColor::blank);
+					SetPixelColor(i, RgbColor::blank);
 				}
-			}			
+			}		
+		}
+	}
+
+	void SubLedStrip::SetPattern(const RgbColor sprite[], int brightness)
+	{
+		for(int i = 0; i < _pixels; i++)
+		{
+			SetPixelColor(i, sprite[i].ChangeBrightness(brightness));
+		}
+	}
+
+	void SubLedStrip::SetMask(const bool pattern[])
+	{
+		for(int i = 0; i < _pixels; i++)
+		{
+			if(!pattern[i])
+			{
+				SetPixelColor(i, RgbColor::blank);
+			}
 		}
 	}
 }

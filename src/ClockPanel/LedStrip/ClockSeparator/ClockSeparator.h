@@ -14,11 +14,25 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "ClockSeparator.h"
+#ifndef ChristuxAnimation_clockseparator_h
+#define ChristuxAnimation_clockseparator_h
+
+#include <Arduino.h>
+#include "../../LedStrip/IClockPanel.h"
+#include "../../../LedStrip/SubLedStrip.h"
 
 namespace ChristuxAnimation
 {
-	ClockSeparator::ClockSeparator(const int indexes[2], LedStrip* ledstrip):
-	SubLedStrip(2, indexes, ledstrip)
-	{}
+	class ClockSeparator: public SubLedStrip
+	{
+		protected:
+			IClockPanel* _clockPanel;
+
+		public:
+			ClockSeparator(const int[], IClockPanel*);
+			~ClockSeparator() {};
+			void Show();
+			void SetPixelColor(int, RgbColor) override;
+	};
 }
+#endif

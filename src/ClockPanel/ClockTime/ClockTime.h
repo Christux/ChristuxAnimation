@@ -14,13 +14,32 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "ClockTime.h"
+#ifndef ChristuxAnimation_clocktime_h
+#define ChristuxAnimation_clocktime_h
+
+#include <Arduino.h>
 
 namespace ChristuxAnimation
 {
-  ClockTime::ClockTime(uint8_t hour, uint8_t minute, uint8_t second):
-	  Hour(hour),
-	  Minute(minute),
-	  Second(second)
-	  {}
-}
+	struct ClockTime
+	{
+	public:
+		uint8_t Hour;
+		uint8_t Minute;
+		ClockTime(uint8_t, uint8_t);
+		ClockTime();
+		~ClockTime(){};
+
+		bool operator==(const ClockTime &other) const
+		{
+			return (Hour == other.Hour && Minute == other.Minute);
+		}
+
+		bool operator!=(const ClockTime &other) const
+		{
+			return !(*this == other);
+		}
+	};
+} // namespace ChristuxAnimation
+
+#endif

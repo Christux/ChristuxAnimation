@@ -17,10 +17,11 @@
 #include <TimeLib.h>
 #include <NeoPixelBus.h>
 #include <ChristuxAnimation.h>
-#include <ThreeWire.h>  
+#include <ThreeWire.h>
 #include <RtcDS1302.h>
 
 using namespace ChristuxAnimation;
+using Color = ChristuxAnimation::RgbColor;
 
 const int PixelPin = 8;
 const int PixelCount = 50;
@@ -41,7 +42,7 @@ ClockPanel clockPanel(
 	[&]() {
 		neoPixelBus.Show();
 	},
-	[&](int i, ChristuxAnimation::RgbColor color) {
+	[&](int i, Color color) {
 		neoPixelBus.SetPixelColor(i, ::RgbColor(color.R, color.G, color.B));
 	},
 	(int[]){
@@ -78,25 +79,56 @@ ClockPanel clockPanel(
 	}
 );
 
-ClockPanelDisplay clockPanelDisplay(
+ClockPanelAnimator clockPanelAnimator(
 	&clockPanel, 
 	[&](){
-		return ClockTime(hour(), minute(), second());
+		return ClockTime(hour(), minute());
 	});
+
+// Digit animations
+UniColor unicolor(PixelCount, &clockPanel);
+RainbowLamp rainbowAll(PixelCount, &clockPanel);
+Rainbow rainbow(PixelCount, &clockPanel);
+Fire fire(PixelCount, &clockPanel);
+
+// Separator animations
+UniColor unicolorS(2, clockPanel.GetSeparator());
+Blink blinkS(2, clockPanel.GetSeparator(), 1000);
+Breathing breathS(2, clockPanel.GetSeparator());
+KnightRider knightRiderS(2, clockPanel.GetSeparator(), 200);
 
 void setup()
 {
+	// Start of rtc
 	Rtc.Begin();
 
+	// Setup of timelib time provider
 	setSyncProvider([&](){
 		return Rtc.GetDateTime().TotalSeconds() + SECS_YR_2000;
 	});
 
+	// Start of ledstrip
 	clockPanel.Begin();
-	clockPanelDisplay.setColor(ChristuxAnimation::RgbColor::purple.ChangeBrightness(128));
+
+	// Setup of main animations
+	clockPanelAnimator.add(&unicolor);
+	clockPanelAnimator.add(&rainbowAll);
+	clockPanelAnimator.add(&rainbow);
+	clockPanelAnimator.add(&fire);
+
+	// Setup of animations of separator
+	clockPanelAnimator.addSeparator(&unicolorS);
+	clockPanelAnimator.addSeparator(&blinkS);
+	clockPanelAnimator.addSeparator(&breathS);
+	clockPanelAnimator.addSeparator(&knightRiderS);
+
+	// Settings
+	clockPanelAnimator.setColor(Color::purple.ChangeBrightness(64));
+	clockPanelAnimator.setAnimation(3);
+	clockPanelAnimator.setSeparatorAnimation(0);
 }
 
 void loop()
 {
-	clockPanelDisplay.handle();
+	clockPanelAnimator.handle();
 }

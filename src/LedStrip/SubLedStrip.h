@@ -22,7 +22,7 @@
 
 namespace ChristuxAnimation
 {
-	class SubLedStrip
+	class SubLedStrip: public LedStrip
 	{
 		protected:
 			const uint8_t _pixels;
@@ -32,10 +32,14 @@ namespace ChristuxAnimation
 		public:
 			SubLedStrip(int, const int*, LedStrip*);
 			~SubLedStrip() {};
-			void SetPixelColor(int, RgbColor);
+			void Begin();
+			void Show();
+			virtual void SetPixelColor(int, RgbColor);
 			void SetAllPixels(RgbColor);
 			void SetPattern(const bool[], RgbColor);
 			void SetPattern(const bool[], RgbColor, bool);
+			void SetPattern(const RgbColor[], int);
+			void SetMask(const bool[]);
 	};
 }
 #endif

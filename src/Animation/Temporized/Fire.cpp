@@ -31,8 +31,9 @@ namespace ChristuxAnimation
 
     for (int i = 0; i < _pixels; i++) {
 
-        int delta = random(40, 100);
-        RgbColor col = applyBrightness(RgbColor((r * delta) / 100, (g * delta) / 100, b));
+        float delta = random(40, 100) * _brightness / 255.0;
+        RgbColor col = RgbColor((int) (r * delta / 100), (int)(g * delta / 100), b);
+        
         _ledstrip->SetPixelColor(i, col);
       }
       _ledstrip->Show();

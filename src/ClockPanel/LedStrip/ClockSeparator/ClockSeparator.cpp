@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018 Christophe Rubeck.
+ * Copyright (c) 2020 Christophe Rubeck.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as
@@ -14,24 +14,22 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "Blink.h"
+#include "ClockSeparator.h"
 
 namespace ChristuxAnimation
 {
+	ClockSeparator::ClockSeparator(const int indexes[2], IClockPanel* clockPanel):
+	SubLedStrip(2, indexes, clockPanel),
+	_clockPanel(clockPanel)
+	{}
 
-  Blink::Blink(uint8_t nLeds, LedStrip *ledstrip, unsigned int duration) : TemporizedAnimation(nLeds, ledstrip, duration, 2){};
+	void ClockSeparator::Show()
+	{
+		_clockPanel->ShowWithoutMask();
+	}
 
-  void Blink::run()
-  {
-    if (_step == 0)
-    {
-      _ledstrip->SetAllPixels(_color);
-      _ledstrip->Show();
-    }
-    else
-    {
-      _ledstrip->SetAllPixels(RgbColor::blank);
-      _ledstrip->Show();
-    }
-  }
-} // namespace ChristuxAnimation
+	void ClockSeparator::SetPixelColor(int i, RgbColor color)
+	{
+		_clockPanel->SetSeparatorPixelColor(_indexes[i], color);
+	}
+}

@@ -17,23 +17,26 @@
 #ifndef ChristuxAnimation_clockpaneldisplay_h
 #define ChristuxAnimation_clockpaneldisplay_h
 
-#include "../Base/GenericAnimation.h"
-#include "../../ClockPanel/ClockPanel.h"
-#include "ClockTime/ClockTime.h"
-#include "Definition/Number.h"
+#include "../../Animator/Animator.h"
+#include "../LedStrip/ClockPanel.h"
+#include "../ClockTime/ClockTime.h"
+#include "../Sprites/Number.h"
+#include "../../Util/Observer/Observer.h"
 
 namespace ChristuxAnimation
 {
 	typedef ClockTime (*TSetTime)(void);
 
-	class ClockPanelDisplay : public GenericAnimation
+	class ClockPanelAnimator : public Animator, public Observer
 	{
 	protected:
 		ClockPanel *_clockPanel;
 		TSetTime _setTime;
-		unsigned const long _delay;
-		unsigned long _nextFlicker;
-		bool _separatorState;
+		unsigned const long _refreshDelay;
+		unsigned long _nextRefreshFlicker;
+		unsigned const long _triggerDelay;
+		unsigned long _nextTriggerFlicker;
+		Animator _separatorAnimator;
 		const bool* _numbers[10] = {
 			Number::Zero,
 			Number::One,
@@ -46,14 +49,20 @@ namespace ChristuxAnimation
 			Number::Height,
 			Number::Nine
 		};
-		void run();
-		void displayDigit(uint8_t, uint8_t);
+		void applyMask();
+		void displayDigit(uint8_t, uint8_t) const;
+		void HandleAnimations();
+		void RefreshLeds();
+		void TriggerAnimation();
 
 	public:
-		ClockPanelDisplay(ClockPanel *, TSetTime);
-		~ClockPanelDisplay(){};
-		void reset();
+		ClockPanelAnimator(ClockPanel *, TSetTime);
+		~ClockPanelAnimator(){};
+		void setColor(RgbColor color);
 		void handle();
+		void notify();
+		void addSeparator(Animation*);
+		void setSeparatorAnimation(uint8_t);
 	};
 } // namespace ChristuxAnimation
 #endif

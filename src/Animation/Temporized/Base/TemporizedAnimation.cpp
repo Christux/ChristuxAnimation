@@ -40,5 +40,10 @@ namespace ChristuxAnimation
       _step = _step < _numStep - 1 ? _step + 1 : 0;
       _nextFlicker = currTime + _delay;
     }
+
+    if(_areChanges)
+    {
+      run();
+    }
   }
 }

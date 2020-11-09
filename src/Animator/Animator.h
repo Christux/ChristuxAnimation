@@ -23,7 +23,6 @@
 
 namespace ChristuxAnimation
 {
-
   /*
   * Interface for animation classes
   */

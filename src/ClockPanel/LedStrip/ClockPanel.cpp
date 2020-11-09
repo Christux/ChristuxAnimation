@@ -36,31 +36,82 @@ namespace ChristuxAnimation
 			ClockDigit(thirdDigitIndexes, this),
 			ClockDigit(fourthDigitIndexes, this)
 		}),
-		_separator(ClockSeparator(separatorIndexes, this))
+		_separator(ClockSeparator(separatorIndexes, this)),
+		_separatorIndexes(separatorIndexes),
+		_separatorColor(RgbColor::blank),
+		_nMaskHandles(0),
+		_requestedCommit(false)
     {}
+
+	void ClockPanel::AddMaskHandle(Observer* maskHandle)
+	{
+		_maskHandles[_nMaskHandles++] = maskHandle;
+	}
+
+	void ClockPanel::ApplyAllMasks()
+	{
+		for(int i = 0; i < _nMaskHandles; i++)
+		{
+			_maskHandles[i]->notify();
+		}
+	}
 
     void ClockPanel::Begin()
     {
         _begin();
     }
 
+	void ClockPanel::ShowWithMask()
+	{
+		ApplyAllMasks();
+		_requestedCommit = true;
+	}
+	
+	void ClockPanel::ShowWithoutMask()
+	{
+		_requestedCommit = true;
+	}
+
     void ClockPanel::Show()
     {
-        _show();
+		ShowWithMask();
     }
+
+	void ClockPanel::Commit()
+	{
+		if(_requestedCommit)
+		{
+			_show();
+			_requestedCommit = false;
+		}
+	}
 
     void ClockPanel::SetAllPixels(RgbColor color)
     {
         for(int i = 0; i < pixelCount; i++)
         {
-            _setPixelColor(i, color);
+            SetPixelColor(i, color);
         }
     }
 
     void ClockPanel::SetPixelColor(int i, RgbColor color)
     {
-        _setPixelColor(i, color);
+		if(i == _separatorIndexes[0] || i == _separatorIndexes[1])
+		{
+			_separatorColor = color;
+		}
+		else {
+			_setPixelColor(i, color);
+		}
     }
+
+	void ClockPanel::SetSeparatorPixelColor(int i, RgbColor color)
+	{
+		if(i == _separatorIndexes[0] || i == _separatorIndexes[1])
+		{
+			_setPixelColor(i, color);
+		}
+	}
 
 	ClockDigit* ClockPanel::GetDigit(int i)
 	{
@@ -70,5 +121,10 @@ namespace ChristuxAnimation
 	ClockSeparator* ClockPanel::GetSeparator()
 	{
 		return &_separator;
+	}
+
+	RgbColor ClockPanel::GetSeparatorColor()
+	{
+		return _separatorColor;
 	}
 }
