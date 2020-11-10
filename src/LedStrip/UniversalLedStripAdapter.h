@@ -35,12 +35,12 @@ namespace ChristuxAnimation
         TSetPixelColor _setPixelColor;
         
     public:
-        UniversalLedStripAdapter(int pixelCount, TBegin Begin, TShow Show, TSetPixelColor SetPixelColor);
+        UniversalLedStripAdapter(int pixelCount, TBegin begin, TShow show, TSetPixelColor setPixelColor);
         ~UniversalLedStripAdapter() {};
-        void Begin();
-        void SetPixelColor(int i, RgbColor color);
-        void SetAllPixels(RgbColor color);
-        void Show();
+        void begin();
+        void setPixelColor(int i, RgbColor color);
+        void setAllPixels(RgbColor color);
+        void show();
     };
 }
 

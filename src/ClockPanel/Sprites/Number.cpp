@@ -18,7 +18,7 @@
 
 namespace ChristuxAnimation
 {
-	const bool Number::Zero[] = {
+	const bool Number::zero[] = {
 			 1,1,
 			1,0,1,
 			 0,0,
@@ -26,7 +26,7 @@ namespace ChristuxAnimation
 			 1,1
 	};
 
-	const bool Number::One[] = {
+	const bool Number::one[] = {
 			 0,1,
 			0,0,1,
 			 0,1,
@@ -34,7 +34,7 @@ namespace ChristuxAnimation
 			 0,1
 	};
 
-	const bool Number::Two[] = {
+	const bool Number::two[] = {
 			 1,1,
 			0,0,1,
 			 1,1,
@@ -42,7 +42,7 @@ namespace ChristuxAnimation
 			 1,1
 	};
 
-	const bool Number::Three[] = {
+	const bool Number::three[] = {
 			 1,1,
 			0,0,1,
 			 1,1,
@@ -50,7 +50,7 @@ namespace ChristuxAnimation
 			 1,1
 	};
 
-	const bool Number::Four[] = {
+	const bool Number::four[] = {
 			 1,0,
 			1,0,1,
 			 1,1,
@@ -58,7 +58,7 @@ namespace ChristuxAnimation
 			 0,1
 	};
 
-	const bool Number::Five[] = {
+	const bool Number::five[] = {
 			 1,1,
 			1,0,0,
 			 1,1,
@@ -66,7 +66,7 @@ namespace ChristuxAnimation
 			 1,1
 	};
 
-	const bool Number::Six[] = {
+	const bool Number::six[] = {
 			 0,1,
 			0,1,0,
 			 1,1,
@@ -74,7 +74,7 @@ namespace ChristuxAnimation
 			 1,1
 	};
 
-	const bool Number::Seven[] = {
+	const bool Number::seven[] = {
 			 1,1,
 			0,0,1,
 			 0,1,
@@ -82,7 +82,7 @@ namespace ChristuxAnimation
 			 1,0
 	};
 
-	const bool Number::Height[] = {
+	const bool Number::eight[] = {
 			 1,1,
 			1,0,1,
 			 1,1,
@@ -90,7 +90,7 @@ namespace ChristuxAnimation
 			 1,1
 	};
 
-	const bool Number::Nine[] = {
+	const bool Number::nine[] = {
 			 1,1,
 			1,0,1,
 			 1,1,

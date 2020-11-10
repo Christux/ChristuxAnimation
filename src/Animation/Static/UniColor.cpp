@@ -25,7 +25,7 @@ namespace ChristuxAnimation
 
   void UniColor::run()
   {
-    _ledstrip->SetAllPixels(_color);
-    _ledstrip->Show();
+    _ledstrip->setAllPixels(_color);
+    _ledstrip->show();
   }
 }

@@ -38,22 +38,22 @@ namespace ChristuxAnimation
 		unsigned long _nextTriggerFlicker;
 		Animator _separatorAnimator;
 		const bool* _numbers[10] = {
-			Number::Zero,
-			Number::One,
-			Number::Two,
-			Number::Three,
-			Number::Four,
-			Number::Five,
-			Number::Six,
-			Number::Seven,
-			Number::Height,
-			Number::Nine
+			Number::zero,
+			Number::one,
+			Number::two,
+			Number::three,
+			Number::four,
+			Number::five,
+			Number::six,
+			Number::seven,
+			Number::eight,
+			Number::nine
 		};
 		void applyMask();
 		void displayDigit(uint8_t, uint8_t) const;
-		void HandleAnimations();
-		void RefreshLeds();
-		void TriggerAnimation();
+		void handleAnimations();
+		void refreshLeds();
+		void triggerAnimation();
 
 	public:
 		ClockPanelAnimator(ClockPanel *, TSetTime);

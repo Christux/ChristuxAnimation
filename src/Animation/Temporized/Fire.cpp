@@ -22,6 +22,6 @@ namespace ChristuxAnimation
 
   RgbColor Fire::update(float delta)
   {
-    return RgbColor(255, 100, 0).ChangeBrightness(delta * _brightness);
+    return RgbColor(255, 100, 0).changeBrightness(delta * _brightness);
   }
 } // namespace ChristuxAnimation

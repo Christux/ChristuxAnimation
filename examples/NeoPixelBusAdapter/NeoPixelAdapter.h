@@ -29,14 +29,14 @@ class NeoPixelAdapter : public LedStrip
       NeoPixelBus<Feature, Method> _strip;
 
     public:
-      NeoPixelAdapter(int PixelCount, int PixelPin);
-      NeoPixelAdapter(int PixelCount, int ClockPin, int DataPin);
-      NeoPixelAdapter(int PixelCount);
+      NeoPixelAdapter(int pixelCount, int pixelPin);
+      NeoPixelAdapter(int pixelCount, int ClockPin, int DataPin);
+      NeoPixelAdapter(int pixelCount);
       ~NeoPixelAdapter() {};
-      void Begin();
-      void SetPixelColor(int i, RgbColor color);
-      void SetAllPixels(RgbColor color);
-      void Show();
+      void begin();
+      void setPixelColor(int i, RgbColor color);
+      void setAllPixels(RgbColor color);
+      void show();
   };
 
   /*
@@ -44,39 +44,39 @@ class NeoPixelAdapter : public LedStrip
   */
 
   template <typename Feature,  typename Method>
-  NeoPixelAdapter<Feature, Method>::NeoPixelAdapter(int PixelCount, int PixelPin):
-    _strip(NeoPixelBus<Feature, Method>(PixelCount, PixelPin))
+  NeoPixelAdapter<Feature, Method>::NeoPixelAdapter(int pixelCount, int pixelPin):
+    _strip(NeoPixelBus<Feature, Method>(pixelCount, pixelPin))
   {};
 
   template <typename Feature,  typename Method>
-  NeoPixelAdapter<Feature, Method>::NeoPixelAdapter(int PixelCount, int ClockPin, int DataPin):
-    _strip(NeoPixelBus<Feature, Method>(PixelCount, ClockPin, DataPin))
+  NeoPixelAdapter<Feature, Method>::NeoPixelAdapter(int pixelCount, int ClockPin, int DataPin):
+    _strip(NeoPixelBus<Feature, Method>(pixelCount, ClockPin, DataPin))
   {};
 
   template <typename Feature,  typename Method>
-  NeoPixelAdapter<Feature, Method>::NeoPixelAdapter(int PixelCount):
-    _strip(NeoPixelBus<Feature, Method>(PixelCount))
+  NeoPixelAdapter<Feature, Method>::NeoPixelAdapter(int pixelCount):
+    _strip(NeoPixelBus<Feature, Method>(pixelCount))
   {};
 
   template <typename Feature,  typename Method>
-  void NeoPixelAdapter<Feature, Method>::Begin() {
+  void NeoPixelAdapter<Feature, Method>::begin() {
     _strip.Begin();
   }
 
   template <typename Feature,  typename Method>
-  void NeoPixelAdapter<Feature, Method>::SetPixelColor(int i, RgbColor color) {
+  void NeoPixelAdapter<Feature, Method>::setPixelColor(int i, RgbColor color) {
     _strip.SetPixelColor(i, ::RgbColor(color.R,color.G,color.B));
   }
 
   template <typename Feature,  typename Method>
-  void NeoPixelAdapter<Feature, Method>::SetAllPixels(RgbColor color) {
+  void NeoPixelAdapter<Feature, Method>::setAllPixels(RgbColor color) {
     for(int i=0, N=_strip.PixelCount(); i<N; i++) {
       _strip.SetPixelColor(i, ::RgbColor(color.R,color.G,color.B));
     }
   }
 
   template <typename Feature,  typename Method>
-  void NeoPixelAdapter<Feature, Method>::Show() {
+  void NeoPixelAdapter<Feature, Method>::show() {
     _strip.Show();
   }
 }

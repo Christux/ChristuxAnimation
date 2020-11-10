@@ -28,18 +28,18 @@ namespace ChristuxAnimation
 
   RgbColor GenericAnimation::applyBrightness(RgbColor color, uint8_t bright)
   {
-    return color.ChangeBrightness(bright);
+    return color.changeBrightness(bright);
   }
 
   RgbColor GenericAnimation::applyBrightness(RgbColor color)
   {
-    return color.ChangeBrightness(_brightness);
+    return color.changeBrightness(_brightness);
   }
 
   void GenericAnimation::setColor(RgbColor color)
   {
     _color = color;
-    _brightness = color.R > color.G ? (color.R > color.B ? color.R : color.B) : (color.G > color.B ? color.G : color.B);
+    _brightness = color.calculateBrightness();;
     _areChanges = true;
   }
 } // namespace ChristuxAnimation

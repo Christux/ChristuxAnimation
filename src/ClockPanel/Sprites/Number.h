@@ -24,16 +24,16 @@ namespace ChristuxAnimation
 	struct Number
 	{
 	public:
-		static const bool Zero[12];
-		static const bool One[12];
-		static const bool Two[12];
-		static const bool Three[12];
-		static const bool Four[12];
-		static const bool Five[12];
-		static const bool Six[12];
-		static const bool Seven[12];
-		static const bool Height[12];
-		static const bool Nine[12];
+		static const bool zero[12];
+		static const bool one[12];
+		static const bool two[12];
+		static const bool three[12];
+		static const bool four[12];
+		static const bool five[12];
+		static const bool six[12];
+		static const bool seven[12];
+		static const bool eight[12];
+		static const bool nine[12];
 	};
 } // namespace ChristuxAnimation
 #endif

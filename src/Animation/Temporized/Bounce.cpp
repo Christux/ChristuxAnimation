@@ -27,27 +27,27 @@ namespace ChristuxAnimation
 		if (_step < _pixels)
 		{
 			int i = _step;
-			_ledstrip->SetPixelColor(i, _color);
+			_ledstrip->setPixelColor(i, _color);
 
 			if(i > 0)
 			{
-				_ledstrip->SetPixelColor(i - 1, RgbColor::blank);
+				_ledstrip->setPixelColor(i - 1, RgbColor::blank);
 			}
 
-			_ledstrip->Show();
+			_ledstrip->show();
 		}
 
 		if (_step >= _pixels)
 		{
 			int i = _step - _pixels;
-			_ledstrip->SetPixelColor(_pixels - i - 1, _color);
+			_ledstrip->setPixelColor(_pixels - i - 1, _color);
 
 			if(i > 0)
 			{
-				_ledstrip->SetPixelColor(_pixels - i, RgbColor::blank);
+				_ledstrip->setPixelColor(_pixels - i, RgbColor::blank);
 			}
 				
-			_ledstrip->Show();
+			_ledstrip->show();
 		}
 	}
 } // namespace ChristuxAnimation

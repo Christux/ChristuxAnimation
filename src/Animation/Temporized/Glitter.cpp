@@ -22,7 +22,7 @@ namespace ChristuxAnimation
 
 	RgbColor Glitter::update(float delta)
 	{
-		return _color.ChangeRelativeBrightness(delta);
+		return _color.changeRelativeBrightness(delta);
 	}
 
 	void Glitter::run()
@@ -30,10 +30,10 @@ namespace ChristuxAnimation
 		for (int i = 0; i < _pixels; i++)
 		{
 			float delta = random(40, 100) / 100.0;
-			_ledstrip->SetPixelColor(i, update(delta));
+			_ledstrip->setPixelColor(i, update(delta));
 		}
 
-		_ledstrip->Show();
+		_ledstrip->show();
 		_delay = random(50, 150);
 	}
 } // namespace ChristuxAnimation

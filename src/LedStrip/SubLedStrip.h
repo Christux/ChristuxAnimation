@@ -32,10 +32,10 @@ namespace ChristuxAnimation
 		public:
 			SubLedStrip(int, const int*, LedStrip*);
 			~SubLedStrip() {};
-			void Begin();
-			void Show();
-			virtual void SetPixelColor(int, RgbColor);
-			void SetAllPixels(RgbColor);
+			void begin();
+			void show();
+			virtual void setPixelColor(int, RgbColor);
+			void setAllPixels(RgbColor);
 			void SetPattern(const bool[], RgbColor);
 			void SetPattern(const bool[], RgbColor, bool);
 			void SetPattern(const RgbColor[], int);

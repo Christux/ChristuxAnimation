@@ -25,13 +25,13 @@ namespace ChristuxAnimation
   {
     if (_step == 0)
     {
-      _ledstrip->SetAllPixels(_color);
-      _ledstrip->Show();
+      _ledstrip->setAllPixels(_color);
+      _ledstrip->show();
     }
     else
     {
-      _ledstrip->SetAllPixels(RgbColor::blank);
-      _ledstrip->Show();
+      _ledstrip->setAllPixels(RgbColor::blank);
+      _ledstrip->show();
     }
   }
 } // namespace ChristuxAnimation

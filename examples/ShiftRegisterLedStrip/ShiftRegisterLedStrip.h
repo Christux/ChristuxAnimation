@@ -35,10 +35,10 @@ namespace ChristuxAnimation {
 	public:
 		ShiftRegisterLedStrip(uint8_t nLeds, uint8_t clockPin, uint8_t latchPin, uint8_t dataPin);
 		~ShiftRegisterLedStrip();
-		void Begin();
-		void Show();
-		void SetPixelColor(int, RgbColor);
-        void SetAllPixels(RgbColor);
+		void begin();
+		void show();
+		void setPixelColor(int, RgbColor);
+        void setAllPixels(RgbColor);
 		
 	private:
 		inline void putch() const;
@@ -64,7 +64,7 @@ namespace ChristuxAnimation {
 	/*
 	* Setup transmission pins
 	*/
-	void ShiftRegisterLedStrip::Begin() {
+	void ShiftRegisterLedStrip::begin() {
 		pinMode(_latchPin, OUTPUT);
 		pinMode(_clockPin, OUTPUT);
 		pinMode(_dataPin, OUTPUT);
@@ -73,20 +73,20 @@ namespace ChristuxAnimation {
 	/*
 	* Sets value of the i-th led
 	*/
-	void ShiftRegisterLedStrip::SetPixelColor(int i, RgbColor color) {
-		_T[i] = color.CalculateBrightness() > 64 ? 1 : 0;
+	void ShiftRegisterLedStrip::setPixelColor(int i, RgbColor color) {
+		_T[i] = color.calculateBrightness() > 64 ? 1 : 0;
 	}
 
-	void ShiftRegisterLedStrip::SetAllPixels(RgbColor color) {
+	void ShiftRegisterLedStrip::setAllPixels(RgbColor color) {
 		for (int i = 0; i < _N; i++) {
-			SetPixelColor(i, color);
+			setPixelColor(i, color);
 		}
 	}
 
 	/*
 	* Commits led states to the physical led strip
 	*/
-	void ShiftRegisterLedStrip::Show() {
+	void ShiftRegisterLedStrip::show() {
 		for (int i = 0; i < _N; i++) {
 			digitalWrite(_dataPin, _T[_N - i - 1]);
 			clock();

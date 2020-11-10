@@ -23,13 +23,13 @@ namespace ChristuxAnimation
 	_clockPanel(clockPanel)
 	{}
 
-	void ClockSeparator::Show()
+	void ClockSeparator::show()
 	{
-		_clockPanel->ShowWithoutMask();
+		_clockPanel->showWithoutMask();
 	}
 
-	void ClockSeparator::SetPixelColor(int i, RgbColor color)
+	void ClockSeparator::setPixelColor(int i, RgbColor color)
 	{
-		_clockPanel->SetSeparatorPixelColor(_indexes[i], color);
+		_clockPanel->setSeparatorPixelColor(_indexes[i], color);
 	}
 }

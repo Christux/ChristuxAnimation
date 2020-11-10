@@ -27,7 +27,7 @@ namespace ChristuxAnimation
 																   _nextTriggerFlicker(0),
 																   _separatorAnimator(Animator())
 	{ 
-		_clockPanel->AddMaskHandle(this);
+		_clockPanel->addMaskHandle(this);
 	}
 
 	void ClockPanelAnimator::addSeparator(Animation* animation)
@@ -53,33 +53,33 @@ namespace ChristuxAnimation
 
 	void ClockPanelAnimator::handle()
 	{
-		HandleAnimations();
-		RefreshLeds();
-		TriggerAnimation();
+		handleAnimations();
+		refreshLeds();
+		triggerAnimation();
 	}
 
-	void ClockPanelAnimator::HandleAnimations()
+	void ClockPanelAnimator::handleAnimations()
 	{
 		// Main animation
 		Animator::handle();
 
 		// Set separator color and play animation
-		_separatorAnimator.setColor(_clockPanel->GetSeparatorColor());
+		_separatorAnimator.setColor(_clockPanel->getSeparatorColor());
 		_separatorAnimator.handle();
 	}
 
-	void ClockPanelAnimator::RefreshLeds()
+	void ClockPanelAnimator::refreshLeds()
 	{
 		unsigned long currTime = millis();
 
 		if (currTime >= _nextRefreshFlicker)
 		{
-			_clockPanel->Commit();
+			_clockPanel->commit();
 			_nextRefreshFlicker = currTime + _refreshDelay;
 		}
 	}
 
-	void ClockPanelAnimator::TriggerAnimation()
+	void ClockPanelAnimator::triggerAnimation()
 	{
 		unsigned long currTime = millis();
 
@@ -98,7 +98,7 @@ namespace ChristuxAnimation
 
 		if(hourDecade == 0)
 		{
-			_clockPanel->GetDigit(0)->SetAllPixels(RgbColor::blank);
+			_clockPanel->getDigit(0)->setAllPixels(RgbColor::blank);
 		}
 		else
 		{
@@ -112,7 +112,7 @@ namespace ChristuxAnimation
 
 	void ClockPanelAnimator::displayDigit(uint8_t digitIndex, uint8_t number) const
 	{
-		_clockPanel->GetDigit(digitIndex)->SetMask(_numbers[number]);
+		_clockPanel->getDigit(digitIndex)->SetMask(_numbers[number]);
 	}
 
 } // namespace ChristuxAnimation

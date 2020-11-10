@@ -42,13 +42,13 @@ namespace ChristuxAnimation
 
 			for(uint8_t k = 0; k < 12; k++)
 			{
-				_clockPanel->GetDigit(j)->SetPixelColor(k, getRainbowColor(360 - delta * (offset + _indexes[k] - i)));
+				_clockPanel->getDigit(j)->setPixelColor(k, getRainbowColor(360 - delta * (offset + _indexes[k] - i)));
 			}
 		}
 
-		_clockPanel->SetSeparatorColor(getRainbowColor(360 - delta * (10 - i)));
+		_clockPanel->setSeparatorColor(getRainbowColor(360 - delta * (10 - i)));
 
-		_ledstrip->Show();
+		_ledstrip->show();
 	}
 
 	RgbColor RainbowClockPanel::getRainbowColor(int phase)

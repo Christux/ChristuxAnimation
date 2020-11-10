@@ -55,7 +55,7 @@ namespace ChristuxAnimation
 			uint8_t _nMaskHandles;
 			Observer* _maskHandles[20];
 			bool _requestedCommit;
-			void ApplyAllMasks();
+			void applyAllMasks();
 
 		public:
 			static const int pixelCount = 50;
@@ -69,19 +69,19 @@ namespace ChristuxAnimation
 				const int[],
 				const int[]);
 			~ClockPanel() {};
-			void AddMaskHandle(Observer*);
-			void Begin();
-			void SetPixelColor(int, RgbColor);
-			void SetSeparatorPixelColor(int, RgbColor);
-			void SetSeparatorColor(RgbColor);
-			void SetAllPixels(RgbColor);
-			void Show();
-			void ShowWithMask();
-			void ShowWithoutMask();
-			void Commit();
-			ClockDigit* GetDigit(int);
-			ClockSeparator* GetSeparator();
-			RgbColor GetSeparatorColor();
+			void addMaskHandle(Observer*);
+			void begin();
+			void setPixelColor(int, RgbColor);
+			void setSeparatorPixelColor(int, RgbColor);
+			void setSeparatorColor(RgbColor);
+			void setAllPixels(RgbColor);
+			void show();
+			void showWithMask();
+			void showWithoutMask();
+			void commit();
+			ClockDigit* getDigit(int);
+			ClockSeparator* getSeparator();
+			RgbColor getSeparatorColor();
 	};
 }
 #endif

@@ -26,10 +26,10 @@ namespace ChristuxAnimation
   {
     public:
       virtual ~LedStrip() {};
-      virtual void Begin() = 0;
-      virtual void SetPixelColor(int, RgbColor) = 0;
-      virtual void SetAllPixels(RgbColor) = 0;
-      virtual void Show() = 0;
+      virtual void begin() = 0;
+      virtual void setPixelColor(int, RgbColor) = 0;
+      virtual void setAllPixels(RgbColor) = 0;
+      virtual void show() = 0;
   };
 }
 #endif

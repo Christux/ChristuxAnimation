@@ -34,7 +34,7 @@ namespace ChristuxAnimation
   {
     float val = (exp( sin( (millis() - _startTime + 3000.0) * 0.5e-3 * PI )) * 0.3 + 0.18);
 
-    _ledstrip->SetAllPixels(_color.ChangeRelativeBrightness(val));
-    _ledstrip->Show();
+    _ledstrip->setAllPixels(_color.changeRelativeBrightness(val));
+    _ledstrip->show();
   }
 }

@@ -39,9 +39,9 @@ namespace ChristuxAnimation
 	{
 		public:
 			virtual ~IClockPanel() {};
-			virtual void SetSeparatorPixelColor(int i, RgbColor color) = 0;
-			virtual void ShowWithMask() = 0;
-			virtual void ShowWithoutMask() = 0;
+			virtual void setSeparatorPixelColor(int i, RgbColor color) = 0;
+			virtual void showWithMask() = 0;
+			virtual void showWithoutMask() = 0;
 	};
 }
 #endif

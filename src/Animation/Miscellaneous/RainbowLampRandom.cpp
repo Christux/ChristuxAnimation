@@ -28,7 +28,7 @@ namespace ChristuxAnimation
 
   void RainbowLampRandom::reset()
   {
-    _ledstrip->SetAllPixels(RgbColor::blank);
+    _ledstrip->setAllPixels(RgbColor::blank);
   }
 
   void RainbowLampRandom::handle()
@@ -44,8 +44,8 @@ namespace ChristuxAnimation
       RgbColor color = applyBrightness(RainbowTable::getRainbowColor(_phase));
 
       // Set all leds
-      _ledstrip->SetAllPixels(color);
-      _ledstrip->Show();
+      _ledstrip->setAllPixels(color);
+      _ledstrip->show();
 
       _delay = (20 + random(40)) * 100;
       _nextFlicker = currTime + _delay;

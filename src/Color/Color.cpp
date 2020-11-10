@@ -27,19 +27,19 @@ namespace ChristuxAnimation
         R(r),G(g),B(b)
         {}
 
-    uint8_t RgbColor::CalculateBrightness() const
+    uint8_t RgbColor::calculateBrightness() const
     {
         return R > G ? (R > B ? R : B) : (G > B ? G : B);
     }
 
-    RgbColor RgbColor::ChangeBrightness(uint8_t bright) const 
+    RgbColor RgbColor::changeBrightness(uint8_t bright) const 
     {
-        float alpha = (float)bright / (float)CalculateBrightness();
+        float alpha = (float)bright / (float)calculateBrightness();
 
-        return ChangeRelativeBrightness(alpha);
+        return changeRelativeBrightness(alpha);
     }
 
-    RgbColor RgbColor::ChangeRelativeBrightness(float alpha) const
+    RgbColor RgbColor::changeRelativeBrightness(float alpha) const
     {
         uint8_t newR = int( (float)R * alpha );
         uint8_t newG = int( (float)G * alpha );

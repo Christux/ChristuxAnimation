@@ -20,14 +20,14 @@
 
 using namespace ChristuxAnimation;
 
-int PixelCount = 5;
-int PixelPin = 8;
+int pixelCount = 5;
+int pixelPin = 8;
 
-NeoPixelBus<NeoGrbFeature, Neo800KbpsMethod> neoPixelBus(PixelCount, PixelPin);
+NeoPixelBus<NeoGrbFeature, Neo800KbpsMethod> neoPixelBus(pixelCount, pixelPin);
 
 UniversalLedStripAdapter strip(
   // Set here the number of leds
-  PixelCount,
+  pixelCount,
   // Set here the setup function from the ledstrip driver
   [&]() {
     neoPixelBus.Begin();
@@ -44,20 +44,20 @@ UniversalLedStripAdapter strip(
 
 Animator animator;
 
-Rainbow rainbow(PixelCount, &strip);
-Sunrise sunrise(PixelCount, &strip, 5);
-UniColor unicolor(PixelCount, &strip);
-Off off(PixelCount, &strip);
-Flag flag(PixelCount, &strip);
-Comet comet(PixelCount, &strip);
-Theater theater(PixelCount, &strip);
-KnightRider rider(PixelCount, &strip, 100);
-RainbowLamp lamp(PixelCount, &strip);
-RainbowLampRandom randlamp(PixelCount, &strip);
-Fire fire(PixelCount, &strip);
-Breathing breath(PixelCount, &strip);
-Blink blink(PixelCount, &strip, 1000);
-Bounce bounce(PixelCount, &strip, 200);
+Rainbow rainbow(pixelCount, &strip);
+Sunrise sunrise(pixelCount, &strip, 5);
+UniColor unicolor(pixelCount, &strip);
+Off off(pixelCount, &strip);
+Flag flag(pixelCount, &strip);
+Comet comet(pixelCount, &strip);
+Theater theater(pixelCount, &strip);
+KnightRider rider(pixelCount, &strip, 100);
+RainbowLamp lamp(pixelCount, &strip);
+RainbowLampRandom randlamp(pixelCount, &strip);
+Fire fire(pixelCount, &strip);
+Breathing breath(pixelCount, &strip);
+Blink blink(pixelCount, &strip, 1000);
+Bounce bounce(pixelCount, &strip, 200);
 
 // For animation loop
 const char * labels[] = {"Rainbow","Sunrise","Unicolor","Flag","Comet","Theater","Knight Rider","Rainbow lamp","Random rainbow lamp","Fire","Breathing","Blink","Bounce"};
@@ -70,7 +70,7 @@ void setup() {
 
   Serial.begin(9600);
 
-  strip.Begin();
+  strip.begin();
 
   animator.add(&rainbow);
   animator.add(&sunrise);

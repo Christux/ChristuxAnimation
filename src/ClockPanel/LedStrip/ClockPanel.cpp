@@ -19,17 +19,17 @@
 namespace ChristuxAnimation
 {
 	ClockPanel::ClockPanel(
-		TBegin Begin,
-		TShow Show,
-		TSetPixelColor SetPixelColor,
+		TBegin begin,
+		TShow show,
+		TSetPixelColor setPixelColor,
 		const int firstDigitIndexes[12],
 		const int secondDigitIndexes[12],
 		const int separatorIndexes[2],
 		const int thirdDigitIndexes[12],
 		const int fourthDigitIndexes[12]) :
-        _begin(Begin),
-        _show(Show),
-        _setPixelColor(SetPixelColor),
+        _begin(begin),
+        _show(show),
+        _setPixelColor(setPixelColor),
 		_digits({
 			ClockDigit(firstDigitIndexes, this),
 			ClockDigit(secondDigitIndexes, this),
@@ -43,12 +43,12 @@ namespace ChristuxAnimation
 		_requestedCommit(false)
     {}
 
-	void ClockPanel::AddMaskHandle(Observer* maskHandle)
+	void ClockPanel::addMaskHandle(Observer* maskHandle)
 	{
 		_maskHandles[_nMaskHandles++] = maskHandle;
 	}
 
-	void ClockPanel::ApplyAllMasks()
+	void ClockPanel::applyAllMasks()
 	{
 		for(int i = 0; i < _nMaskHandles; i++)
 		{
@@ -56,28 +56,28 @@ namespace ChristuxAnimation
 		}
 	}
 
-    void ClockPanel::Begin()
+    void ClockPanel::begin()
     {
         _begin();
     }
 
-	void ClockPanel::ShowWithMask()
+	void ClockPanel::showWithMask()
 	{
-		ApplyAllMasks();
+		applyAllMasks();
 		_requestedCommit = true;
 	}
 	
-	void ClockPanel::ShowWithoutMask()
+	void ClockPanel::showWithoutMask()
 	{
 		_requestedCommit = true;
 	}
 
-    void ClockPanel::Show()
+    void ClockPanel::show()
     {
-		ShowWithMask();
+		showWithMask();
     }
 
-	void ClockPanel::Commit()
+	void ClockPanel::commit()
 	{
 		if(_requestedCommit)
 		{
@@ -86,26 +86,26 @@ namespace ChristuxAnimation
 		}
 	}
 
-    void ClockPanel::SetAllPixels(RgbColor color)
+    void ClockPanel::setAllPixels(RgbColor color)
     {
         for(int i = 0; i < pixelCount; i++)
         {
-            SetPixelColor(i, color);
+            setPixelColor(i, color);
         }
     }
 
-    void ClockPanel::SetPixelColor(int i, RgbColor color)
+    void ClockPanel::setPixelColor(int i, RgbColor color)
     {
 		if(i == _separatorIndexes[0] || i == _separatorIndexes[1])
 		{
-			SetSeparatorColor(color);
+			setSeparatorColor(color);
 		}
 		else {
 			_setPixelColor(i, color);
 		}
     }
 
-	void ClockPanel::SetSeparatorPixelColor(int i, RgbColor color)
+	void ClockPanel::setSeparatorPixelColor(int i, RgbColor color)
 	{
 		if(i == _separatorIndexes[0] || i == _separatorIndexes[1])
 		{
@@ -113,22 +113,22 @@ namespace ChristuxAnimation
 		}
 	}
 
-	void ClockPanel::SetSeparatorColor(RgbColor color)
+	void ClockPanel::setSeparatorColor(RgbColor color)
 	{
 		_separatorColor = color;
 	}
 
-	ClockDigit* ClockPanel::GetDigit(int i)
+	ClockDigit* ClockPanel::getDigit(int i)
 	{
 		return &_digits[i];
 	}
 
-	ClockSeparator* ClockPanel::GetSeparator()
+	ClockSeparator* ClockPanel::getSeparator()
 	{
 		return &_separator;
 	}
 
-	RgbColor ClockPanel::GetSeparatorColor()
+	RgbColor ClockPanel::getSeparatorColor()
 	{
 		return _separatorColor;
 	}

@@ -19,13 +19,13 @@
 
 using namespace ChristuxAnimation;
 
-int PixelCount=5;
-int PixelPin=8;
+int pixelCount=5;
+int pixelPin=8;
 
-NeoPixelBus<NeoGrbFeature, Neo800KbpsMethod> neoPixelBus(PixelCount, PixelPin);
+NeoPixelBus<NeoGrbFeature, Neo800KbpsMethod> neoPixelBus(pixelCount, pixelPin);
 
 UniversalLedStripAdapter strip(
-  PixelCount,
+  pixelCount,
   [&]() {
     neoPixelBus.Begin();
   },
@@ -37,11 +37,11 @@ UniversalLedStripAdapter strip(
   }
 );
 
-Sunrise sunrise(PixelCount, &strip, 30*60, 180); // 30 minutes in seconds, Imax=180/255
+Sunrise sunrise(pixelCount, &strip, 30*60, 180); // 30 minutes in seconds, Imax=180/255
 
 void setup() {
 
-	strip.Begin();
+	strip.begin();
 	sunrise.reset();
 }
 

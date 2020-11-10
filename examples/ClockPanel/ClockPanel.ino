@@ -98,11 +98,11 @@ Glitter glitter(pixelCount, &clockPanel);
 RainbowClockPanel rainbow(&clockPanel);
 
 // Separator animations
-UniColor unicolorS(2, clockPanel.GetSeparator());
-Blink blinkS(2, clockPanel.GetSeparator(), 1000);
-Bounce bounceS(2, clockPanel.GetSeparator(), 200);
-Breathing breathS(2, clockPanel.GetSeparator());
-KnightRider knightRiderS(2, clockPanel.GetSeparator(), 200);
+UniColor unicolorS(2, clockPanel.getSeparator());
+Blink blinkS(2, clockPanel.getSeparator(), 1000);
+Bounce bounceS(2, clockPanel.getSeparator(), 200);
+Breathing breathS(2, clockPanel.getSeparator());
+KnightRider knightRiderS(2, clockPanel.getSeparator(), 200);
 
 // For animation demo
 unsigned long nextFlicker;
@@ -122,7 +122,7 @@ void setup()
 	});
 
 	// Start of ledstrip
-	clockPanel.Begin();
+	clockPanel.begin();
 
 	// Setup of main animations
 	clockPanelAnimator.add(&unicolor);
@@ -139,7 +139,7 @@ void setup()
 	clockPanelAnimator.addSeparator(&bounceS);
 
 	// Settings
-	clockPanelAnimator.setColor(Color::purple.ChangeBrightness(64));
+	clockPanelAnimator.setColor(Color::purple.changeBrightness(64));
 	clockPanelAnimator.setAnimation(0);
 	clockPanelAnimator.setSeparatorAnimation(0);
 

@@ -31,8 +31,8 @@ namespace ChristuxAnimation
 		public:
 			ClockSeparator(const int[], IClockPanel*);
 			~ClockSeparator() {};
-			void Show();
-			void SetPixelColor(int, RgbColor) override;
+			void show();
+			void setPixelColor(int, RgbColor) override;
 	};
 }
 #endif

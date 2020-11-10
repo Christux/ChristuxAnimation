@@ -41,9 +41,9 @@ namespace ChristuxAnimation
 
     for (int i = 0; i < 3; i++) {
       for (int j = 0; j < (N[i + 1] - N[i]); j++) {
-        _ledstrip->SetPixelColor( N[i] + j, col[i]);
+        _ledstrip->setPixelColor( N[i] + j, col[i]);
       }
     }
-    _ledstrip->Show();
+    _ledstrip->show();
   }
 }
