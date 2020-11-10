@@ -39,8 +39,10 @@
 #include "Animation/Temporized/RainbowLamp.h"
 #include "Animation/Temporized/KnightRider.h"
 #include "Animation/Temporized/Fire.h"
+#include "Animation/Temporized/Glitter.h"
 #include "Animation/Temporized/Breathing.h"
 #include "Animation/Temporized/Blink.h"
+#include "Animation/Temporized/Bounce.h"
 
 #include "Animation/Miscellaneous/RainbowLampRandom.h"
 #include "Animation/Miscellaneous/Sunrise.h"
@@ -48,5 +50,8 @@
 #include "ClockPanel/LedStrip/ClockPanel.h"
 #include "ClockPanel/Animator/ClockPanelAnimator.h"
 #include "ClockPanel/ClockTime/ClockTime.h"
+#include "ClockPanel/Sprites/Number.h"
+#include "ClockPanel/Sprites/Image.h"
+#include "ClockPanel/Animation/RainbowClockPanel.h"
 
 #endif

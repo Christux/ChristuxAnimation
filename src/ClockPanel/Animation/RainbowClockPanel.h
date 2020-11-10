@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020 Christophe Rubeck.
+ * Copyright (c) 2012 Christophe Rubeck.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as
@@ -14,15 +14,26 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "Image.h"
+#ifndef ChristuxAnimation_rainbowclockpanel_h
+#define ChristuxAnimation_rainbowclockpanel_h
+
+#include "../LedStrip/ClockPanel.h"
+#include "../../Animation/Temporized/Base/TemporizedAnimation.h"
+#include "../../RainbowTable/RainbowTable.h"
 
 namespace ChristuxAnimation
 {
-	const RgbColor Image::flower[] = {
-			RgbColor::red, RgbColor::red,
-		RgbColor::red, RgbColor::yellow, RgbColor::red,
-			RgbColor::red, RgbColor::red,
-		RgbColor::green, RgbColor::green, RgbColor::green,
-			RgbColor::green, RgbColor::green,
+	class RainbowClockPanel : public TemporizedAnimation
+	{
+	public:
+		RainbowClockPanel(ClockPanel *);
+		~RainbowClockPanel(){};
+
+	protected:
+		ClockPanel * _clockPanel;
+		static const int _indexes[12];
+		void run();
+		RgbColor getRainbowColor(int);
 	};
-}
+} // namespace ChristuxAnimation
+#endif

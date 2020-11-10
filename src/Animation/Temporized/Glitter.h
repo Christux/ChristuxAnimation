@@ -14,15 +14,21 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "Image.h"
+#ifndef ChristuxAnimation_glitter_h
+#define ChristuxAnimation_glitter_h
+
+#include "Base/TemporizedAnimation.h"
 
 namespace ChristuxAnimation
 {
-	const RgbColor Image::flower[] = {
-			RgbColor::red, RgbColor::red,
-		RgbColor::red, RgbColor::yellow, RgbColor::red,
-			RgbColor::red, RgbColor::red,
-		RgbColor::green, RgbColor::green, RgbColor::green,
-			RgbColor::green, RgbColor::green,
-	};
+  class Glitter : public TemporizedAnimation
+  {
+  public:
+    Glitter(uint8_t nLeds, LedStrip* ledstrip);
+    virtual ~Glitter() {};
+  protected:
+    void run();
+	  virtual RgbColor update(float);
+  };
 }
+#endif

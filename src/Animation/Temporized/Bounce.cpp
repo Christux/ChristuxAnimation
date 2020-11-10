@@ -14,18 +14,40 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef ChristuxAnimation_image_h
-#define ChristuxAnimation_image_h
-
-#include <Arduino.h>
-#include "../../Color/Color.h"
+#include "Bounce.h"
 
 namespace ChristuxAnimation
 {
-	struct Image
+
+	Bounce::Bounce(uint8_t nLeds, LedStrip *ledstrip) : TemporizedAnimation(nLeds, ledstrip, 25, 2 * nLeds){};
+	Bounce::Bounce(uint8_t nLeds, LedStrip *ledstrip, unsigned int timestep) : TemporizedAnimation(nLeds, ledstrip, timestep, 2 * nLeds){};
+
+	void Bounce::run()
 	{
-		public:
-			static const RgbColor flower[12];
-	};
+		if (_step < _pixels)
+		{
+			int i = _step;
+			_ledstrip->SetPixelColor(i, _color);
+
+			if(i > 0)
+			{
+				_ledstrip->SetPixelColor(i - 1, RgbColor::blank);
+			}
+
+			_ledstrip->Show();
+		}
+
+		if (_step >= _pixels)
+		{
+			int i = _step - _pixels;
+			_ledstrip->SetPixelColor(_pixels - i - 1, _color);
+
+			if(i > 0)
+			{
+				_ledstrip->SetPixelColor(_pixels - i, RgbColor::blank);
+			}
+				
+			_ledstrip->Show();
+		}
+	}
 } // namespace ChristuxAnimation
-#endif

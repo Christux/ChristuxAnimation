@@ -18,8 +18,8 @@
 
 namespace ChristuxAnimation
 {
-    UniversalLedStripAdapter::UniversalLedStripAdapter(int PixelCount, TBegin Begin, TShow Show, TSetPixelColor SetPixelColor) :
-        _pixelCount(PixelCount),
+    UniversalLedStripAdapter::UniversalLedStripAdapter(int pixelCount, TBegin Begin, TShow Show, TSetPixelColor SetPixelColor) :
+        _pixelCount(pixelCount),
         _begin(Begin),
         _show(Show),
         _setPixelColor(SetPixelColor)

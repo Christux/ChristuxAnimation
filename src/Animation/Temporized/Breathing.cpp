@@ -32,10 +32,9 @@ namespace ChristuxAnimation
 
   void Breathing::run()
   {
-    float val = (exp( sin( (millis() - _startTime + 3000.0) * 0.5e-3 * PI )) * 0.3 + 0.18) *
-                 _color.CalculateBrightness();
+    float val = (exp( sin( (millis() - _startTime + 3000.0) * 0.5e-3 * PI )) * 0.3 + 0.18);
 
-    _ledstrip->SetAllPixels(_color.ChangeBrightness((uint8_t)val));
+    _ledstrip->SetAllPixels(_color.ChangeRelativeBrightness(val));
     _ledstrip->Show();
   }
 }

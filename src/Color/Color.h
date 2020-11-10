@@ -28,11 +28,12 @@ namespace ChristuxAnimation
     uint8_t R;
     uint8_t G;
     uint8_t B;
-    RgbColor(uint8_t r, uint8_t g, uint8_t b);
+    RgbColor(uint8_t, uint8_t, uint8_t);
     RgbColor();
     ~RgbColor(){};
     uint8_t CalculateBrightness() const;// Get
-    RgbColor ChangeBrightness(uint8_t bright) const; // Set
+    RgbColor ChangeBrightness(uint8_t) const; // Set
+    RgbColor ChangeRelativeBrightness(float) const; // Set
 
     bool operator==(const RgbColor& other) const
     {
@@ -52,6 +53,7 @@ namespace ChristuxAnimation
     static const RgbColor blue;
     static const RgbColor purple;
     static const RgbColor orange;
+    static const RgbColor yellow;
     static const RgbColor blank;
     static const RgbColor white;
   };

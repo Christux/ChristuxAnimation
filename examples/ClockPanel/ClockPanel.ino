@@ -23,18 +23,19 @@
 using namespace ChristuxAnimation;
 using Color = ChristuxAnimation::RgbColor;
 
-const int PixelPin = 8;
-const int PixelCount = 50;
+const int pixelPin = 8;
+const int pixelCount = 50;
 
 const int kCePin   = 10;  // Chip Enable
 const int kIoPin   = 11;  // Input/Output
 const int kSclkPin = 12;  // Serial Clock
 
 ThreeWire myWire(kIoPin, kSclkPin, kCePin); // IO, SCLK, CE
-RtcDS1302<ThreeWire> Rtc(myWire);
+RtcDS1302<ThreeWire> rtc(myWire);
 
-NeoPixelBus<NeoGrbFeature, Neo800KbpsMethod> neoPixelBus(PixelCount, PixelPin);
+NeoPixelBus<NeoGrbFeature, Neo800KbpsMethod> neoPixelBus(pixelCount, pixelPin);
 
+// Clock panel settings, ledstrip methods and leds mapping
 ClockPanel clockPanel(
 	[&]() {
 		neoPixelBus.Begin();
@@ -79,32 +80,45 @@ ClockPanel clockPanel(
 	}
 );
 
+// Clock panel animator
+// Manages animations and apply masks of digits
 ClockPanelAnimator clockPanelAnimator(
 	&clockPanel, 
 	[&](){
+		// If you don't have a rtc, uncomment the following line and comment the next one.
+		//return ClockTime(22, 55);
 		return ClockTime(hour(), minute());
 	});
 
 // Digit animations
-UniColor unicolor(PixelCount, &clockPanel);
-RainbowLamp rainbowAll(PixelCount, &clockPanel);
-Rainbow rainbow(PixelCount, &clockPanel);
-Fire fire(PixelCount, &clockPanel);
+UniColor unicolor(pixelCount, &clockPanel);
+RainbowLamp rainbowAll(pixelCount, &clockPanel);
+Fire fire(pixelCount, &clockPanel);
+Glitter glitter(pixelCount, &clockPanel);
+RainbowClockPanel rainbow(&clockPanel);
 
 // Separator animations
 UniColor unicolorS(2, clockPanel.GetSeparator());
 Blink blinkS(2, clockPanel.GetSeparator(), 1000);
+Bounce bounceS(2, clockPanel.GetSeparator(), 200);
 Breathing breathS(2, clockPanel.GetSeparator());
 KnightRider knightRiderS(2, clockPanel.GetSeparator(), 200);
+
+// For animation demo
+unsigned long nextFlicker;
+unsigned long temp[] = {6000, 6000, 12000, 12000, 6000}; // Animation duration
+int step = 0;
+int numStep;
 
 void setup()
 {
 	// Start of rtc
-	Rtc.Begin();
+	rtc.Begin();
 
 	// Setup of timelib time provider
 	setSyncProvider([&](){
-		return Rtc.GetDateTime().TotalSeconds() + SECS_YR_2000;
+		// Returns number of seconds since 1 janv 1970
+		return rtc.GetDateTime().TotalSeconds() + SECS_YR_2000;
 	});
 
 	// Start of ledstrip
@@ -112,23 +126,39 @@ void setup()
 
 	// Setup of main animations
 	clockPanelAnimator.add(&unicolor);
+	clockPanelAnimator.add(&fire);
 	clockPanelAnimator.add(&rainbowAll);
 	clockPanelAnimator.add(&rainbow);
-	clockPanelAnimator.add(&fire);
+	clockPanelAnimator.add(&glitter);
 
 	// Setup of animations of separator
-	clockPanelAnimator.addSeparator(&unicolorS);
 	clockPanelAnimator.addSeparator(&blinkS);
+	clockPanelAnimator.addSeparator(&unicolorS);
 	clockPanelAnimator.addSeparator(&breathS);
 	clockPanelAnimator.addSeparator(&knightRiderS);
+	clockPanelAnimator.addSeparator(&bounceS);
 
 	// Settings
 	clockPanelAnimator.setColor(Color::purple.ChangeBrightness(64));
-	clockPanelAnimator.setAnimation(3);
+	clockPanelAnimator.setAnimation(0);
 	clockPanelAnimator.setSeparatorAnimation(0);
+
+	// Demo
+	numStep = clockPanelAnimator.animCount();
+	nextFlicker = millis() + temp[0];
 }
 
+// Infinite loop
 void loop()
 {
+	unsigned long currTime = millis();
+	
+	if (currTime >= nextFlicker) {
+		step = step < numStep - 1 ? step + 1 : 0;
+		clockPanelAnimator.setAnimation(step);
+		clockPanelAnimator.setSeparatorAnimation(step);
+		nextFlicker = currTime + temp[step];
+	}
+  
 	clockPanelAnimator.handle();
 }

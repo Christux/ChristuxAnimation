@@ -14,15 +14,23 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "Image.h"
+#ifndef ChristuxAnimation_bounce_h
+#define ChristuxAnimation_bounce_h
+
+#include "Base/TemporizedAnimation.h"
+#include "../../Color/Color.h"
 
 namespace ChristuxAnimation
 {
-	const RgbColor Image::flower[] = {
-			RgbColor::red, RgbColor::red,
-		RgbColor::red, RgbColor::yellow, RgbColor::red,
-			RgbColor::red, RgbColor::red,
-		RgbColor::green, RgbColor::green, RgbColor::green,
-			RgbColor::green, RgbColor::green,
-	};
+
+  class Bounce : public TemporizedAnimation
+  {
+  public:
+    Bounce(uint8_t nLeds, LedStrip* ledstrip);
+    Bounce(uint8_t nLeds, LedStrip* ledstrip, unsigned int timestep);
+    ~Bounce() {};
+  protected:
+    void run();
+  };
 }
+#endif

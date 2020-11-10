@@ -98,7 +98,7 @@ namespace ChristuxAnimation
     {
 		if(i == _separatorIndexes[0] || i == _separatorIndexes[1])
 		{
-			_separatorColor = color;
+			SetSeparatorColor(color);
 		}
 		else {
 			_setPixelColor(i, color);
@@ -111,6 +111,11 @@ namespace ChristuxAnimation
 		{
 			_setPixelColor(i, color);
 		}
+	}
+
+	void ClockPanel::SetSeparatorColor(RgbColor color)
+	{
+		_separatorColor = color;
 	}
 
 	ClockDigit* ClockPanel::GetDigit(int i)
