@@ -1,11 +1,11 @@
 # Christux Animation
 
-Copyright (C) 2019 Christux
+Copyright (C) 2020 Christux
 
 ## Summary :
 
 An animation library for programmable RGB ledstrips (all libraries should be supported).
-It provides a rainbow lamp, a KnightRider effect, a sunrise simulator, and some more ! It works fine on Arduino Uno and ESP8266 with WS2812 led strip and NeoPixelBus library.
+It provides a rainbow lamp, a KnightRider (cylon) effect, a sunrise simulator, and some more ! It works fine on Arduino Uno and ESP8266 with WS2812 led strip.
 
 An full example project is available here : <a href="https://github.com/Christux/Arduino/tree/master/NodeMCU_NeoPixel_Lamp">https://github.com/Christux/Arduino/tree/master/NodeMCU_NeoPixel_Lamp</a>
 
