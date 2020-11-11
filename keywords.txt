@@ -18,6 +18,7 @@ Fire	KEYWORD1
 Glitter	KEYWORD1
 Breathing	KEYWORD1
 ClockPanelAnimator	KEYWORD1
+RainbowClockPanel	KEYWORD1
 add	KEYWORD2
 addSeparator	KEYWORD2
 nextAnimation	KEYWORD2
