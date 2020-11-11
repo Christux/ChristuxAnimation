@@ -118,7 +118,7 @@ void setup()
 	// Setup of timelib time provider
 	setSyncProvider([](){
 		// Returns number of seconds since 1 janv 1970
-		return rtc.GetDateTime().TotalSeconds() + SECS_YR_2000;
+		return (long)rtc.GetDateTime().TotalSeconds() + SECS_YR_2000;
 	});
 
 	// Start of ledstrip
