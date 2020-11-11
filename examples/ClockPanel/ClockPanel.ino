@@ -116,7 +116,7 @@ void setup()
 	rtc.Begin();
 
 	// Setup of timelib time provider
-	setSyncProvider([&](){
+	setSyncProvider([](){
 		// Returns number of seconds since 1 janv 1970
 		return rtc.GetDateTime().TotalSeconds() + SECS_YR_2000;
 	});
