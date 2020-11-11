@@ -24,16 +24,16 @@
 
 using namespace ChristuxAnimation;
 
-uint8_t PixelCount = 8;
+uint8_t pixelCount = 8;
 
-ShiftRegisterLedStrip strip = ShiftRegisterLedStrip(PixelCount, CLOCK_PIN, LATCH_PIN, DATA_PIN);
+ShiftRegisterLedStrip strip = ShiftRegisterLedStrip(pixelCount, CLOCK_PIN, LATCH_PIN, DATA_PIN);
 
 Animator animator;
 
-Comet comet(PixelCount, &strip);
-Theater theater(PixelCount, &strip);
-KnightRider rider(PixelCount, &strip, 100);
-Blink blink(PixelCount, &strip, 1000);
+Comet comet(pixelCount, &strip);
+Theater theater(pixelCount, &strip);
+KnightRider rider(pixelCount, &strip, 100);
+Blink blink(pixelCount, &strip, 1000);
 
 // For animation loop
 const char * labels[] = {"Rainbow","Sunrise","Unicolor","Flag","Comet","Theater","Knight Rider","Rainbow lamp","Random rainbow lamp","Fire","Breathing","Blink"};
@@ -46,7 +46,7 @@ void setup() {
 
   Serial.begin(9600);
 
-  strip.Begin();
+  strip.begin();
 
   animator.add(&comet);
   animator.add(&theater);

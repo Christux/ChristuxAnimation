@@ -25,6 +25,6 @@ namespace ChristuxAnimation
 
   void Off::run()
   {
-    _ledstrip->Show();
+    _ledstrip->show();
   }
 }

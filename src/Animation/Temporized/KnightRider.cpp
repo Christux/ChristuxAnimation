@@ -32,29 +32,29 @@ namespace ChristuxAnimation
     if (_step < _pixels) {
       int i = _step;
       for(int j=0; j<=i; j++)
-        _ledstrip->SetPixelColor(j, _color);
-      _ledstrip->Show();
+        _ledstrip->setPixelColor(j, _color);
+      _ledstrip->show();
     }
 
     if (_step >= _pixels && _step < 2 * _pixels) {
       int i = _step - _pixels;
       for(int j=0; j<=i; j++)
-        _ledstrip->SetPixelColor(j, RgbColor::blank);
-      _ledstrip->Show();
+        _ledstrip->setPixelColor(j, RgbColor::blank);
+      _ledstrip->show();
     }
 
     if (_step >= 2 * _pixels && _step < 3 * _pixels) {
       int i = _step - 2 * _pixels;
       for(int j=0; j<=i; j++)
-        _ledstrip->SetPixelColor(_pixels - j - 1, _color);
-      _ledstrip->Show();
+        _ledstrip->setPixelColor(_pixels - j - 1, _color);
+      _ledstrip->show();
     }
 
     if (_step >= 3 * _pixels && _step < 4 * _pixels) {
       int i = _step - 3 * _pixels;
       for(int j=0; j<=i; j++)
-        _ledstrip->SetPixelColor(_pixels - j - 1, RgbColor::blank);
-      _ledstrip->Show();
+        _ledstrip->setPixelColor(_pixels - j - 1, RgbColor::blank);
+      _ledstrip->show();
     }
   }
 }

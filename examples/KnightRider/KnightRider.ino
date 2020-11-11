@@ -19,13 +19,13 @@
 
 using namespace ChristuxAnimation;
 
-int PixelCount=5;
-int PixelPin=8;
+int pixelCount=5;
+int pixelPin=8;
 
-NeoPixelBus<NeoGrbFeature, Neo800KbpsMethod> neoPixelBus(PixelCount, PixelPin);
+NeoPixelBus<NeoGrbFeature, Neo800KbpsMethod> neoPixelBus(pixelCount, pixelPin);
 
 UniversalLedStripAdapter strip(
-  PixelCount,
+  pixelCount,
   [&]() {
     neoPixelBus.Begin();
   },
@@ -37,11 +37,11 @@ UniversalLedStripAdapter strip(
   }
 );
 
-KnightRider rider(PixelCount, &strip, 100); // Delay in _useconds (default is 25)
+KnightRider rider(pixelCount, &strip, 100); // Delay in _useconds (default is 25)
 
 void setup() {
 
-	strip.Begin();
+	strip.begin();
 	rider.reset();
 	rider.setColor(ChristuxAnimation::RgbColor::red);
 }

@@ -23,7 +23,6 @@
 
 namespace ChristuxAnimation
 {
-
   class GenericAnimation : public Animation
   {
     protected:

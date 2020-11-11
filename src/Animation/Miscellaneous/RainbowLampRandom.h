@@ -22,7 +22,6 @@
 
 namespace ChristuxAnimation
 {
-
   class RainbowLampRandom : public GenericAnimation
   {
   public:

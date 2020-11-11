@@ -17,18 +17,18 @@
 #ifndef ChristuxAnimation_fire_h
 #define ChristuxAnimation_fire_h
 
-#include "Base/TemporizedAnimation.h"
+#include "Glitter.h"
 
 namespace ChristuxAnimation
 {
 
-  class Fire : public TemporizedAnimation
+  class Fire : public Glitter
   {
   public:
     Fire(uint8_t nLeds, LedStrip* ledstrip);
     ~Fire() {};
   protected:
-    void run();
+    RgbColor update(float) override;
   };
 }
 #endif

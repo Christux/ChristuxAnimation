@@ -18,24 +18,24 @@
 
 namespace ChristuxAnimation
 {
-    UniversalLedStripAdapter::UniversalLedStripAdapter(int PixelCount, TBegin Begin, TShow Show, TSetPixelColor SetPixelColor) :
-        _pixelCount(PixelCount),
-        _begin(Begin),
-        _show(Show),
-        _setPixelColor(SetPixelColor)
+    UniversalLedStripAdapter::UniversalLedStripAdapter(int pixelCount, TBegin begin, TShow show, TSetPixelColor setPixelColor) :
+        _pixelCount(pixelCount),
+        _begin(begin),
+        _show(show),
+        _setPixelColor(setPixelColor)
     {}
 
-    void UniversalLedStripAdapter::Begin()
+    void UniversalLedStripAdapter::begin()
     {
         _begin();
     }
 
-    void UniversalLedStripAdapter::Show()
+    void UniversalLedStripAdapter::show()
     {
         _show();
     }
 
-    void UniversalLedStripAdapter::SetAllPixels(RgbColor color)
+    void UniversalLedStripAdapter::setAllPixels(RgbColor color)
     {
         for(int i = 0; i < _pixelCount; i++)
         {
@@ -43,7 +43,7 @@ namespace ChristuxAnimation
         }
     }
 
-    void UniversalLedStripAdapter::SetPixelColor(int i, RgbColor color)
+    void UniversalLedStripAdapter::setPixelColor(int i, RgbColor color)
     {
         _setPixelColor(i, color);
     }

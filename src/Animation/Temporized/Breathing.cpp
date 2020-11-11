@@ -18,7 +18,6 @@
 
 namespace ChristuxAnimation
 {
-
   Breathing::Breathing(uint8_t nLeds, LedStrip* ledstrip):
     TemporizedAnimation(nLeds, ledstrip, 40, 1),
     _startTime(millis())
@@ -33,9 +32,9 @@ namespace ChristuxAnimation
 
   void Breathing::run()
   {
-    float val = (exp(sin((millis()-_startTime+3000.0) / 2000.0 * PI)) - 0.36787944) * 90 + 10;
+    float val = (exp( sin( (millis() - _startTime + 3000.0) * 0.5e-3 * PI )) * 0.3 + 0.18);
 
-    _ledstrip->SetAllPixels(applyBrightness(_color, (uint8_t)val));
-    _ledstrip->Show();
+    _ledstrip->setAllPixels(_color.changeRelativeBrightness(val));
+    _ledstrip->show();
   }
 }

@@ -30,7 +30,7 @@ namespace ChristuxAnimation
   void TemporizedAnimation::reset()
   {
     _step = 0;
-    _ledstrip->SetAllPixels(RgbColor::blank);
+    _ledstrip->setAllPixels(RgbColor::blank);
   }
 
   void TemporizedAnimation::handle() {
@@ -39,6 +39,11 @@ namespace ChristuxAnimation
       run();
       _step = _step < _numStep - 1 ? _step + 1 : 0;
       _nextFlicker = currTime + _delay;
+    }
+
+    if(_areChanges)
+    {
+      run();
     }
   }
 }

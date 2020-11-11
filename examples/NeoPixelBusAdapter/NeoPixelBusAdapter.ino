@@ -19,16 +19,16 @@
 
 using namespace ChristuxAnimation;
 
-int PixelCount=5;
-int PixelPin=8;
+int pixelCount=5;
+int pixelPin=8;
 
-NeoPixelAdapter<NeoGrbFeature, Neo800KbpsMethod> strip(PixelCount, PixelPin);
+NeoPixelAdapter<NeoGrbFeature, Neo800KbpsMethod> strip(pixelCount, pixelPin);
 
-Rainbow rainbow(PixelCount, &strip);
+Rainbow rainbow(pixelCount, &strip);
 
 void setup() {
 
-	strip.Begin();
+	strip.begin();
 	rainbow.reset();
 	rainbow.setColor(ChristuxAnimation::RgbColor(16,0,0));
 }

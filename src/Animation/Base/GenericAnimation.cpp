@@ -18,32 +18,28 @@
 
 namespace ChristuxAnimation
 {
-
-  GenericAnimation::GenericAnimation(uint8_t nLeds, LedStrip* ledstrip):
-  _pixels(nLeds),
-  _ledstrip(ledstrip),
-  _color(RgbColor::blank),
-  _brightness(0),
-  _areChanges(true)
-  {}
-
-  RgbColor GenericAnimation::applyBrightness(RgbColor color, uint8_t bright) {
-
-  uint8_t newR = int( (float)color.R * ((float)bright / 255.0) );
-  uint8_t newG = int( (float)color.G * ((float)bright / 255.0) );
-  uint8_t newB = int( (float)color.B * ((float)bright / 255.0) );
-
-  return RgbColor(newR, newG, newB);
+  GenericAnimation::GenericAnimation(uint8_t nLeds, LedStrip *ledstrip) : _pixels(nLeds),
+                                                                          _ledstrip(ledstrip),
+                                                                          _color(RgbColor::blank),
+                                                                          _brightness(0),
+                                                                          _areChanges(true)
+  {
   }
 
-  RgbColor GenericAnimation::applyBrightness(RgbColor color) {
-    return applyBrightness(color, _brightness);
+  RgbColor GenericAnimation::applyBrightness(RgbColor color, uint8_t bright)
+  {
+    return color.changeBrightness(bright);
+  }
+
+  RgbColor GenericAnimation::applyBrightness(RgbColor color)
+  {
+    return color.changeBrightness(_brightness);
   }
 
   void GenericAnimation::setColor(RgbColor color)
   {
     _color = color;
-    _brightness = color.R > color.G ? (color.R > color.B ? color.R : color.B) : (color.G > color.B ? color.G : color.B);
+    _brightness = color.calculateBrightness();;
     _areChanges = true;
   }
-}
+} // namespace ChristuxAnimation

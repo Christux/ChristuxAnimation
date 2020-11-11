@@ -30,9 +30,9 @@ namespace ChristuxAnimation
 
     for(int k=0; k<_pixels; k++)
     {
-      _ledstrip->SetPixelColor(k, color);
+      _ledstrip->setPixelColor(k, color);
     }
 
-    _ledstrip->Show();
+    _ledstrip->show();
   }
 }

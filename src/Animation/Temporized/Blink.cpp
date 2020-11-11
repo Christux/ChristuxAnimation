@@ -19,23 +19,19 @@
 namespace ChristuxAnimation
 {
 
-  Blink::Blink(uint8_t nLeds, LedStrip* ledstrip, unsigned int duration):
-    TemporizedAnimation(nLeds, ledstrip, duration, 2)
-    {};
+  Blink::Blink(uint8_t nLeds, LedStrip *ledstrip, unsigned int duration) : TemporizedAnimation(nLeds, ledstrip, duration, 2){};
 
   void Blink::run()
   {
     if (_step == 0)
     {
-      for(int j=0; j<=_pixels; j++)
-        _ledstrip->SetPixelColor(j, _color);
-      _ledstrip->Show();
+      _ledstrip->setAllPixels(_color);
+      _ledstrip->show();
     }
     else
     {
-      for(int j=0; j<=_pixels; j++)
-        _ledstrip->SetPixelColor(j, RgbColor::blank);
-      _ledstrip->Show();
+      _ledstrip->setAllPixels(RgbColor::blank);
+      _ledstrip->show();
     }
   }
-}
+} // namespace ChristuxAnimation

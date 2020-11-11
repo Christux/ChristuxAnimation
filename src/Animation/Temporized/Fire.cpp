@@ -18,25 +18,10 @@
 
 namespace ChristuxAnimation
 {
+  Fire::Fire(uint8_t nLeds, LedStrip *ledstrip) : Glitter(nLeds, ledstrip){};
 
-  Fire::Fire(uint8_t nLeds, LedStrip* ledstrip):
-    TemporizedAnimation(nLeds, ledstrip, 100, 1)
-    {};
-
-  void Fire::run()
+  RgbColor Fire::update(float delta)
   {
-    uint8_t r = 255;
-    uint8_t g = 100;
-    uint8_t b = 0;
-
-    for (int i = 0; i < _pixels; i++) {
-
-        int delta = random(40, 100);
-        RgbColor col = applyBrightness(RgbColor((r * delta) / 100, (g * delta) / 100, b));
-        _ledstrip->SetPixelColor(i, col);
-      }
-      _ledstrip->Show();
-
-      _delay = random(50, 150);
+    return RgbColor(255, 100, 0).changeBrightness(delta * _brightness);
   }
-}
+} // namespace ChristuxAnimation

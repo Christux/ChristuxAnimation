@@ -34,7 +34,7 @@ namespace ChristuxAnimation
 
     // Turn off leds
     for(int i=0; i< _pixels;i++) {
-      _ledstrip->SetPixelColor(i, RgbColor::blank);
+      _ledstrip->setPixelColor(i, RgbColor::blank);
     }
   }
 
@@ -76,10 +76,10 @@ namespace ChristuxAnimation
         if (i < Gidx) g ++;
         if (i < Bidx) b ++;
 
-        _ledstrip->SetPixelColor(i,RgbColor(r,g,b));
+        _ledstrip->setPixelColor(i,RgbColor(r,g,b));
       }
 
-      _ledstrip->Show();
+      _ledstrip->show();
     }
   }
 }

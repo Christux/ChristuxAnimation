@@ -22,7 +22,6 @@
 
 namespace ChristuxAnimation
 {
-
   class TemporizedAnimation : public GenericAnimation
   {
     protected:

@@ -25,7 +25,7 @@ namespace ChristuxAnimation
 
   void StaticAnimation::reset()
   {
-    _ledstrip->SetAllPixels(RgbColor::blank);
+    _ledstrip->setAllPixels(RgbColor::blank);
   }
 
   void StaticAnimation::handle() {

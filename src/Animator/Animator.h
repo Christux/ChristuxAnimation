@@ -23,7 +23,6 @@
 
 namespace ChristuxAnimation
 {
-
   /*
   * Interface for animation classes
   */
@@ -34,7 +33,7 @@ namespace ChristuxAnimation
       uint8_t _currentAnim;
       Animation * _animations[20];
       RgbColor _currentColor;
-      uint8_t brightness;
+      uint8_t _brightness;
 
     public:
       Animator();
