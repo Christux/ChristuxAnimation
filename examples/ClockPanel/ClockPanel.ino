@@ -37,13 +37,13 @@ NeoPixelBus<NeoGrbFeature, Neo800KbpsMethod> neoPixelBus(pixelCount, pixelPin);
 
 // Clock panel settings, ledstrip methods and leds mapping
 ClockPanel clockPanel(
-	[&]() {
+	[]() {
 		neoPixelBus.Begin();
 	},
-	[&]() {
+	[]() {
 		neoPixelBus.Show();
 	},
-	[&](int i, Color color) {
+	[](int i, Color color) {
 		neoPixelBus.SetPixelColor(i, ::RgbColor(color.R, color.G, color.B));
 	},
 	(int[]){
@@ -84,7 +84,7 @@ ClockPanel clockPanel(
 // Manages animations and apply masks of digits
 ClockPanelAnimator clockPanelAnimator(
 	&clockPanel, 
-	[&](){
+	[](){
 		// If you don't have a rtc, uncomment the following line and comment the next one.
 		//return ClockTime(22, 55);
 		return ClockTime(hour(), minute());

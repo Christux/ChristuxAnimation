@@ -29,15 +29,15 @@ UniversalLedStripAdapter strip(
   // Set here the number of leds
   pixelCount,
   // Set here the setup function from the ledstrip driver
-  [&]() {
+  []() {
     neoPixelBus.Begin();
   },
   // Set here the commit function from the ledstrip driver
-  [&](){
+  [](){
     neoPixelBus.Show();
   },
   // Set here the led color setup function from the ledstrip driver
-  [&](int i, ChristuxAnimation::RgbColor color) {
+  [](int i, ChristuxAnimation::RgbColor color) {
     neoPixelBus.SetPixelColor(i, ::RgbColor(color.R,color.G,color.B));
   }
 );

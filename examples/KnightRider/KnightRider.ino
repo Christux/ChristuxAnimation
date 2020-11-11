@@ -26,13 +26,13 @@ NeoPixelBus<NeoGrbFeature, Neo800KbpsMethod> neoPixelBus(pixelCount, pixelPin);
 
 UniversalLedStripAdapter strip(
   pixelCount,
-  [&]() {
+  []() {
     neoPixelBus.Begin();
   },
-  [&](){
+  [](){
     neoPixelBus.Show();
   },
-  [&](int i, ChristuxAnimation::RgbColor color) {
+  [](int i, ChristuxAnimation::RgbColor color) {
     neoPixelBus.SetPixelColor(i, ::RgbColor(color.R,color.G,color.B));
   }
 );
