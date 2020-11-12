@@ -63,6 +63,8 @@ namespace ChristuxAnimation
 		void notify();
 		void addSeparator(Animation*);
 		void setSeparatorAnimation(uint8_t);
+		uint8_t getSeparatorAnimation();
+		uint8_t getSeparatorCount();
 	};
 } // namespace ChristuxAnimation
 #endif

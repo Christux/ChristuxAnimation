@@ -115,4 +115,14 @@ namespace ChristuxAnimation
 		_clockPanel->getDigit(digitIndex)->SetMask(_numbers[number]);
 	}
 
+	uint8_t ClockPanelAnimator::getSeparatorAnimation()
+	{
+		return _separatorAnimator.getAnimation();
+	}
+
+	uint8_t ClockPanelAnimator::getSeparatorCount()
+	{
+		return _separatorAnimator.animCount();
+	}
+
 } // namespace ChristuxAnimation
