@@ -59,6 +59,11 @@ namespace ChristuxAnimation
 		}
 	}
 
+	bool ClockPanel::getMirror()
+	{
+		return _mirror;
+	}
+
 	void ClockPanel::applyAllMasks()
 	{
 		for(int i = 0; i < _nMaskHandles; i++)

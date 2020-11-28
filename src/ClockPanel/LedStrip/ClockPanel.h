@@ -72,6 +72,7 @@ namespace ChristuxAnimation
 			~ClockPanel() {};
 			void addMaskHandle(Observer*);
 			void setMirror(bool);
+			bool getMirror();
 			void begin();
 			void setPixelColor(int, RgbColor);
 			void setSeparatorPixelColor(int, RgbColor);
