@@ -55,6 +55,7 @@ namespace ChristuxAnimation
 			uint8_t _nMaskHandles;
 			Observer* _maskHandles[20];
 			bool _requestedCommit;
+			bool _mirror;
 			void applyAllMasks();
 
 		public:
@@ -70,6 +71,7 @@ namespace ChristuxAnimation
 				const int[]);
 			~ClockPanel() {};
 			void addMaskHandle(Observer*);
+			void setMirror(bool);
 			void begin();
 			void setPixelColor(int, RgbColor);
 			void setSeparatorPixelColor(int, RgbColor);

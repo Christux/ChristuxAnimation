@@ -26,10 +26,14 @@ namespace ChristuxAnimation
 	class ClockDigit: public SubLedStrip
 	{
 		protected:
+			bool _mirror;
 
 		public:
 			ClockDigit(const int[], LedStrip*);
 			~ClockDigit() {};
+			void setPixelColor(int, RgbColor) override;
+			void setMirror(bool);
+			static const uint8_t mirrorPattern[12];
 	};
 }
 #endif

@@ -19,6 +19,32 @@
 namespace ChristuxAnimation
 {
 	ClockDigit::ClockDigit(const int indexes[12], LedStrip* ledstrip):
-	SubLedStrip(12, indexes, ledstrip)
+	SubLedStrip(12, indexes, ledstrip),
+	_mirror(false)
 	{}
+
+	void ClockDigit::setMirror(bool mirror)
+	{
+		_mirror = mirror;
+	}
+
+	void ClockDigit::setPixelColor(int i, RgbColor color)
+	{
+		if(_mirror) 
+		{
+			_ledstrip->setPixelColor(_indexes[mirrorPattern[i]], color);
+		}
+		else
+		{
+			_ledstrip->setPixelColor(_indexes[i], color);
+		}
+	}
+
+	const uint8_t ClockDigit::mirrorPattern[] = {
+				1, 0,
+			   4, 3, 2,
+				6, 5,
+			   9, 8, 7,
+				11, 10
+	};
 }

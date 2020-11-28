@@ -123,6 +123,7 @@ void setup()
 
 	// Start of ledstrip
 	clockPanel.begin();
+	clockPanel.setMirror(false);
 
 	// Setup of main animations
 	clockPanelAnimator.add(&unicolor);

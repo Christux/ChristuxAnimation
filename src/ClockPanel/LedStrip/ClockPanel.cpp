@@ -40,12 +40,23 @@ namespace ChristuxAnimation
 		_separatorIndexes(separatorIndexes),
 		_separatorColor(RgbColor::blank),
 		_nMaskHandles(0),
-		_requestedCommit(false)
+		_requestedCommit(false),
+		_mirror(false)
     {}
 
 	void ClockPanel::addMaskHandle(Observer* maskHandle)
 	{
 		_maskHandles[_nMaskHandles++] = maskHandle;
+	}
+
+	void ClockPanel::setMirror(bool mirror)
+	{
+		_mirror = mirror;
+
+		for(int i = 0; i < 4; i++)
+		{
+			_digits[i].setMirror(mirror);
+		}
 	}
 
 	void ClockPanel::applyAllMasks()
@@ -120,7 +131,14 @@ namespace ChristuxAnimation
 
 	ClockDigit* ClockPanel::getDigit(int i)
 	{
-		return &_digits[i];
+		if(_mirror)
+		{
+			return &_digits[3-i];
+		}
+		else
+		{
+			return &_digits[i];
+		}
 	}
 
 	ClockSeparator* ClockPanel::getSeparator()
