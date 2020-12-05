@@ -54,4 +54,6 @@
 #include "ClockPanel/Sprites/Image.h"
 #include "ClockPanel/Animation/RainbowClockPanel.h"
 
+#include "RainbowTable/RainbowTable.h"
+
 #endif
