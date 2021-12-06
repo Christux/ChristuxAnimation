@@ -18,7 +18,6 @@
 
 namespace ChristuxAnimation
 {
-
   TemporizedAnimation::TemporizedAnimation(uint8_t nLeds, LedStrip* ledstrip, unsigned int delay, unsigned int numStep) :
     GenericAnimation(nLeds, ledstrip),
     _delay(delay),

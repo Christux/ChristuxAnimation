@@ -30,7 +30,7 @@ namespace ChristuxAnimation
     }
     else
     {
-      _ledstrip->setAllPixels(RgbColor::blank);
+      _ledstrip->setAllPixels(_background);
       _ledstrip->show();
     }
   }

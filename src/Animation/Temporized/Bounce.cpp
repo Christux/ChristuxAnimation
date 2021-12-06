@@ -18,22 +18,18 @@
 
 namespace ChristuxAnimation
 {
-
 	Bounce::Bounce(uint8_t nLeds, LedStrip *ledstrip) : TemporizedAnimation(nLeds, ledstrip, 25, 2 * nLeds){};
 	Bounce::Bounce(uint8_t nLeds, LedStrip *ledstrip, unsigned int timestep) : TemporizedAnimation(nLeds, ledstrip, timestep, 2 * nLeds){};
 
 	void Bounce::run()
 	{
+		_ledstrip->setAllPixels(_background);
+		
 		if (_step < _pixels)
 		{
 			int i = _step;
+			
 			_ledstrip->setPixelColor(i, _color);
-
-			if(i > 0)
-			{
-				_ledstrip->setPixelColor(i - 1, RgbColor::blank);
-			}
-
 			_ledstrip->show();
 		}
 
@@ -41,12 +37,6 @@ namespace ChristuxAnimation
 		{
 			int i = _step - _pixels;
 			_ledstrip->setPixelColor(_pixels - i - 1, _color);
-
-			if(i > 0)
-			{
-				_ledstrip->setPixelColor(_pixels - i, RgbColor::blank);
-			}
-				
 			_ledstrip->show();
 		}
 	}

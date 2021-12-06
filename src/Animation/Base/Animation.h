@@ -32,6 +32,7 @@ namespace ChristuxAnimation
     virtual void reset() = 0;
     virtual void handle() = 0;
     virtual void setColor(RgbColor) = 0;
+    virtual void setBackgroundColor(RgbColor) = 0;
   };
 }
 

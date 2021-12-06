@@ -29,6 +29,7 @@ namespace ChristuxAnimation
       const uint8_t _pixels;
       LedStrip* _ledstrip;
       RgbColor _color;
+      RgbColor _background;
       uint8_t _brightness;
       bool _areChanges;
       RgbColor applyBrightness(RgbColor);
@@ -40,6 +41,7 @@ namespace ChristuxAnimation
       virtual void reset() = 0;
       virtual void handle() = 0;
       void setColor(RgbColor);
+      void setBackgroundColor(RgbColor);
   };
 }
 #endif

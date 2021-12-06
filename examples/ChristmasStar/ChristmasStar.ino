@@ -37,14 +37,15 @@ UniversalLedStripAdapter strip(
   }
 );
 
-
+Bounce bounce(pixelCount, &strip, 50);
 
 void setup() {
 
 	strip.begin();
-	
+	bounce.setColor(ChristuxAnimation::RgbColor(64, 0, 0));
+	bounce.setBackgroundColor(ChristuxAnimation::RgbColor(0, 32, 0));
 }
 
 void loop() {
-
+	bounce.handle();
 }

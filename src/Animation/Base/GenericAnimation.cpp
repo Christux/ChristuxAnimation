@@ -21,6 +21,7 @@ namespace ChristuxAnimation
   GenericAnimation::GenericAnimation(uint8_t nLeds, LedStrip *ledstrip) : _pixels(nLeds),
                                                                           _ledstrip(ledstrip),
                                                                           _color(RgbColor::blank),
+                                                                          _background(RgbColor::blank),
                                                                           _brightness(0),
                                                                           _areChanges(true)
   {
@@ -41,5 +42,10 @@ namespace ChristuxAnimation
     _color = color;
     _brightness = color.calculateBrightness();;
     _areChanges = true;
+  }
+
+  void GenericAnimation::setBackgroundColor(RgbColor color)
+  {
+    _background = color;
   }
 } // namespace ChristuxAnimation
