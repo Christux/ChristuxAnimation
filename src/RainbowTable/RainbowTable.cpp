@@ -138,6 +138,7 @@ namespace ChristuxAnimation
 RgbColor RainbowTable::getRainbowColor(uint16_t phase)
 {
   uint8_t red, green, blue;
+  phase = phase < 360 ? phase : phase-360;
   
   // Acces to flash memory instead of ram
   red=pgm_read_byte_near(rainbowTable+modulo360(phase+120));
